@@ -15,7 +15,7 @@
       specialArgs = { inherit inputs; };
 
       modules = [
-        ./configuration.nix
+        ./hosts/desktop/configuration.nix
         home-manager.nixosModules.default
         {
           home-manager.useUserPackages = true;
