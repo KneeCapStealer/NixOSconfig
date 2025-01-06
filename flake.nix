@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
   let
     addUser = name: module: 
         {
@@ -30,7 +30,14 @@
         ./hosts/desktop/configuration.nix
         home-manager.nixosModules.default
         (addUser "chris" ./users/chris/home.nix)
+
+        # Custom modules
+        self.nixosModules.gaming
       ];
+    };
+
+    nixosModules = {
+      gaming = import ./modules/nixos/gaming.nix;
     };
   };
 }
