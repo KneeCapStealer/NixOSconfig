@@ -12,6 +12,15 @@
 
   # Flake compatibility
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+
+  programs.zsh.enable = true;
+  users.users.chris = {
+    isNormalUser = true;
+    description = "Christoffer Hald Christensen";
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "usb" "input" "disk" ];
+    shell = pkgs.zsh;
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
