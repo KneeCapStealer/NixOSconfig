@@ -1,19 +1,16 @@
-{ config, lib, pkgs, ...}:
-let
-  cfg = config.gaming;
-  mkEnableTrue = name: lib.mkOption {
-    default = true;
-    example = false;
-    description = "Wether to enable ${name}";
-    type = lib.types.bool;
-  };
-in
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
 {
   options.gaming = {
-    enable = lib.mkEnableOption "Gaming utilities such as steam and gamemode";
+    enable = lib.mkEnableOption "gaming utilities such as steam and gamemode";
 
     steam = {
-      enable = mkEnableTrue "steam";
+      enable = lib.mkEnableOption "steam";
 
       package = lib.mkPackageOption pkgs "steam" {};
 
@@ -25,30 +22,41 @@ in
       };
 
       protontricks = {
-        enable = mkEnableTrue "steam protontricks";
+        enable = lib.mkEnableOption "steam protontricks";
 
         package = lib.mkPackageOption pkgs "protontricks" {};
        };
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    programs.gamemode.enable = true;
-    programs.gamemode.enableRenice= true;
+  config = let
+    cfg = config.gaming;
+  in
+  lib.mkMerge [
+    # Default options
+    {
+      gaming.steam.enable = lib.mkOptionDefault true;
+      gaming.steam.protontricks.enable = lib.mkOptionDefault true;
+    }
 
-    programs.steam = lib.mkIf cfg.steam.enable {
-      inherit (cfg.steam) enable package;
+    (lib.mkIf cfg.enable {
+      programs.gamemode.enable = true;
+      programs.gamemode.enableRenice= true;
 
-      dedicatedServer.openFirewall = cfg.steam.openFirewalls;
-      localNetworkGameTransfers.openFirewall = cfg.steam.openFirewalls;
-      remotePlay.openFirewall = cfg.steam.openFirewalls;
+      programs.steam = lib.mkIf cfg.steam.enable {
+        inherit (cfg.steam) enable package;
 
-      extest.enable = true;
-      gamescopeSession.enable = true;
+        dedicatedServer.openFirewall = cfg.steam.openFirewalls;
+        localNetworkGameTransfers.openFirewall = cfg.steam.openFirewalls;
+        remotePlay.openFirewall = cfg.steam.openFirewalls;
 
-      protontricks = lib.mkIf cfg.steam.protontricks.enable {
-        inherit (cfg.steam.protontricks) enable package;
+        extest.enable = true;
+        gamescopeSession.enable = true;
+
+        protontricks = lib.mkIf cfg.steam.protontricks.enable {
+          inherit (cfg.steam.protontricks) enable package;
+        };
       };
-    };
-  };
+    })
+  ];
 }
