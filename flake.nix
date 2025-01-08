@@ -34,18 +34,14 @@
         ./hosts/desktop/configuration.nix
         home-manager.nixosModules.default
         (addUser "chris" ./users/chris/home.nix)
-
-        # Custom modules
-        self.nixosModules.gaming
-        self.nixosModules.graphics
-        self.nixosModules.hyprland
-      ];
+      ] ++ builtins.attrValues self.nixosModules;
     };
 
     nixosModules = {
       gaming = ./modules/nixos/gaming.nix;
       graphics = ./modules/nixos/graphics.nix;
       hyprland = ./modules/nixos/desktopEnvironments/hyprland.nix;
+      languages = ./modules/nixos/languages/default.nix;
     };
   };
 }
