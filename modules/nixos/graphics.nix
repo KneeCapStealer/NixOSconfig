@@ -2,7 +2,15 @@
   config,
   lib,
   ...
-}: with lib; {
+}: with lib; let
+    cfg = config.graphics;
+    vendors = cfg.vendors;
+    enabledVendors = builtins.foldl'
+      (enabled: vendor: enabled ++ (optional vendors.${vendor}.enable "nvidia"))
+      []
+      (builtins.attrNames vendors);
+
+  in {
   options.graphics = {
     vendors.nvidia = {
       enable = mkEnableOption "nvidia drivers";
@@ -17,16 +25,16 @@
     };
   };
 
-  config = let
-    cfg = config.graphics;
-    vendors = cfg.vendors;
-    enabledVendors = foldl
-      (enabled: vendor: enabled ++ (optional vendors.${vendor}.enable "nvidia"))
-      []
-      (builtins.attrNames vendors);
+  config = mkMerge [
+      {
+        assertions = [
+          {
+            assertion = (length enabledVendors) < 2;
+            message = "No more than two (2) graphics vendors may be enabled at once";
+          }
+        ];
+      }
 
-    # Merge configs for each vendor
-    in mkMerge [
       (mkIf (elem "nvidia" enabledVendors) {
         services.xserver.enable = true;
         services.xserver.videoDrivers = [ "nvidia" ];
