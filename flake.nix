@@ -10,18 +10,20 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
-  let
-    addUser = name: module: 
-        {
-          home-manager.useUserPackages = true;
-          home-manager.useGlobalPkgs = true;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    addUser = name: module: {
+      home-manager.useUserPackages = true;
+      home-manager.useGlobalPkgs = true;
 
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.${name} = import module;
-        };
-  in
-  {
+      home-manager.extraSpecialArgs = { inherit inputs; };
+      home-manager.users.${name} = import module;
+    };
+  in {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -37,7 +39,7 @@
     };
 
     nixosModules = {
-      gaming = import ./modules/nixos/gaming.nix;
+      gaming = ./modules/nixos/gaming.nix;
     };
   };
 }
