@@ -8,6 +8,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland-git.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -36,12 +38,14 @@
         # Custom modules
         self.nixosModules.gaming
         self.nixosModules.graphics
+        self.nixosModules.hyprland
       ];
     };
 
     nixosModules = {
       gaming = ./modules/nixos/gaming.nix;
       graphics = ./modules/nixos/graphics.nix;
+      hyprland = ./modules/nixos/desktopEnvironments/hyprland.nix;
     };
   };
 }
