@@ -36,6 +36,12 @@
       withUWSM = true;
     };
 
+    # Good uwsm default settings:
+    environment.sessionVariables = {
+      UWSM_USE_SESSION_SLICE = "true";
+      UWSM_APP_UNIT_TYPE = "service";
+    };
+
     # Download hyprland instead of compiling it
     nix.settings = {
       substituters = ["https://hyprland.cachix.org"];
