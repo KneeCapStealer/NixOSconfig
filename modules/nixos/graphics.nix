@@ -10,7 +10,7 @@
         default = "stable";
         example = "beta";
         extraDescription = "Control the version of the nvidia drivers to be installed";
-        pkgsText = "config.boot.kernelPackages.nvidiaPackages";
+        pkgsText = literalExpression "config.boot.kernelPackages.nvidiaPackages";
       };
 
       open = mkEnableOption "open source drivers for nvidia";
