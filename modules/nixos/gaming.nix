@@ -8,35 +8,41 @@
     enable = mkEnableOption "gaming utilities such as steam and gamemode";
 
     steam = {
-      enable = mkEnableOption "steam";
-
-      package = mkPackageOption pkgs "steam" {};
-
-      openFirewalls = mkOption {
-        type = types.bool;
+      enable = mkEnableOption "steam"
+      // {
         default = true;
         defaultText = literalExpression "true";
-        description = "Open steam firewall ports for multiplayer hosting purposes";
+      };
+
+      package = mkPackageOption pkgs "steam" { };
+
+      openFirewalls = mkEnableOption "opening steam multiplayer firewall ports."
+      // {
+        default = true;
+        defaultText = literalExpression "true";
+        description = ''
+          Enable this option to support hosting local LAN servers, and dedicated servers
+          for your steam games.
+
+          This option is also used for steam remote play.
+        '';
       };
 
       protontricks = {
-        enable = mkEnableOption "steam protontricks";
+        enable = mkEnableOption "steam protontricks"
+        // {
+          default = true;
+          defaultText = literalExpression "true";
+        };
 
-        package = mkPackageOption pkgs "protontricks" {};
+        package = mkPackageOption pkgs "protontricks" { };
        };
     };
   };
 
   config = let
     cfg = config.gaming;
-  in mkMerge [
-    # Default options
-    {
-      gaming.steam.enable = mkOptionDefault true;
-      gaming.steam.protontricks.enable = mkOptionDefault true;
-    }
-
-    (mkIf cfg.enable {
+  in mkIf cfg.enable {
       programs.gamemode.enable = true;
       programs.gamemode.enableRenice = true;
       hardware.steam-hardware.enable = mkIf cfg.steam.enable true;
@@ -55,6 +61,5 @@
           inherit (cfg.steam.protontricks) enable package;
         };
       };
-    })
-  ];
+    };
 }
