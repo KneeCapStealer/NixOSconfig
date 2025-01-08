@@ -35,11 +35,13 @@
 
         # Custom modules
         self.nixosModules.gaming
+        self.nixosModules.graphics
       ];
     };
 
     nixosModules = {
       gaming = ./modules/nixos/gaming.nix;
+      graphics = ./modules/nixos/graphics.nix;
     };
   };
 }
