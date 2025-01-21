@@ -43,6 +43,7 @@
       hyprland = ./modules/nixos/desktopEnvironments/hyprland.nix;
       languages = ./modules/nixos/languages/default.nix;
       boot = ./modules/nixos/boot.nix;
+      sound = ./modules/nixos/sound.nix;
     };
   };
 }
