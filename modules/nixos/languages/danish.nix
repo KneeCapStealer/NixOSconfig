@@ -27,7 +27,7 @@ in {
       i18n.defaultLocale = 
         if cfg.systemLanguage == "english"
         then "en_DK.UTF-8"
-        # The given type only accepts english or danish
+        # The given type only accepts "english" or "danish"
         else "da_DK.UTF-8";
 
       i18n.extraLocaleSettings = {
