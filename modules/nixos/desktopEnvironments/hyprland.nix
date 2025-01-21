@@ -22,7 +22,7 @@
                       pkgsText = literalExpression "pkgs";
                     };
 
-    enableUWSM = mkEnableOption ''
+    withUWSM = mkEnableOption ''
       uwsm for hyprland, for better integration with systemd
     '' // {
       default = true;
@@ -32,8 +32,7 @@
   
   config = mkIf cfg.enable {
     programs.hyprland = {
-      inherit (cfg) enable package portalPackage;
-      withUWSM = true;
+      inherit (cfg) enable package portalPackage withUWSM;
     };
 
     # Good uwsm default settings:
