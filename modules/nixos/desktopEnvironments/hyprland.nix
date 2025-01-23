@@ -5,10 +5,10 @@
   lib,
   ...
 }: with lib; let
-    cfg = config.DE.hyprland;
+    cfg = config.desktopEnvironments.hyprland;
     hyprland-gitPackages = inputs.hyprland-git.packages.${pkgs.stdenv.hostPlatform.system};
   in  {
-  options.DE.hyprland = {
+  options.desktopEnvironments.hyprland = {
     enable = mkEnableOption "hyprland desktop environment";
     package = mkPackageOption hyprland-gitPackages "hyprland" {
       pkgsText = literalExpression "inputs.hyprland-git.packages.${pkgs.stdenv.hostPlatform.system}";

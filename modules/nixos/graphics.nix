@@ -4,15 +4,14 @@
   ...
 }: with lib; let
     cfg = config.graphics;
-    vendors = cfg.vendors;
     enabledVendors = builtins.foldl'
-      (enabled: vendor: enabled ++ (optional vendors.${vendor}.enable "nvidia"))
+      (enabled: vendor: enabled ++ (optional cfg.${vendor}.enable "nvidia"))
       []
-      (builtins.attrNames vendors);
+      (builtins.attrNames cfg);
 
   in {
   options.graphics = {
-    vendors.nvidia = {
+    nvidia = {
       enable = mkEnableOption "nvidia drivers";
       package = mkPackageOption config.boot.kernelPackages.nvidiaPackages "nvidia drivers" {
         default = "stable";
