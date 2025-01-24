@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }: {
@@ -29,12 +30,26 @@
 
   desktopEnvironments.hyprland.enable = true;
 
-  custom.boot.systemd-boot.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  custom.boot.grub.enable = true;
+  services.displayManager = {
+    defaultSession = "hyprland-uwsm";
+    sddm = {
+      enable             = true;
+      autoNumlock        = true;
+      wayland.enable     = true;
+      wayland.compositor = "weston";
+
+      package = pkgs.kdePackages.sddm;
+    };
+  };
   
   languages.danish.enable = true;
 
   gaming.enable = true;
   graphics.nvidia.enable = true;
+  graphics.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+  hardware.enableAllFirmware = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.proxy.noProxy = "127.0.0.1,localhost";
@@ -62,5 +77,5 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true; no flakes :'(
 }

@@ -3,6 +3,7 @@
   imports = [
     (import ./widgets/eww/default.nix { inherit configsPath; })
     ./desktop/hyprland/default.nix
+    ./programs/default.nix
   ];
 
   programs.home-manager.enable = true;

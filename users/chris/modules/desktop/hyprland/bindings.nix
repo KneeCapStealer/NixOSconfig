@@ -6,7 +6,7 @@ in {
 
   "$mod" = "SUPER";
   "$term" = "kitty";
-  "$menu" = "rofi -show drun -show-icons";
+  "$menu" = "rofi -show drun -show-icons -run-command \"uwsm app -- {cmd}\"";
   "$browser" = "zen";
   "$fileManager" = "dolphin";
 

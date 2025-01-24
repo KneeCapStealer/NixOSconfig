@@ -44,7 +44,7 @@
         };
 
         hardware.nvidia = {
-          inherit (cfg.vendors.nvidia) package open;
+          inherit (cfg.nvidia) package open;
           modesetting.enable = true;
           videoAcceleration = true;
           powerManagement.enable = true;

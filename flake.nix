@@ -12,6 +12,11 @@
     hyprland-git.url = "github:hyprwm/Hyprland";
 
     catppuccin.url = "github:catppuccin/nix";
+
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -47,7 +52,6 @@
       hyprland = ./modules/nixos/desktopEnvironments/hyprland.nix;
       languages = ./modules/nixos/languages/default.nix;
       boot = ./modules/nixos/boot.nix;
-      sound = ./modules/nixos/sound.nix;
     };
   };
 }

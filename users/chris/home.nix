@@ -8,6 +8,7 @@
     (import ./modules/default.nix { inherit configsPath; })
     ./modules/dev/default.nix
 
+
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
@@ -18,6 +19,7 @@
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
   catppuccin.accent = "maroon";
+  catppuccin.cursors.enable = true;
 
   home.packages = with pkgs; [
     activate-linux
@@ -32,17 +34,6 @@
     dolphin
     haruna
     protonup
+    neovim
   ];
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      size = 12;
-    };
-    settings = {
-      confirm_os_window_close = 0;
-    };
-  };
 }

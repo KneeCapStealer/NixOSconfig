@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }: with lib; let
@@ -22,14 +21,11 @@ in {
   };
 
   config = mkMerge [
-    {
-      boot.kernelPackages = pkgs.linuxPackages_latest;
-    }
-
     (mkIf cfg.grub.enable {
       boot.loader.grub = {
         inherit (cfg.grub) enable useOSProber;
         efiSupport = true;
+        device = "nodev";
       };
     })
 
