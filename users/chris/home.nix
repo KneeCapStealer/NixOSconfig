@@ -35,5 +35,6 @@
     haruna
     protonup
     neovim
+    prismlauncher
   ];
 }
