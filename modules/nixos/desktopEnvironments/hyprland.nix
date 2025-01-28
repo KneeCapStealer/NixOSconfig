@@ -35,6 +35,10 @@
       inherit (cfg) enable package portalPackage withUWSM;
     };
 
+    environment.systemPackages = with pkgs; [
+      hyprshot
+    ];
+
     # Good uwsm default settings:
     environment.sessionVariables = {
       UWSM_USE_SESSION_SLICE = "true";

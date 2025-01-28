@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ./partitionSettings.nix
+    ./webdev.nix
 
     # YOU SHALL NOT PASS!!
     ./shooNOLOOK/tooTemptingValue.nix
@@ -19,6 +20,7 @@
     isNormalUser = true;
     description = "Christoffer Hald Christensen";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "usb" "input" "disk" ];
+    homeMode = "755";
     shell = pkgs.zsh;
   };
 

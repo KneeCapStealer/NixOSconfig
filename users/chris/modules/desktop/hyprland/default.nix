@@ -2,7 +2,6 @@
 let
   bindings = import ./bindings.nix;
   env = import ./env.nix;
-  opacity = 0.95;
 in
 {
   wayland.windowManager.hyprland.enable = true;
@@ -37,7 +36,9 @@ in
 
 
     # https://wiki.hyprland.org/Configuring/Variables/#decoration
-    decoration = {
+    decoration = let
+      opacity = 1.0;
+    in {
       rounding = 10;
 
       # Change transparency of focused and unfocused windows

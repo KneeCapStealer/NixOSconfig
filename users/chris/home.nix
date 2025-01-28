@@ -36,5 +36,6 @@
     protonup
     neovim
     prismlauncher
+    llvmPackages_latest.clang
   ];
 }
