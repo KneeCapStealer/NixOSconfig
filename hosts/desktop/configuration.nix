@@ -31,7 +31,7 @@
 
   desktopEnvironments.hyprland.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   custom.boot.grub.enable = true;
   services.displayManager = {
     defaultSession = "hyprland-uwsm";
