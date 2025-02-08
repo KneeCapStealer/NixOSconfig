@@ -37,6 +37,7 @@
 
     environment.systemPackages = with pkgs; [
       hyprshot
+      wl-clipboard
     ];
 
     # Good uwsm default settings:
