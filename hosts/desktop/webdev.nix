@@ -11,9 +11,6 @@
     # want ssl + a let's encrypt certificate? add `forceSSL = true;` right here
   };
 
-  services.mysql.enable = true;
-  services.mysql.package = pkgs.mariadb;
-
   programs.npm.enable = true;
   programs.npm.package = pkgs.nodePackages_latest.npm;
 
