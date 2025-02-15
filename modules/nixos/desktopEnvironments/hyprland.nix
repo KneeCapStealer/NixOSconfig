@@ -6,19 +6,14 @@
   ...
 }: with lib; let
     cfg = config.desktopEnvironments.hyprland;
-    hyprland-gitPackages = inputs.hyprland-git.packages.${pkgs.stdenv.hostPlatform.system};
   in  {
   options.desktopEnvironments.hyprland = {
     enable = mkEnableOption "hyprland desktop environment";
-    package = mkPackageOption hyprland-gitPackages "hyprland" {
-      pkgsText = literalExpression "inputs.hyprland-git.packages.${pkgs.stdenv.hostPlatform.system}";
+    package = mkPackageOption pkgs "hyprland" {
+      pkgsText = literalExpression "pkgs";
     };
 
-    portalPackage = if cfg.package == hyprland-gitPackages.hyprland
-                    then mkPackageOption hyprland-gitPackages "xdg-desktop-portal-hyprland" {
-                      pkgsText = literalExpression "inputs.hyprland-git.packages.${pkgs.stdenv.hostPlatform.system}";
-                    }
-                    else mkPackageOption pkgs "xdg-desktop-portal-hyprland" {
+    portalPackage = mkPackageOption pkgs "xdg-desktop-portal-hyprland" {
                       pkgsText = literalExpression "pkgs";
                     };
 
@@ -34,6 +29,8 @@
     programs.hyprland = {
       inherit (cfg) enable package portalPackage withUWSM;
     };
+
+    nixpkgs.overlays = [ inputs.hyprland-git.overlays.default ];
 
     environment.systemPackages = with pkgs; [
       hyprshot
