@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   pkgs,
   configsPath,
@@ -25,6 +26,7 @@
   catppuccin.cursors.enable = true;
 
   home.packages = with pkgs; [
+    self.packages.x86_64-linux.glfw3-minecraft-wayland
     activate-linux
     fastfetch
     vesktop

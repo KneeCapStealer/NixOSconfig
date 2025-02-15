@@ -30,7 +30,7 @@
   in{
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs self; };
 
       modules = [
         ./hosts/desktop/configuration.nix
@@ -38,13 +38,17 @@
           home-manager.useUserPackages = true;
           home-manager.useGlobalPkgs = true;
 
-          home-manager.extraSpecialArgs = { inherit inputs; configsPath = ./configs; };
+          home-manager.extraSpecialArgs = { inherit inputs self; configsPath = ./configs; };
           home-manager.users.chris = import ./users/chris/home.nix;
         }
 
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.default
       ] ++ builtins.attrValues self.nixosModules;
+    };
+
+    packages.${system} = {
+      glfw3-minecraft-wayland = (nixpkgs.legacyPackages.${system}.callPackage ./packages/glfw3-minecraft-wayland/package.nix {});
     };
 
     nixosModules = {
