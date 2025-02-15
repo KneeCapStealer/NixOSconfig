@@ -2,7 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    php
+    php82
+    php82Packages.php-cs-fixer
     phpactor
     laravel
   ];
