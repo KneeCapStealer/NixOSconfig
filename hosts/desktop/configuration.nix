@@ -14,7 +14,10 @@
 
   # Flake compatibility
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.system-features = [ "benchmark" "big-parallel" "kvm" "nixos-test" "gccarch-skylake" ];
 
+  nixpkgs.config.allowUnfree = true;
+  
   programs.zsh.enable = true;
   users.users.chris = {
     isNormalUser = true;
@@ -31,7 +34,7 @@
 
   desktopEnvironments.hyprland.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   custom.boot.grub.enable = true;
   services.displayManager = {
     defaultSession = "hyprland-uwsm";
