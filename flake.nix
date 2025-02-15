@@ -23,20 +23,13 @@
     self,
     nixpkgs,
     home-manager,
-    hyprland-git,
     catppuccin,
     ...
   } @ inputs: let 
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [ hyprland-git.overlays.default ];
-
-      config.allowUnfree = true;
-    };
   in{
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      inherit system pkgs;
+      inherit system;
       specialArgs = { inherit inputs; };
 
       modules = [
