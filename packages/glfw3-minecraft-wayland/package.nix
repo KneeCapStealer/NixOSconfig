@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-}: pkgs.glfw3-minecraft.overrideAttrs (old: {
+}: pkgs.glfw3.overrideAttrs {
   pname = "glfw3-minecraft-wayland";
 
   patches = [
@@ -12,7 +12,7 @@
     ./glfw-wayland/patches/0005-Avoid-error-on-startup.patch
   ];
 
-  cmakeFlags = old.cmakeFlags ++ [
+  cmakeFlags = [
     (lib.cmakeBool "GLFW_BUILD_WAYLAND" true)
     (lib.cmakeBool "GLFW_BUILD_X11" false)
 
@@ -23,7 +23,5 @@
     (lib.cmakeBool "GLFW_BUILD_DOCS" false)
   ];
 
-  meta = old.meta // {
-    platforms = lib.platforms.linux;
-  };
-})
+  meta.platforms = lib.platforms.linux;
+}
