@@ -15,6 +15,9 @@
   home.username = "chris";
   home.homeDirectory = "/home/chris";
 
+  programs.home-manager.enable = true;
+  home.stateVersion = "24.05";
+
   # My (VEERY thorough) ricing v2.0: HomeManager EDITION!!
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
