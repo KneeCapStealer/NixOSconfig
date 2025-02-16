@@ -5,10 +5,10 @@ in {
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
   "$mod" = "SUPER";
-  "$term" = "kitty";
+  "$term" = "kitty.desktop";
   "$menu" = "rofi -show drun -show-icons -run-command \"uwsm app -- {cmd}\"";
-  "$browser" = "zen";
-  "$fileManager" = "dolphin";
+  "$browser" = "zen.desktop";
+  "$fileManager" = "dolphin.desktop";
 
   programShortcuts = [
     (superExec "Q" "$term")
