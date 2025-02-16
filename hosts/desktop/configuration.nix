@@ -37,7 +37,6 @@
   boot.kernelPackages = pkgs.linuxPackages;
   custom.boot.grub.enable = true;
   services.displayManager = {
-    defaultSession = "hyprland-uwsm";
     sddm = {
       enable             = true;
       autoNumlock        = true;
