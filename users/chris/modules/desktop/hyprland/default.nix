@@ -5,6 +5,7 @@ let
 in
 {
   wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.systemd.enable = false;
   wayland.windowManager.hyprland.settings = {
     monitor = ",preferred,auto,auto";
 
