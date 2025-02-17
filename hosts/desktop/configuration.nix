@@ -33,6 +33,7 @@
   catppuccin.accent = "maroon";
 
   desktopEnvironments.hyprland.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   boot.kernelPackages = pkgs.linuxPackages;
   custom.boot.grub.enable = true;
