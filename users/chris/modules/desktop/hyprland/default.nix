@@ -4,6 +4,8 @@ let
   env = import ./env.nix;
 in
 {
+  programs.hyprlock.enable = true;
+
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.systemd.enable = false;
   wayland.windowManager.hyprland.settings = {
