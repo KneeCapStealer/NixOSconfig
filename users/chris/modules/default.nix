@@ -2,8 +2,9 @@
 {
   imports = [
     (import ./widgets/eww/default.nix { inherit configsPath; })
-    ./desktop/hyprland/default.nix
-    ./programs/default.nix
+    ./desktop/hyprland
+    ./programs
+    ./gaming
   ];
 
   programs.zsh = {
