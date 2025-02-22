@@ -36,7 +36,6 @@
     tor-browser
     qbittorrent-enhanced
     proton-pass
-    dolphin
     haruna
     protonup
     neovim
