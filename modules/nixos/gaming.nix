@@ -3,21 +3,26 @@
   pkgs,
   lib,
   ...
-}: with lib; let
-    cfg = config.gaming;
-    mkEnableOptionDefaultTrue = name: (mkEnableOption name) // {
+}:
+with lib;
+let
+  cfg = config.gaming;
+  mkEnableOptionDefaultTrue =
+    name:
+    (mkEnableOption name)
+    // {
       default = true;
       defaultText = literalExpression "true";
     };
-  in {
+in
+{
   options.gaming = {
     enable = mkEnableOption "gaming utilities such as steam and gamemode";
     steam = {
       enable = mkEnableOptionDefaultTrue "steam";
       package = mkPackageOption pkgs "steam" { };
 
-      openFirewalls = mkEnableOptionDefaultTrue "opening steam multiplayer firewall ports."
-      // {
+      openFirewalls = mkEnableOptionDefaultTrue "opening steam multiplayer firewall ports." // {
         description = ''
           Enable this option to support hosting local LAN servers, and dedicated servers
           for your steam games.
@@ -29,7 +34,7 @@
       protontricks = {
         enable = mkEnableOptionDefaultTrue "steam protontricks";
         package = mkPackageOption pkgs "protontricks" { };
-       };
+      };
     };
   };
 

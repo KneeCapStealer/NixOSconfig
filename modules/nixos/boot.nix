@@ -2,9 +2,12 @@
   config,
   lib,
   ...
-}: with lib; let
+}:
+with lib;
+let
   cfg = config.custom.boot;
-in {
+in
+{
   options.custom.boot = {
     grub = {
       enable = mkEnableOption "the custom boot loader module by KneeCapStealer (GitHub) for grub";
@@ -13,7 +16,8 @@ in {
     systemd-boot = {
       enable = mkEnableOption "the custom boot loader module by KneeCapStealer (GitHub) for systemd-boot";
       windows = mkOption {
-        default = {};
+        default = { };
+        type = types.attrs;
         defaultText = literalExpression "{}";
         description = "Look at boot.loader.systemd-boot.windows for more information";
       };

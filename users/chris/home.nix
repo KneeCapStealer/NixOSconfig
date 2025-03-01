@@ -4,11 +4,11 @@
   pkgs,
   configsPath,
   ...
-}: {
+}:
+{
   imports = [
     (import ./modules/default.nix { inherit configsPath; })
     ./modules/dev/default.nix
-
 
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
@@ -30,6 +30,7 @@
     activate-linux
     fastfetch
     vesktop
+    discord
     (btop.override { cudaSupport = true; })
     spotify
     inputs.zen-browser.packages."${system}".specific

@@ -4,37 +4,47 @@
   pkgs,
   lib,
   ...
-}: with lib; let
-    cfg = config.desktopEnvironments.hyprland;
-  in  {
+}:
+with lib;
+let
+  cfg = config.desktopEnvironments.hyprland;
+in
+{
   options.desktopEnvironments.hyprland = {
     enable = mkEnableOption "hyprland desktop environment";
-    package = mkPackageOption pkgs "hyprland" {
-      pkgsText = literalExpression "pkgs";
-    };
+    package = mkPackageOption pkgs "hyprland" { };
 
-    portalPackage = mkPackageOption pkgs "xdg-desktop-portal-hyprland" {
-                      pkgsText = literalExpression "pkgs";
-                    };
+    portalPackage = mkPackageOption pkgs "xdg-desktop-portal-hyprland" { };
 
-    withUWSM = mkEnableOption ''
-      uwsm for hyprland, for better integration with systemd
-    '' // {
-      default = true;
-      defaultText = literalExpression "true";
-    };
+    withUWSM =
+      mkEnableOption ''
+        uwsm for hyprland, for better integration with systemd
+      ''
+      // {
+        default = true;
+        defaultText = literalExpression "true";
+      };
   };
-  
+
   config = mkIf cfg.enable {
     programs.hyprland = {
-      inherit (cfg) enable package portalPackage withUWSM;
+      inherit (cfg)
+        enable
+        package
+        portalPackage
+        withUWSM
+        ;
+      xwayland.enable = true;
     };
+
+    programs.xwayland.enable = true;
 
     nixpkgs.overlays = [ inputs.hyprland-git.overlays.default ];
 
     environment.systemPackages = with pkgs; [
       hyprshot
       wl-clipboard
+      swaynotificationcenter
     ];
 
     # Good uwsm default settings:
@@ -45,8 +55,8 @@
 
     # Download hyprland instead of compiling it
     nix.settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
 }

@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ./partitionSettings.nix
@@ -13,18 +14,46 @@
   ];
 
   # Flake compatibility
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.system-features = [ "benchmark" "big-parallel" "kvm" "nixos-test" "gccarch-skylake" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nix.settings.system-features = [
+    "benchmark"
+    "big-parallel"
+    "kvm"
+    "nixos-test"
+    "gccarch-skylake"
+  ];
+
+  nix.package = pkgs.nixVersions.latest;
 
   nixpkgs.config.allowUnfree = true;
-  
+
   programs.zsh.enable = true;
   users.users.chris = {
     isNormalUser = true;
     description = "Christoffer Hald Christensen";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "usb" "input" "disk" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+      "usb"
+      "input"
+      "disk"
+    ];
     homeMode = "755";
     shell = pkgs.zsh;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-hyprland
+    ];
+    xdgOpenUsePortal = true;
   };
 
   # My (VEERY thorough) ricing
@@ -39,15 +68,15 @@
   custom.boot.grub.enable = true;
   services.displayManager = {
     sddm = {
-      enable             = true;
-      autoNumlock        = true;
-      wayland.enable     = true;
+      enable = true;
+      autoNumlock = true;
+      wayland.enable = true;
       wayland.compositor = "weston";
 
       package = pkgs.kdePackages.sddm;
     };
   };
-  
+
   languages.danish.enable = true;
 
   gaming.enable = true;
@@ -72,7 +101,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
+    wireplumber.enable = true;
   };
 
   # Enable the OpenSSH daemon.

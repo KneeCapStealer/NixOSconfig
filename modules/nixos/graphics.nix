@@ -2,14 +2,16 @@
   config,
   lib,
   ...
-}: with lib; let
-    cfg = config.graphics;
-    enabledVendors = builtins.foldl'
-      (enabled: vendor: enabled ++ (optional cfg.${vendor}.enable "nvidia"))
-      []
-      (builtins.attrNames cfg);
+}:
+with lib;
+let
+  cfg = config.graphics;
+  enabledVendors = builtins.foldl' (
+    enabled: vendor: enabled ++ (optional cfg.${vendor}.enable "nvidia")
+  ) [ ] (builtins.attrNames cfg);
 
-  in {
+in
+{
   options.graphics = {
     nvidia = {
       enable = mkEnableOption "nvidia drivers";
@@ -25,30 +27,33 @@
   };
 
   config = mkMerge [
-      {
-        assertions = [
-          {
-            assertion = (length enabledVendors) < 2;
-            message = "No more than two (2) graphics vendors may be enabled at once";
-          }
-        ];
-      }
+    {
+      assertions = [
+        {
+          assertion = (length enabledVendors) < 2;
+          message = "No more than two (2) graphics vendors may be enabled at once";
+        }
+      ];
+    }
 
-      (mkIf (elem "nvidia" enabledVendors) {
-        services.xserver.enable = true;
-        services.xserver.videoDrivers = [ "nvidia" ];
+    (mkIf (elem "nvidia" enabledVendors) {
+      services.xserver.enable = true;
+      services.xserver.videoDrivers = [ "nvidia" ];
 
-        hardware.graphics = {
-          enable = true;
-          enable32Bit = true;
-        };
+      hardware.enableAllFirmware = true;
+      hardware.enableAllHardware = true;
+      hardware.enableRedistributableFirmware = true;
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
 
-        hardware.nvidia = {
-          inherit (cfg.nvidia) package open;
-          modesetting.enable = true;
-          videoAcceleration = true;
-          powerManagement.enable = true;
-        };
-      })
-    ];
-  }
+      hardware.nvidia = {
+        inherit (cfg.nvidia) package open;
+        modesetting.enable = true;
+        videoAcceleration = true;
+        powerManagement.enable = true;
+      };
+    })
+  ];
+}

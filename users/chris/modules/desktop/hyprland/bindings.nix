@@ -1,7 +1,10 @@
 let
-  exec = mods: key: app: "${mods}, ${key}, exec, uwsm app -- ${app}";
+  exec =
+    mods: key: app:
+    "${mods}, ${key}, exec, uwsm app -- ${app}";
   superExec = exec "SUPER";
-in {
+in
+{
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
   "$mod" = "SUPER";
@@ -25,7 +28,6 @@ in {
     "$mod, RETURN, fullscreen,"
     "$mod, P, pseudo, # dwindle"
     "$mod, J, togglesplit, # dwindle"
-
 
     # Move focus with mainMod + arrow keys
     "$mod, left, movefocus, l"
@@ -70,7 +72,7 @@ in {
     # Move workspace to window
     "$mod CONTROL, left, movecurrentworkspacetomonitor, +1"
     "$mod CONTROL, right, movecurrentworkspacetomonitor, -1"
-    ];
+  ];
 
   # Move/resize windows with mainMod + LMB/RMB and dragging
   mouseBindings = [
@@ -78,23 +80,27 @@ in {
     "$mod, mouse:273, resizewindow"
   ];
 
-  screenshot = let
-    execScreenShot = mods: mode: exec mods "PRINT" "hyprshot --freeze --clipboard-only -m ${mode}";
-  in [
-    (execScreenShot "" "active")
-    (execScreenShot "SHIFT" "region")
-    (execScreenShot "SUPER" "output")
-  ];
+  screenshot =
+    let
+      execScreenShot = mods: mode: exec mods "PRINT" "hyprshot --freeze --clipboard-only -m ${mode}";
+    in
+    [
+      (execScreenShot "" "active")
+      (execScreenShot "SHIFT" "region")
+      (execScreenShot "SUPER" "output")
+    ];
 
   audioControls = [
     (exec "" "XF86AudioMute" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
   ];
 
-  audioControlsRepeat = let
-    max = "1.2";
-    increment = "5%";
-  in [
-    (exec "" "XF86AudioRaiseVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}+")
-    (exec "" "XF86AudioLowerVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}-")
-  ];
+  audioControlsRepeat =
+    let
+      max = "1.2";
+      increment = "5%";
+    in
+    [
+      (exec "" "XF86AudioRaiseVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}+")
+      (exec "" "XF86AudioLowerVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}-")
+    ];
 }

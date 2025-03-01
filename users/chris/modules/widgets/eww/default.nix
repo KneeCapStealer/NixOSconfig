@@ -1,4 +1,4 @@
-{ configsPath, ...}:
+{ configsPath, ... }:
 {
   programs.eww = {
     enable = true;

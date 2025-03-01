@@ -1,7 +1,8 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
   services.httpd.enable = true;
   services.httpd.enablePHP = true; # oof... not a great idea in my opinion
   services.httpd.phpPackage = pkgs.php82;

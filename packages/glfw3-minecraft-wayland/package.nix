@@ -1,7 +1,8 @@
 {
   pkgs,
   lib,
-}: pkgs.glfw3.overrideAttrs {
+}:
+pkgs.glfw3.overrideAttrs {
   pname = "glfw3-minecraft-wayland";
 
   patches = [
