@@ -81,7 +81,7 @@
 
   gaming.enable = true;
   graphics.nvidia.enable = true;
-  graphics.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+  graphics.nvidia.package = "beta";
   hardware.enableAllFirmware = true;
 
   networking.hostName = "nixos"; # Define your hostname.

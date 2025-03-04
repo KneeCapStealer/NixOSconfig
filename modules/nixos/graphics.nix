@@ -9,19 +9,17 @@ let
   enabledVendors = builtins.foldl' (
     enabled: vendor: enabled ++ (optional cfg.${vendor}.enable "nvidia")
   ) [ ] (builtins.attrNames cfg);
-
 in
 {
   options.graphics = {
     nvidia = {
       enable = mkEnableOption "nvidia drivers";
-      package = mkPackageOption config.boot.kernelPackages.nvidiaPackages "nvidia drivers" {
+      package = mkOption {
+        type = types.either types.package (types.enum [ "stable" "beta" "production" ]);
         default = "stable";
-        example = "beta";
-        extraDescription = "Control the version of the nvidia drivers to be installed";
-        pkgsText = literalExpression "config.boot.kernelPackages.nvidiaPackages";
+        example = concatStrings [ (literalExpression "\"beta\"") " or " (literalExpression "config.boot.kernelPackages.nvidiaPackages.beta") ];
+        description = "Control the version of the nvidia drivers to be installed";
       };
-
       open = mkEnableOption "open source drivers for nvidia";
     };
   };
@@ -49,10 +47,14 @@ in
       };
 
       hardware.nvidia = {
-        inherit (cfg.nvidia) package open;
+        inherit (cfg.nvidia) open;
         modesetting.enable = true;
         videoAcceleration = true;
         powerManagement.enable = true;
+
+        package = if builtins.isString cfg.nvidia.package
+                  then config.boot.kernelPackages.nvidiaPackages.${cfg.nvidia.package} # option is the enum
+                  else cfg.nvidia.package; # option is the package
       };
     })
   ];
