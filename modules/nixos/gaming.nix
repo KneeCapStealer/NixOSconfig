@@ -38,24 +38,29 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
-    programs.gamemode.enable = true;
-    programs.gamemode.enableRenice = true;
-    hardware.steam-hardware.enable = mkIf cfg.steam.enable true;
+  config = mkIf cfg.enable (mkMerge [
+    {
+      programs.gamemode.enable = true;
+      programs.gamemode.enableRenice = true;
+    }
 
-    programs.steam = mkIf cfg.steam.enable {
-      inherit (cfg.steam) enable package;
+    (mkIf cfg.steam.enable {
+      hardware.steam-hardware.enable = true;
+      programs.steam = {
+        enable = true;
+        inherit (cfg.steam) package;
 
-      dedicatedServer.openFirewall = cfg.steam.openFirewalls;
-      localNetworkGameTransfers.openFirewall = cfg.steam.openFirewalls;
-      remotePlay.openFirewall = cfg.steam.openFirewalls;
+        dedicatedServer.openFirewall = cfg.steam.openFirewalls;
+        localNetworkGameTransfers.openFirewall = cfg.steam.openFirewalls;
+        remotePlay.openFirewall = cfg.steam.openFirewalls;
 
-      extest.enable = true;
-      gamescopeSession.enable = true;
+        extest.enable = true;
+        gamescopeSession.enable = true;
 
-      protontricks = mkIf cfg.steam.protontricks.enable {
-        inherit (cfg.steam.protontricks) enable package;
+        protontricks = mkIf cfg.steam.protontricks.enable {
+          inherit (cfg.steam.protontricks) enable package;
+        };
       };
-    };
-  };
+    })
+  ]);
 }
