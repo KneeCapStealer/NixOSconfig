@@ -12,6 +12,7 @@
     userName = "Christoffer Hald Christensen";
     userEmail = "chrishald@proton.me";
 
+
     aliases = {
       amend = "commit --amend -a";
       b = "branch";
@@ -20,6 +21,10 @@
     extraConfig = {
       color = {
         ui = "auto";
+      };
+      merge = {
+        tool = "nvimdiff";
+        conflictstyle = "diff3";
       };
       init = {
         defaultBranch = "main";
