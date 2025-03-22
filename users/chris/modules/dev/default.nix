@@ -12,7 +12,6 @@
     userName = "Christoffer Hald Christensen";
     userEmail = "chrishald@proton.me";
 
-
     aliases = {
       amend = "commit --amend -a";
       b = "branch";

@@ -15,9 +15,19 @@ in
     nvidia = {
       enable = mkEnableOption "nvidia drivers";
       package = mkOption {
-        type = types.either types.package (types.enum [ "stable" "beta" "production" ]);
+        type = types.either types.package (
+          types.enum [
+            "stable"
+            "beta"
+            "production"
+          ]
+        );
         default = "stable";
-        example = concatStrings [ (literalExpression "\"beta\"") " or " (literalExpression "config.boot.kernelPackages.nvidiaPackages.beta") ];
+        example = concatStrings [
+          (literalExpression "\"beta\"")
+          " or "
+          (literalExpression "config.boot.kernelPackages.nvidiaPackages.beta")
+        ];
         description = "Control the version of the nvidia drivers to be installed";
       };
       open = mkEnableOption "open source drivers for nvidia";
@@ -52,9 +62,11 @@ in
         videoAcceleration = true;
         powerManagement.enable = true;
 
-        package = if builtins.isString cfg.nvidia.package
-                  then config.boot.kernelPackages.nvidiaPackages.${cfg.nvidia.package} # option is the enum
-                  else cfg.nvidia.package; # option is the package
+        package =
+          if builtins.isString cfg.nvidia.package then
+            config.boot.kernelPackages.nvidiaPackages.${cfg.nvidia.package} # option is the enum
+          else
+            cfg.nvidia.package; # option is the package
       };
     })
   ];
