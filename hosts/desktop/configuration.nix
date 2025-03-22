@@ -47,6 +47,13 @@
     shell = pkgs.zsh;
   };
 
+  # dns
+  dns.nextDNS = {
+    enable = true;
+    endpointId = "f8ac75";
+    deviceName = "Chris--Desktop";
+  };
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -84,7 +91,7 @@
   graphics.nvidia.package = "beta";
   hardware.enableAllFirmware = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "chris-desktop"; # Define your hostname.
   networking.proxy.noProxy = "127.0.0.1,localhost";
 
   # Some programs need SUID wrappers, can be configured further or are
