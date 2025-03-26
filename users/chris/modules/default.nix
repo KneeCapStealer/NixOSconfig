@@ -1,10 +1,11 @@
 { configsPath, ... }:
 {
   imports = [
-    (import ./widgets/eww/default.nix { inherit configsPath; })
+    (import ./widgets/eww { inherit configsPath; })
     ./desktop/hyprland
     ./programs
     ./gaming
+    ./scripts
   ];
 
   programs.zsh = {
@@ -35,7 +36,7 @@
     };
 
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos#desktop -L";
+      rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos#desktop";
     };
   };
 }
