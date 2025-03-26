@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -8,6 +7,7 @@
     ./hardware-configuration.nix
     ./partitionSettings.nix
     ./webdev.nix
+    ../commonOptions
 
     # YOU SHALL NOT PASS!!
     ./shooNOLOOK/tooTemptingValue.nix
@@ -52,6 +52,21 @@
     enable = true;
     endpointId = "f8ac75";
     deviceName = "Chris--Desktop";
+  };
+
+  services.protonVPN = {
+    enable = true;
+
+    router.defaultRoute = "192.168.1.1 dev eno1";
+    interface = {
+      privateKeyFile = "/root/secrets/protonVPNDenmark.key";
+      address = "10.2.0.2/32";
+
+      peer = {
+        publicKey = "9WowgFUh2itRfPh2SoaJsJHvxzXBZuD+xqdmBAf2CB4=";
+        endpoint.address = "149.50.217.161";
+      };
+    };
   };
 
   xdg.portal = {
