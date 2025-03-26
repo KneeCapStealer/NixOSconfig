@@ -67,6 +67,11 @@
         languages = ./modules/nixos/languages/default.nix;
         boot = ./modules/nixos/boot.nix;
         dns = ./modules/nixos/dns;
+        vpn = ./modules/nixos/vpn;
+      };
+
+      homeManagerModules = {
+        catppuccinRanger = ./modules/home-manager/programs/ranger.nix;
       };
     };
 }
