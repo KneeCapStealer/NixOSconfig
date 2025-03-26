@@ -7,8 +7,8 @@
 }:
 {
   imports = [
-    (import ./modules/default.nix { inherit configsPath; })
-    ./modules/dev/default.nix
+    (import ./modules { inherit configsPath; })
+    ./modules/dev
 
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
@@ -43,4 +43,9 @@
     prismlauncher
     llvmPackages_latest.clang
   ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    BROWSER = "zen";
+  };
 }
