@@ -12,6 +12,9 @@
     # YOU SHALL NOT PASS!!
     ./shooNOLOOK/tooTemptingValue.nix
   ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "beekeeper-studio-5.1.5"
+  ];
 
   # Flake compatibility
   nix.settings.experimental-features = [
@@ -27,7 +30,6 @@
   ];
 
   nix.package = pkgs.nixVersions.latest;
-
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;
@@ -69,15 +71,6 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal
-      xdg-desktop-portal-hyprland
-    ];
-    xdgOpenUsePortal = true;
-  };
-
   # My (VEERY thorough) ricing
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
@@ -86,7 +79,7 @@
   desktopEnvironments.hyprland.enable = true;
   programs.hyprlock.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   custom.boot.grub.enable = true;
   services.displayManager = {
     sddm = {

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (lib)
     mkEnableOption
@@ -111,7 +116,10 @@ in
         privateKeyFile = interface.privateKeyFile;
         peers = [
           {
-            allowedIPs = [ "0.0.0.0/0" "::/0" ];
+            allowedIPs = [
+              "0.0.0.0/0"
+              "::/0"
+            ];
             endpoint = with peer.endpoint; "${address}:${builtins.toString port}";
             publicKey = peer.publicKey;
             persistentKeepalive = 25;

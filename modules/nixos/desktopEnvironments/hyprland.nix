@@ -47,11 +47,36 @@ in
       swaynotificationcenter
     ];
 
-    # Good uwsm default settings:
     environment.sessionVariables = {
+    # Good uwsm default settings:
       UWSM_USE_SESSION_SLICE = "true";
       UWSM_APP_UNIT_TYPE = "service";
+
+      # wayland qt settings
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+      GDK_BACKEND = "wayland,x11,*";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
     };
+
+    # XDG desktop portal
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+      xdgOpenUsePortal = true;
+    };
+
+    environment.pathsToLink = [
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+    ];
 
     # Download hyprland instead of compiling it
     nix.settings = {

@@ -1,21 +1,29 @@
 { pkgs, ... }:
 let
   bindings = import ./bindings.nix;
-  env = import ./env.nix;
 in
 {
   programs.hyprlock.enable = true;
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
     xwayland.enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
     settings = {
-      monitor = ",preferred,auto,auto";
-
-      # XDG not needed as uwsm is used
-      env = env.QT ++ env.NVIDIA ++ env.OTHER;
+      monitor = [
+        "HDMI-A-2, 1920x1080@60.00, 0x0, 1, bitdepth,8"
+        "DP-2, 2560x1440@239.99, 1920x-350, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.35, sdrsaturation, 1.35"
+      ];
+      experimental.xx_color_management_v4 = true;
 
       #####################
       ### LOOK AND FEEL ###
@@ -38,6 +46,9 @@ in
         allow_tearing = true;
 
         layout = "dwindle";
+      };
+      cursor = {
+        default_monitor = "DP-2";
       };
 
       # https://wiki.hyprland.org/Configuring/Variables/#decoration

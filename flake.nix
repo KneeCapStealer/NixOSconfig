@@ -56,6 +56,7 @@
 
       packages.${system} = {
         glfw3-minecraft-wayland = (pkgs.callPackage ./packages/glfw3-minecraft-wayland/package.nix { });
+        vulkan-hdr-layer = (pkgs.callPackage ./packages/vulkan-hdr-layer { });
       };
 
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
