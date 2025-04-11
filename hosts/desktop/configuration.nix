@@ -96,7 +96,7 @@
 
   gaming.enable = true;
   graphics.nvidia.enable = true;
-  graphics.nvidia.package = "beta";
+  graphics.nvidia.package = "stable";
   hardware.enableAllFirmware = true;
 
   networking.hostName = "chris-desktop"; # Define your hostname.
