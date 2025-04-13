@@ -1,78 +1,46 @@
 {
-  description = "A collection of my nixos configurations and the modules I use";
+  description = "My personal NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    ez-configs.url = "github:ehllie/ez-configs";
+    catppuccin.url = "github:catppuccin/nix";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland-git.url = "github:hyprwm/Hyprland";
-
-    catppuccin.url = "github:catppuccin/nix";
-
-    zen-browser = {
-      url = "github:MarceColl/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      catppuccin,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs self; };
+    inputs@{ self, flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.ez-configs.flakeModule
+        inputs.home-manager.flakeModules.home-manager
+      ];
+      systems = [ "x86_64-linux" ];
 
-        modules = [
-          ./hosts/desktop/configuration.nix
-          {
-            home-manager.useUserPackages = true;
-            home-manager.useGlobalPkgs = true;
+      perSystem =
+        { pkgs, ... }:
+        {
+          packages = {
+            glfw3-minecraft-wayland = pkgs.callPackage ./packages/glfw3-minecraft-wayland { };
+            vulkan-hdr-layer = pkgs.callPackage ./packages/vulkan-hdr-layer { };
+          };
 
-            home-manager.extraSpecialArgs = {
-              inherit inputs self;
-              configsPath = ./configs;
-            };
-            home-manager.users.chris = import ./users/chris/home.nix;
-          }
+          formatter = pkgs.nixfmt-rfc-style;
+        };
 
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.default
-        ] ++ builtins.attrValues self.nixosModules;
-      };
-
-      packages.${system} = {
-        glfw3-minecraft-wayland = (pkgs.callPackage ./packages/glfw3-minecraft-wayland/package.nix { });
-        vulkan-hdr-layer = (pkgs.callPackage ./packages/vulkan-hdr-layer { });
-      };
-
-      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
-
-      nixosModules = {
-        gaming = ./modules/nixos/gaming.nix;
-        graphics = ./modules/nixos/graphics.nix;
-        hyprland = ./modules/nixos/desktopEnvironments/hyprland.nix;
-        languages = ./modules/nixos/languages/default.nix;
-        boot = ./modules/nixos/boot.nix;
-        dns = ./modules/nixos/dns;
-        vpn = ./modules/nixos/vpn;
-      };
-
-      homeManagerModules = {
-        catppuccinRanger = ./modules/home-manager/programs/ranger.nix;
+      ezConfigs.root = ./.;
+      ezConfigs.globalArgs = { inherit inputs self; };
+      ezConfigs.nixos.hosts = {
+        desktop.userHomeModules = [ "chris" ];
       };
     };
 }
