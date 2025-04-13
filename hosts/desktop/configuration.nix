@@ -27,6 +27,7 @@
     "kvm"
     "nixos-test"
     "gccarch-skylake"
+    "gccarch-x86-64-v3"
   ];
 
   nix.package = pkgs.nixVersions.latest;
