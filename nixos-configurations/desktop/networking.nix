@@ -12,7 +12,7 @@
   };
 
   services.protonVPN = {
-    enable = true;
+    enable = false;
 
     router.defaultRoute = "192.168.1.1 dev eno1";
     interface = {
