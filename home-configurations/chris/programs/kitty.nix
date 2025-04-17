@@ -6,8 +6,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font";
-      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "Fira Code Nerd Font";
+      package = pkgs.nerd-fonts.fira-code;
       size = 12;
     };
     settings = {
