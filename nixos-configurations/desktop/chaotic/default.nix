@@ -6,6 +6,6 @@
 
   chaotic = {
     hdr.enable = true;
-    mesa-git.enable = true;
+    hdr.specialisation.enable = false;
   };
 }
