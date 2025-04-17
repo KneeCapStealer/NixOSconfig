@@ -1,16 +1,15 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
-  # XDG desktop portal
   xdg.portal = {
-    enable = lib.mkForce true;
+    enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
     ];
-    configPackages = [ pkgs.hyprland ];
     xdgOpenUsePortal = true;
   };
+  configPackages = [ programs.hyprland.package ];
 
   environment.pathsToLink = [
     "/share/xdg-desktop-portal"
