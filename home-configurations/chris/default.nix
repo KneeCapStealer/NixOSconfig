@@ -7,20 +7,19 @@
 {
   imports = [
     ./dev
-    ./desktop/hyprland
+    ./hyprland
     ./programs
     ./gaming
     ./scripts
 
     inputs.catppuccin.homeModules.catppuccin
-    inputs.chaotic.homeModules.default
   ];
 
   home.username = "chris";
   home.homeDirectory = "/home/chris";
 
   programs.home-manager.enable = true;
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
   # My (VEERY thorough) ricing v2.0: HomeManager EDITION!!
   catppuccin.enable = true;
