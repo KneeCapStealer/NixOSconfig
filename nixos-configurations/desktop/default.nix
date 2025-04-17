@@ -7,6 +7,7 @@
     ./users
     ./hyprland
     ./hardware
+    ./programs
 
     ./nix.nix
     ./boot.nix
@@ -15,12 +16,18 @@
     ./danish.nix
     ./hardware-configuration.nix
     ./networking.nix
+
+
   ];
 
   nixpkgs.config.allowUnfree = true;
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
-  services.scx.enable = true;
-  services.scx.scheduler = "scx_lavd";
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+
+    package = pkgs.pkgsx86_64_v3.scx_git.rustscheds;
+  };
 
   fonts = {
     fontDir.enable = true;
@@ -32,24 +39,13 @@
 
   fileSystems =
     let
-      compress = "compress=zstd";
-      nocompress = "compress=no";
-      nocow = "nodatacow";
-
-      default = [ compress ];
+      default = [ "compress=zstd" "noatime" ];
     in
     {
       "/".options = default;
       "/home".options = default;
       "/nix".options = default;
-      "/tmp".options = default;
-      "/var/log".options = default;
-      "/var/cache".options = default;
-      "/games".options = [
-        nocompress
-        nocow
-      ];
     };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }
