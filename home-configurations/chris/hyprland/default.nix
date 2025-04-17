@@ -5,24 +5,12 @@ in
 {
   programs.hyprlock.enable = true;
 
-  xdg.portal = {
-    enable = lib.mkForce true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal
-    ];
-
-    xdgOpenUsePortal = true;
-    configPackages = [ pkgs.hyprland ];
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
     xwayland.enable = true;
-    portalPackage = null;
     package = null;
+    portalPackage = null;
 
     settings = {
       monitor = [
