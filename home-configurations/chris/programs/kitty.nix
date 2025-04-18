@@ -15,7 +15,7 @@
     };
   };
 
-  environment.sessionVariables = {
+  home.sessionVariables = {
     TERMINAL = "kitty";
   };
 }

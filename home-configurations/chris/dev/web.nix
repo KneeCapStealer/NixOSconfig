@@ -5,5 +5,5 @@
     ./langs/php.nix
   ];
 
-  # home.packages = with pkgs; [ beekeeper-studio ];
+  home.packages = with pkgs; [ beekeeper-studio ];
 }
