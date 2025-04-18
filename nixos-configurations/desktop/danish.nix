@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   i18n = {
     defaultLocale = "en_DK.UTF-8";
@@ -24,6 +23,6 @@
   console = {
     enable = true;
     keyMap = "dk-latin1";
-    font = pkgs.nerd-fonts.fira-code;
+    # font = "FiraCode Nerd Font Mono";
   };
 }
