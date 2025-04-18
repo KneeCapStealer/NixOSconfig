@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   xdg.portal = {
     enable = true;
@@ -9,7 +9,6 @@
     ];
     xdgOpenUsePortal = true;
   };
-  configPackages = [ programs.hyprland.package ];
 
   environment.pathsToLink = [
     "/share/xdg-desktop-portal"
