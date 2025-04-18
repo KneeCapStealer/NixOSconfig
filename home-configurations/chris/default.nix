@@ -28,7 +28,6 @@
   catppuccin.cursors.enable = true;
 
   home.packages = with pkgs; [
-    self.packages.x86_64-linux.nixvim
     self.packages.x86_64-linux.glfw3-minecraft-wayland
     heroic
     # self.packages.x86_64-linux.vulkan-hdr-layer
@@ -43,13 +42,11 @@
     qbittorrent-enhanced
     proton-pass
     haruna
-    protonup
     prismlauncher
     llvmPackages_latest.clang
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
     BROWSER = "zen";
   };
 }
