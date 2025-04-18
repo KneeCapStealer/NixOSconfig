@@ -7,6 +7,7 @@
     ./oil.nix
     ./treesitter.nix
     ./ufo.nix
+    ./zig.nix
   ];
 
   plugins.nix.enable = true;
@@ -26,4 +27,6 @@
       };
     };
   };
+
+  dependencies.git.enable = true;
 }

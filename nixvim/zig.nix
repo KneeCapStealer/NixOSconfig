@@ -1,0 +1,3 @@
+{
+  plugins.zig.enable = true;
+}
