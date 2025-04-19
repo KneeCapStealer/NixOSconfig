@@ -47,7 +47,10 @@
       "/nix".options = default;
     };
 
-  programs.gnupg.agent.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   system.stateVersion = "25.05";
 }
