@@ -5,6 +5,7 @@
     ./yazi.nix
     ./mpv.nix
     ./zsh.nix
+    ./nvim.nix
 
     ./eww
   ];

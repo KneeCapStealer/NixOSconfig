@@ -11,9 +11,12 @@
       enable = true;
       args = [
         "--hdr-enabled"
-	"--expose-wayland"
-	"--immediate-flips"
+	      "--expose-wayland"
+	      "--immediate-flips"
       ];
+      env = {
+        DXVK_HDR = "1";
+      };
     };
     extraCompatPackages = with pkgs; [
       proton-ge-custom
