@@ -17,6 +17,9 @@
       b = "branch";
     };
 
+    signing.key = "617041371BF2CCE7";
+    signing.signByDefault = true;
+
     extraConfig = {
       color = {
         ui = "auto";
