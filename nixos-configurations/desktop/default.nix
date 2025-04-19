@@ -52,5 +52,9 @@
     enableSSHSupport = true;
   };
 
+  environment.sessionVariables = {
+    GPG_TTY = "$(tty)";
+  };
+
   system.stateVersion = "25.05";
 }
