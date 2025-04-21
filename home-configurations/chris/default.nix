@@ -24,7 +24,7 @@
   # My (VEERY thorough) ricing v2.0: HomeManager EDITION!!
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
-  catppuccin.accent = "maroon";
+  catppuccin.accent = "peach";
   catppuccin.cursors.enable = true;
 
   home.packages = with pkgs; [

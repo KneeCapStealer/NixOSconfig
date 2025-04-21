@@ -32,7 +32,7 @@ in
 
         border_size = 2;
 
-        "col.active_border" = "$red $maroon 45deg";
+        "col.active_border" = "$maroon $peach 45deg";
         "col.inactive_border" = "$overlay1";
 
         resize_on_border = false;
@@ -62,7 +62,7 @@ in
             range = 4;
             render_power = 3;
             color = "$peach";
-            color_inactive = "rgba(00000000)";
+            color_inactive = "rgba(00000088)";
             offset = "1 1";
           };
 
