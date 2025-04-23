@@ -16,8 +16,6 @@
     ./danish.nix
     ./hardware-configuration.nix
     ./networking.nix
-
-
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -26,7 +24,7 @@
     enable = true;
     scheduler = "scx_lavd";
 
-    package = pkgs.pkgsx86_64_v3.scx_git.rustscheds;
+   package = pkgs.scx_git.rustscheds;
   };
 
   fonts = {

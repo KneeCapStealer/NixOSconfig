@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ osConfig, lib, pkgs, ... }:
 let
   bindings = import ./bindings.nix;
 in
@@ -12,12 +12,15 @@ in
     package = null;
     portalPackage = null;
 
-    settings = {
+    settings = let
+        hdrOptions = ", cm, hdr, sdrbrightness, 1.35, sdrsaturation, 1.35";
+        hdrEnabled = osConfig.chaotic.hdr.enable or false;
+    in {
       monitor = [
         "HDMI-A-2, 1920x1080@60.00, 0x0, 1, bitdepth,8"
-        "DP-2, 2560x1440@239.99, 1920x-350, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.35, sdrsaturation, 1.35"
+        ("DP-2, 2560x1440@239.99, 1920x-350, 1, bitdepth, 10" + lib.optionalString hdrEnabled hdrOptions)
       ];
-      experimental.xx_color_management_v4 = true;
+      experimental.xx_color_management_v4 = hdrEnabled;
 
       #####################
       ### LOOK AND FEEL ###
