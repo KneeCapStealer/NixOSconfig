@@ -27,7 +27,7 @@
       imports = [
         inputs.ez-configs.flakeModule
         inputs.home-manager.flakeModules.home-manager
-	inputs.nixvim.flakeModules.default
+        inputs.nixvim.flakeModules.default
       ];
       systems = [ "x86_64-linux" ];
 

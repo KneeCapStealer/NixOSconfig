@@ -11,7 +11,7 @@
 
       servers = {
         nixd.enable = true;
-	      zls.enable = true;
+        zls.enable = true;
         phpactor.enable = true;
       };
     };

@@ -1,7 +1,7 @@
 {
   users.users.chris = {
     isNormalUser = true;
-    
+
     initialPassword = "0304";
     description = "Christoffer Hald Christensen";
     extraGroups = [

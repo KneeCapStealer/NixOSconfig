@@ -24,7 +24,7 @@
     enable = true;
     scheduler = "scx_lavd";
 
-   package = pkgs.scx_git.rustscheds;
+    package = pkgs.scx_git.rustscheds;
   };
 
   fonts = {
@@ -37,7 +37,10 @@
 
   fileSystems =
     let
-      default = [ "compress=zstd" "noatime" ];
+      default = [
+        "compress=zstd"
+        "noatime"
+      ];
     in
     {
       "/".options = default;
