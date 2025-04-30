@@ -30,7 +30,6 @@
   home.packages = with pkgs; [
     self.packages.x86_64-linux.glfw3-minecraft-wayland
     heroic
-    # self.packages.x86_64-linux.vulkan-hdr-layer
     activate-linux
     fastfetch
     vesktop
