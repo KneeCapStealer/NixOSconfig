@@ -7,13 +7,11 @@
     ./sddm.nix
   ];
 
-  nixpkgs.overlays = [
-    inputs.hyprland.overlays.default
-  ];
-
   programs.hyprland = {
     enable = true;
     withUWSM = true;
+    package = inputs.hyprland.packages.x86_64-linux.hyprland;
+    portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
   };
 
   nix.settings = {
