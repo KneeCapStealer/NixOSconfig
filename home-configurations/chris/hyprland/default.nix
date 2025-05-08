@@ -1,6 +1,7 @@
 {
   osConfig,
   self,
+  inputs,
   lib,
   pkgs,
   ...
@@ -23,6 +24,9 @@ let
         xwayland.enable = true;
         package = null;
         portalPackage = null;
+        plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
+          hyprbars
+        ];
 
         settings =
           let
