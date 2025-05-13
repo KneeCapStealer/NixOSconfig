@@ -17,7 +17,7 @@
       b = "branch";
     };
 
-    signing.key = "3F9DE2D95FC8F6A0";
+    signing.key = "28803B602DA4F5BE";
     signing.signByDefault = true;
 
     extraConfig = {
