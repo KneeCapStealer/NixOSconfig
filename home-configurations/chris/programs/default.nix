@@ -6,6 +6,8 @@
     ./mpv.nix
     ./zsh.nix
     ./nvim.nix
+    ./qt.nix
+    ./gtk.nix
 
     ./eww
   ];
