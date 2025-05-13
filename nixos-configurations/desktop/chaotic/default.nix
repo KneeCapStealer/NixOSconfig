@@ -5,6 +5,6 @@
   ];
 
   chaotic = {
-    hdr.enable = true;
+    hdr.enable = false;
   };
 }

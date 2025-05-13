@@ -21,7 +21,7 @@
   nixpkgs.config.allowUnfree = true;
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
-    enable = true;
+    #enable = true;
     scheduler = "scx_lavd";
 
     package = pkgs.scx_git.rustscheds;

@@ -1,10 +1,10 @@
 {
   imports = [
-    ./nvidia.nix
+    ./amdgpu.nix
   ];
 
   hardware = {
-    cpu.intel.updateMicrocode = true;
+    cpu.amd.updateMicrocode = true;
     cpu.x86.msr.enable = true;
 
     ksm.enable = true;

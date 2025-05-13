@@ -36,7 +36,7 @@ let
             monitor =
               # lib.optionals isDesktop
               ([
-                "HDMI-A-2, 1920x1080@60.00, 0x0, 1, bitdepth,8"
+                "HDMI-A-1, 1920x1080@60.00, 0x0, 1, bitdepth,8"
                 ("DP-2, 2560x1440@239.99, 1920x-350, 1, bitdepth, 10" + lib.optionalString withHDR hdrOptions)
               ])
               ++ [ ", preferred, auto, auto" ];

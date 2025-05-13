@@ -36,7 +36,7 @@
     fastfetch
     vesktop
     discord
-    (btop.override { cudaSupport = true; })
+    btop-rocm
     spotify
     inputs.zen-browser.packages."${system}".specific
     tor-browser
