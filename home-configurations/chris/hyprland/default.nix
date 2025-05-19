@@ -20,13 +20,11 @@ let
 
       wayland.windowManager.hyprland = {
         enable = true;
-        systemd.enable = false;
         xwayland.enable = true;
-        package = null;
-        portalPackage = null;
-        plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
-          hyprbars
-        ];
+        systemd.enable = false;
+
+        package = inputs.hyprland.packages.x86_64-linux.hyprland;
+        portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
 
         settings =
           let
