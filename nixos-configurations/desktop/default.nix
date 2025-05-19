@@ -16,6 +16,7 @@
     ./danish.nix
     ./hardware-configuration.nix
     ./networking.nix
+    ./printing.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
