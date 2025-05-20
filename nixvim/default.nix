@@ -2,7 +2,7 @@
   imports = [
     ./lsp
 
-    ./blink-cmp.nix
+    ./cmp.nix
     ./mini.nix
     ./oil.nix
     ./treesitter.nix
