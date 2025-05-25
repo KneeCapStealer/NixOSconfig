@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -7,11 +7,15 @@
     ./sddm.nix
   ];
 
+  nixpkgs.overlays = [
+    inputs.hyprland.overlays.hyprland-packages
+  ];
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    package = inputs.hyprland.packages.x86_64-linux.hyprland;
-    portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   nix.settings = {

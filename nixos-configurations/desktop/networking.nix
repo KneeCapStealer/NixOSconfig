@@ -12,16 +12,16 @@
   };
 
   services.protonVPN = {
-    enable = false;
+    enable = true;
 
-    router.defaultRoute = "192.168.1.1 dev eno1";
+    router.defaultRoute = "192.168.1.1 dev enp8s0";
     interface = {
-      privateKeyFile = "/root/secrets/protonVPNDenmark.key";
+      privateKeyFile = "/root/secrets/protonVPN.key";
       address = "10.2.0.2/32";
 
       peer = {
-        publicKey = "9WowgFUh2itRfPh2SoaJsJHvxzXBZuD+xqdmBAf2CB4=";
-        endpoint.address = "149.50.217.161";
+        publicKey = "+6VseaiwdWLFSlaTgwafQM9D9DsT1aanqywtgf7XdC8=";
+        endpoint.address = "185.111.109.1";
       };
     };
   };

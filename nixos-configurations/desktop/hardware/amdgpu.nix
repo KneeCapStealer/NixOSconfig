@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   services.xserver = {
     enable = true;
@@ -10,10 +9,10 @@
     enable32Bit = true;
   };
 
-  hardware.amdgpu.initrd.enable = true;
-
   # overclocking
-  environment.systemPackages = with pkgs; [ lact ];
-  systemd.packages = with pkgs; [ lact ];
-  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+    gpuOverclock.ppfeaturemask = "0xffffffff";
+  };
 }

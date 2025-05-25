@@ -5,6 +5,7 @@
   ];
 
   chaotic = {
+    mesa-git.enable = true;
     hdr.enable = false;
   };
 }

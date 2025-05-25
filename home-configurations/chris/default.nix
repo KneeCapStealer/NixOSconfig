@@ -29,12 +29,24 @@
 
   programs.firefox.enable = true;
 
+  # usb
+  services.udiskie = {
+    enable = true;
+    settings = {
+      # workaround for
+      # https://github.com/nix-community/home-manager/issues/632
+      program_options = {
+        # replace with your favorite file manager
+        file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
+      };
+    };
+  };
+
   home.packages = with pkgs; [
     self.packages.x86_64-linux.glfw3-minecraft-wayland
     heroic
     activate-linux
     fastfetch
-    vesktop
     discord
     btop-rocm
     spotify
@@ -42,9 +54,9 @@
     tor-browser
     qbittorrent-enhanced
     proton-pass
-    haruna
     prismlauncher
-    llvmPackages_latest.clang
+    furmark
+    compsize
   ];
 
   home.sessionVariables = {

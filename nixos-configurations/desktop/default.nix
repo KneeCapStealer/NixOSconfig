@@ -20,9 +20,9 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-rc;
   services.scx = {
-    #enable = true;
+    enable = true;
     scheduler = "scx_lavd";
 
     package = pkgs.scx_git.rustscheds;
@@ -57,6 +57,18 @@
   environment.sessionVariables = {
     GPG_TTY = "$(tty)";
   };
+
+  services.udisks2.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    zip
+    unzip
+    zstd
+    xz
+    gzip
+    wget
+    curl
+  ];
 
   system.stateVersion = "25.05";
 }
