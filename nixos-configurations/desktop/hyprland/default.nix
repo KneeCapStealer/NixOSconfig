@@ -4,7 +4,7 @@
     inputs.hyprland.nixosModules.default
     ./environment.nix
     ./xdg.nix
-    ./sddm.nix
+    ./gdm.nix
   ];
 
   nixpkgs.overlays = [
