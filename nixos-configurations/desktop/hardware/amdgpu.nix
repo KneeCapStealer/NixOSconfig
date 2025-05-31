@@ -9,10 +9,13 @@
     enable32Bit = true;
   };
 
-  # overclocking
-  programs.corectrl = {
+  hardware.amdgpu.overdrive = {
     enable = true;
-    gpuOverclock.enable = true;
-    gpuOverclock.ppfeaturemask = "0xffffffff";
+    ppfeaturemask = "0xffffffff";
   };
+
+  hardware.amdgpu.opencl.enable = true;
+
+  # overclocking
+  programs.corectrl.enable = true;
 }
