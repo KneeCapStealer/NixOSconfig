@@ -9,13 +9,18 @@
     extest.enable = true;
     gamescopeSession = {
       enable = true;
-      args = [
-        "--expose-wayland"
-        "--immediate-flips"
-      ];
     };
     extraCompatPackages = with pkgs; [
       proton-ge-custom
+    ];
+  };
+
+  programs.gamescope = {
+    enable = true;
+    package = pkgs.gamescope_git;
+    capSysNice = true;
+    args = [
+      "--hdr-enabled"
     ];
   };
 }
