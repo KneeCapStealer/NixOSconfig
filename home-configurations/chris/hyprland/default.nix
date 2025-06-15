@@ -1,6 +1,4 @@
 {
-  osConfig,
-  lib,
   pkgs,
   ...
 }:
@@ -18,15 +16,40 @@ let
       package = pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
+      importantPrefixes = [
+        "$"
+        "bezier"
+        "name"
+        "source"
+        "output"
+      ];
       settings = {
         monitor = [
-          "HDMI-A-1, 1920x1080@60.00, 0x0, 1, bitdepth,8"
-          "DP-2, 2560x1440@239.99, 1920x-350, 1, bitdepth, 10, cm, hdredid, sdrbrightness, 1.3, sdrsaturation, 1.3"
           ", preferred, auto, auto"
         ];
 
+        monitorv2 = [
+          {
+            output = "DP-1";
+            mode = "2560x1440@239.99";
+            position = "1920x-350";
+            scale = 1;
+            bitdepth = 10;
+            cm = "hdr";
+            sdrbrightness = 1.35;
+            sdrsaturation = 1.4;
+          }
+          {
+            output = "HDMI-A-1";
+            mode = "1920x1080@60.00";
+            position = "0x0";
+            scale = 1;
+            bitdepth = 8;
+          }
+        ];
+
         # Leave at default if withHDR is not specified
-        experimental.xx_color_management_v4 = true;
+        # experimental.xx_color_management_v4 = true;
 
         #####################
         ### LOOK AND FEEL ###
