@@ -13,6 +13,7 @@
       markdown
       vimdoc
       vim
+      glsl
     ];
 
     settings = {

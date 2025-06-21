@@ -34,6 +34,7 @@
         nixd.enable = true;
         zls.enable = true;
         phpactor.enable = true;
+        glsl_analyzer.enable = true;
       };
     };
   };

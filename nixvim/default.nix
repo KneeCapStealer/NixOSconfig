@@ -29,4 +29,25 @@
   };
 
   dependencies.git.enable = true;
+
+  globalOpts = {
+    tabstop = 8;
+    softtabstop = 0;
+    shiftwidth = 4;
+    smarttab = true;
+    expandtab = true;
+
+    scrolloff = 12;
+  };
+
+  keymaps = [
+    {
+      action = "<C-d>zz";
+      key = "<C-d>";
+    }
+    {
+      action = "<C-u>zz";
+      key = "<C-u>";
+    }
+  ];
 }
