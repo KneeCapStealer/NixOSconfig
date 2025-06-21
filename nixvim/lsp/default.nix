@@ -8,7 +8,7 @@
     cmp-nvim-lsp.enable = true;
     lsp = {
       enable = true;
-      inlayHints = true;
+      inlayHints = false;
       capabilities = ''
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       '';
