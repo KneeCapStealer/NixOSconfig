@@ -51,7 +51,6 @@
     btop-rocm
     spotify
     inputs.zen-browser.packages."${system}".specific
-    floorp
     tor-browser
     qbittorrent-enhanced
     proton-pass
@@ -61,6 +60,6 @@
   ];
 
   home.sessionVariables = {
-    BROWSER = "floorp";
+    BROWSER = "zen";
   };
 }

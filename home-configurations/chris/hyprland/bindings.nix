@@ -10,7 +10,7 @@ in
   "$mod" = "SUPER";
   "$term" = "kitty.desktop";
   "$menu" = "rofi -show drun -show-icons -run-command \"uwsm app -- {cmd}\"";
-  "$browser" = "floorp.desktop";
+  "$browser" = "zen.desktop";
   "$fileManager" = "dolphin.desktop";
 
   programShortcuts = [

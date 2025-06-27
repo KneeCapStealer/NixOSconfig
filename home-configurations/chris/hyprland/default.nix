@@ -5,9 +5,11 @@
 let
   bindings = import ./bindings.nix;
   configuration = {
-    # overrideHDR to prevent duplication of list options
-    programs.hyprlock.enable = true;
+    imports = [
+      ./hyprpaper.nix
+    ];
 
+    services.hyprpolkitagent.enable = true;
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
