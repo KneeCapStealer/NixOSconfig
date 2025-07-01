@@ -57,6 +57,7 @@
     prismlauncher
     furmark
     compsize
+    parsec-bin
   ];
 
   home.sessionVariables = {
