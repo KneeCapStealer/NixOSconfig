@@ -17,5 +17,5 @@
   hardware.amdgpu.opencl.enable = true;
 
   # overclocking
-  programs.corectrl.enable = true;
+  services.lact.enable = true;
 }
