@@ -19,6 +19,11 @@
     ./printing.nix
   ];
 
+  services.dbus = {
+    enable = true;
+    implementation = "broker";
+  };
+
   nixpkgs.config.allowUnfree = true;
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
