@@ -50,8 +50,7 @@ let
           }
         ];
 
-        # Leave at default if withHDR is not specified
-        # experimental.xx_color_management_v4 = true;
+        experimental.xx_color_management_v4 = true;
 
         #####################
         ### LOOK AND FEEL ###

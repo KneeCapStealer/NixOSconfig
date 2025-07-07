@@ -28,6 +28,8 @@
   catppuccin.cursors.enable = true;
 
   programs.firefox.enable = true;
+  # Orelse error happens :(
+  programs.firefox.profiles.default.extensions.force = true;
 
   # usb
   services.udiskie = {
@@ -50,7 +52,7 @@
     discord
     btop-rocm
     spotify
-    inputs.zen-browser.packages."${system}".specific
+    inputs.zen-browser.packages."${system}".default
     tor-browser
     qbittorrent-enhanced
     proton-pass

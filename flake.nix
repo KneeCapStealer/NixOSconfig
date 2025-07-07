@@ -7,7 +7,6 @@
 
     ez-configs.url = "github:ehllie/ez-configs";
     catppuccin.url = "github:catppuccin/nix";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
 
@@ -19,6 +18,11 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
