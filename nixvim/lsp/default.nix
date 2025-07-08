@@ -1,6 +1,7 @@
 {
   imports = [
     ./nix.nix
+    ./qml.nix
     ./fidget.nix
   ];
 
@@ -35,6 +36,11 @@
         zls.enable = true;
         phpactor.enable = true;
         glsl_analyzer.enable = true;
+        qmlls.enable = true;
+        qmlls.cmd = [
+          "qmlls"
+          "-E"
+        ];
       };
     };
   };

@@ -38,6 +38,7 @@
     expandtab = true;
 
     scrolloff = 12;
+    relativenumber = true;
   };
 
   keymaps = [

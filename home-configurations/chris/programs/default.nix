@@ -1,3 +1,4 @@
+{ inputs, ...}:
 {
   imports = [
     ./rofi.nix
@@ -10,5 +11,6 @@
     ./gtk.nix
 
     ./eww
+    (import ./quickshell { inherit inputs; })
   ];
 }

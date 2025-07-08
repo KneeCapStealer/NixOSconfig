@@ -14,6 +14,7 @@
       vimdoc
       vim
       glsl
+      qmljs
     ];
 
     settings = {
