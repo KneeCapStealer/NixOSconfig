@@ -9,7 +9,7 @@ PanelWindow {
     right: true
   }
 
-  implicitHeight: 30
+  implicitHeight: 40
 
   Text {
     id: clock
@@ -20,7 +20,7 @@ PanelWindow {
       // about it from the timer
       id: dateProc
 
-      command: ["date"]
+      command: [ "date", "+%T | %A" ]
       running: true
 
       stdout: StdioCollector {
