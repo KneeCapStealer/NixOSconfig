@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./catppuccin
@@ -23,6 +23,8 @@
     enable = true;
     implementation = "broker";
   };
+
+  qt.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
@@ -73,6 +75,7 @@
     gzip
     wget
     curl
+    inputs.quickshell.packages.x86_64-linux.default
   ];
 
   system.stateVersion = "25.05";
@@ -91,5 +94,6 @@
     '';
 
     wantedBy = [ "default.target" ];
+
   };
 }
