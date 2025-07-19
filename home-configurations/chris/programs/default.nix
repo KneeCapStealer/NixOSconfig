@@ -1,4 +1,4 @@
-{ inputs, ...}:
+{ inputs, ... }:
 {
   imports = [
     ./rofi.nix
@@ -9,6 +9,7 @@
     ./nvim.nix
     ./qt.nix
     ./gtk.nix
+    ./vesktop.nix
 
     ./eww
     (import ./quickshell { inherit inputs; })
