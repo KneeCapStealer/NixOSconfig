@@ -29,6 +29,7 @@
         vim.keymap.set('n', '<leader>rr', lsp.buf.rename, opts)
         vim.keymap.set('i', '<C-h>', lsp.buf.signature_help, opts)
         vim.keymap.set('n', '<leader>ih', function () lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled()) end, opts)
+        vim.keymap.set('n', '<leader>rn', lsp.buf.rename, opts)
       '';
 
       servers = {
