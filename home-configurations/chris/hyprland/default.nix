@@ -65,7 +65,7 @@ let
 
           border_size = 2;
 
-          "col.active_border" = "$maroon $peach 45deg";
+          "col.active_border" = "$peach $peach 45deg";
           "col.inactive_border" = "$overlay1";
 
           resize_on_border = false;

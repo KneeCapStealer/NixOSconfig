@@ -8,10 +8,10 @@ in
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
   "$mod" = "SUPER";
-  "$term" = "kitty.desktop";
+  "$term" = "ghostty";
   "$menu" = "rofi -show drun -show-icons -run-command \"uwsm app -- {cmd}\"";
   "$browser" = "zen.desktop";
-  "$fileManager" = "dolphin.desktop";
+  "$fileManager" = "nemo.desktop";
 
   programShortcuts = [
     (superExec "Q" "$term")

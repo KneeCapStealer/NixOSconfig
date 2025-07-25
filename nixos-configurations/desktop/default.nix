@@ -75,7 +75,6 @@
     gzip
     wget
     curl
-    inputs.quickshell.packages.x86_64-linux.default
   ];
 
   system.stateVersion = "25.05";

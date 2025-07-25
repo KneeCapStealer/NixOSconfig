@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Widgets
 import Quickshell.Io
 import QtQuick
 
@@ -10,10 +11,20 @@ PanelWindow {
   }
 
   implicitHeight: 40
+  color: "transparent"
+
+  ClippingWrapperRectangle {
+    id: rectangle
+    antialiasing: true
+    anchors.fill: parent
+    bottomLeftRadius: 10
+    bottomRightRadius: 10
+    color: "#fab387"
+  }
 
   Text {
     id: clock
-    anchors.centerIn: parent
+    anchors.centerIn: rectangle
 
     Process {
       // give the process object an id so we can talk

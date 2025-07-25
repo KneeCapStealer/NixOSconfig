@@ -8,7 +8,7 @@
   imports = [
     ./dev
     ./hyprland
-    (import ./programs { inherit inputs; })
+    ./programs
     ./gaming
     ./scripts
 

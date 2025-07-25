@@ -25,10 +25,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -65,7 +61,6 @@
 
           devShells.quickshell =
             let
-              # quickshell = inputs.quickshell.packages.x86_64-linux.quickshell;
               quickshell = pkgs.quickshell;
             in
             pkgs.mkShell {

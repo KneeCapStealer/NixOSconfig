@@ -2,7 +2,7 @@
 {
   services.hardware.openrgb = {
     enable = true;
-    package = pkgs.openrgb_git;
+    #package = pkgs.openrgb_git;
     motherboard = "amd";
     server.port = 6742;
   };

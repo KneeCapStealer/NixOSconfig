@@ -1,8 +1,7 @@
-{ inputs, ... }:
 {
   imports = [
     ./rofi.nix
-    ./kitty.nix
+    # ./kitty.nix
     ./yazi.nix
     ./mpv.nix
     ./zsh.nix
@@ -10,8 +9,10 @@
     ./qt.nix
     ./gtk.nix
     ./vesktop.nix
+    ./nemo.nix
+    ./ghostty.nix
 
     ./eww
-    (import ./quickshell { inherit inputs; })
+    ./quickshell
   ];
 }
