@@ -5,6 +5,8 @@
     ezModules.nextDNS
   ];
 
+  networking.networkmanager.enable = true;
+
   services.nextDNS = {
     enable = true;
     endpointId = "f8ac75";
