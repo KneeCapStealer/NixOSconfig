@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -8,7 +9,7 @@
     };
 
     defaultKeymap = "viins";
-    dotDir = ".config/zsh";
+    dotDir =  config.xdg.configHome + "/zsh";
 
     oh-my-zsh = {
       enable = true;
