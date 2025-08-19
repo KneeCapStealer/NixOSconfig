@@ -23,6 +23,7 @@
 
   console = {
     enable = true;
+    #earlySetup = true;
     packages = [ pkgs.nerd-fonts.fira-code ];
     keyMap = "dk";
     font = "FiraCode Nerd Font Mono";
