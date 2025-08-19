@@ -11,6 +11,7 @@
 
     ./nix.nix
     ./boot.nix
+    ./bluetooth.nix
     ./home-manager.nix
     ./sound.nix
     ./danish.nix
