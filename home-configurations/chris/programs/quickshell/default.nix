@@ -1,6 +1,6 @@
 {
   programs.quickshell = {
-    enable = true;
+    enable = false;
     activeConfig = "taskbar";
     systemd.enable = true;
     configs = {
