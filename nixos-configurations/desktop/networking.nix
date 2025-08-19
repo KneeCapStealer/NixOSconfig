@@ -5,6 +5,10 @@
     ezModules.nextDNS
   ];
 
+  networking.networkmanager = {
+    enable = true;
+  };
+
   services.nextDNS = {
     enable = true;
     endpointId = "f8ac75";
@@ -12,7 +16,7 @@
   };
 
   services.protonVPN = {
-    enable = true;
+    enable = false;
 
     router.defaultRoute = "192.168.1.1 dev enp8s0";
     interface = {
