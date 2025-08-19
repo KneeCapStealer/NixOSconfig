@@ -7,6 +7,7 @@ let
   configuration = {
     imports = [
       ./hyprpaper.nix
+      ./hyprpanel.nix
     ];
 
     services.hyprpolkitagent.enable = true;
