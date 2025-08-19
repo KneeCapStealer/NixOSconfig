@@ -13,6 +13,16 @@
     extraCompatPackages = with pkgs; [
       proton-ge-custom
     ];
+
+    extraPackages = with pkgs; [
+      gtk4
+      gtk3
+      gtk3-x11
+      gtk2
+      gtk2-x11
+      xwayland
+      xwayland-run
+    ];
   };
 
   programs.gamemode.enable = true;
