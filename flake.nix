@@ -5,7 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    ez-configs.url = "github:ehllie/ez-configs";
+    ez-configs.url = "github:KneeCapStealer/ez-configs";
     catppuccin.url = "github:catppuccin/nix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";

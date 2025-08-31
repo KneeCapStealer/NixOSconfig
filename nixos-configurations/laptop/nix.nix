@@ -19,6 +19,9 @@
     package = pkgs.nixVersions.latest;
   };
 
+  programs.nh.enable = true;
+  programs.nh.flake = "/home/chris/.config/nixos/";
+
   programs.nix-ld.enable = true;
   services.envfs.enable = true;
 }

@@ -11,6 +11,7 @@
 
     ./nix.nix
     ./boot.nix
+    ./bluetooth.nix
     ./home-manager.nix
     ./sound.nix
     ./danish.nix
@@ -22,7 +23,7 @@
   nixpkgs.config.allowUnfree = true;
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
-    #enable = true;
+    enable = true;
     scheduler = "scx_lavd";
 
     package = pkgs.scx_git.rustscheds;
@@ -57,6 +58,10 @@
   environment.sessionVariables = {
     GPG_TTY = "$(tty)";
   };
+
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+  ];
 
   system.stateVersion = "25.05";
 }

@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  host,
   ...
 }:
 let
@@ -31,7 +33,7 @@ let
           ", preferred, auto, auto"
         ];
 
-        monitorv2 = [
+        monitorv2 = lib.optionals (host == "desktop") [
           {
             output = "DP-1";
             mode = "2560x1440@239.99";
@@ -42,14 +44,17 @@ let
             sdrbrightness = 1.35;
             sdrsaturation = 1.4;
           }
+        ] ++ lib.optional (host == "laptop")
           {
             output = "HDMI-A-1";
-            mode = "1920x1080@60.00";
+            mode = "4096x2160@59.94Hz";
             position = "0x0";
             scale = 1;
-            bitdepth = 8;
-          }
-        ];
+            bitdepth = 10;
+            cm = "hdr";
+            sdrbrightness = 1.35;
+            sdrsaturation = 1.4;
+          };
 
         experimental.xx_color_management_v4 = true;
 
@@ -158,7 +163,7 @@ let
           sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
 
           touchpad = {
-            natural_scroll = false;
+            natural_scroll = true;
           };
         };
 

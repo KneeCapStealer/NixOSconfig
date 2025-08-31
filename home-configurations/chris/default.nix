@@ -2,12 +2,14 @@
   self,
   inputs,
   pkgs,
+  lib,
+  host,
   ...
 }:
 {
   imports = [
-    ./dev
-    ./hyprland
+    (import ./dev { inherit host pkgs; } )
+    (import ./hyprland { inherit host pkgs lib; } )
     ./programs
     ./gaming
     ./scripts

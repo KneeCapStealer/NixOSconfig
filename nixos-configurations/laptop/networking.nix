@@ -10,7 +10,7 @@
   services.nextDNS = {
     enable = true;
     endpointId = "f8ac75";
-    deviceName = "Chris--Desktop";
+    deviceName = "Chris--Laptop";
   };
 
   services.protonVPN = {

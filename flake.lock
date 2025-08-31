@@ -80,15 +80,15 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1750178074,
-        "narHash": "sha256-+ACS/Ris0V0a3BB6vEI/vTGk5huztx7a5f7eHJK1FaQ=",
-        "owner": "ehllie",
+        "lastModified": 1756650651,
+        "narHash": "sha256-zP0sq/UKxoS5sZmmLEPSjoXRw/aoX5Wu8wGK8pY6Qsw=",
+        "owner": "KneeCapStealer",
         "repo": "ez-configs",
-        "rev": "eb320b3a6032a30e5fa67bebbaf381e6552f9441",
+        "rev": "585e37533b3e79c8d12e85bcd599d4618d453b04",
         "type": "github"
       },
       "original": {
-        "owner": "ehllie",
+        "owner": "KneeCapStealer",
         "repo": "ez-configs",
         "type": "github"
       }
