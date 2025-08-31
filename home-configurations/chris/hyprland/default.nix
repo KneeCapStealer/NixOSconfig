@@ -44,6 +44,13 @@ let
             sdrbrightness = 1.35;
             sdrsaturation = 1.4;
           }
+          {
+            output = "HDMI-A-1";
+            mode = "1920x1080@59.94Hz";
+            position = "0x0";
+            scale = 1;
+            bitdepth = 8;
+          }
         ] ++ lib.optional (host == "laptop")
           {
             output = "HDMI-A-1";
