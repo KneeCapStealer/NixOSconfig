@@ -61,7 +61,10 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
+    python3Full
   ];
+
+  services.journald.extraConfig = "SystemMaxUse=1G";
 
   system.stateVersion = "25.05";
 }

@@ -1,14 +1,28 @@
-{ ezModules, ... }:
+{ ezModules, pkgs, ... }:
 {
   imports = [
     ezModules.protonVPN
     ezModules.nextDNS
   ];
 
+  environment.systemPackages = with pkgs; [
+    busybox
+  ];
+
+  services.openssh.enable = true;
+
   networking.networkmanager.enable = true;
+  networking.wireless.networks.eduroam = {
+   auth = ''
+     key_mgmt=WPA-EAP
+     eap=PWD
+     identity="415938@net.aau.dk"
+     password="jnpfupugnxjeuvx"
+   '';
+ };
 
   services.nextDNS = {
-    enable = true;
+    enable = false;
     endpointId = "f8ac75";
     deviceName = "Chris--Laptop";
   };

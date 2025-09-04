@@ -8,8 +8,8 @@ let
   bindings = import ./bindings.nix;
   configuration = {
     imports = [
-      ./hyprpaper.nix
-      ./hyprpanel.nix
+      #(import ./hyprpaper.nix {inherit pkgs host;})
+      #./hyprpanel.nix
     ];
 
     services.hyprpolkitagent.enable = true;
@@ -33,7 +33,7 @@ let
           ", preferred, auto, auto"
         ];
 
-        monitorv2 = lib.optionals (host == "desktop") [
+        monitorv2 = lib.mkIf (host == "desktop") [
           {
             output = "DP-1";
             mode = "2560x1440@239.99";
@@ -51,17 +51,7 @@ let
             scale = 1;
             bitdepth = 8;
           }
-        ] ++ lib.optional (host == "laptop")
-          {
-            output = "HDMI-A-1";
-            mode = "4096x2160@59.94Hz";
-            position = "0x0";
-            scale = 1;
-            bitdepth = 10;
-            cm = "hdr";
-            sdrbrightness = 1.35;
-            sdrsaturation = 1.4;
-          };
+        ];
 
         experimental.xx_color_management_v4 = true;
 
@@ -115,8 +105,9 @@ let
             # https://wiki.hyprland.org/Configuring/Variables/#blur
             blur = {
               enabled = true;
+
               size = 3;
-              passes = 2;
+              passes = 1;
 
               vibrancy = 0.135; # 1.696
             };
@@ -172,11 +163,6 @@ let
           touchpad = {
             natural_scroll = true;
           };
-        };
-
-        # https://wiki.hyprland.org/Configuring/Variables/#gestures
-        gestures = {
-          workspace_swipe = true;
         };
 
         # Example per-device config

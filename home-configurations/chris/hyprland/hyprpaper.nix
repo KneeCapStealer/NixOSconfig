@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 {
   services.hyprpaper =
     let
@@ -13,13 +13,15 @@
     {
       enable = true;
       settings = {
-        ipc = true;
+        ipc = false;
         splash = true;
         preload = wallpaperPath;
-        wallpaper = [
+        wallpaper = if host == "desktop" then [
           "DP-1,${wallpaperPath}"
           "HDMI-A-1,${wallpaperPath}"
-        ];
+        ] else if host == "laptop" then [
+          "eDP-1,${wallpaperPath}"
+        ] else "";
       };
     };
 }

@@ -2,7 +2,7 @@
 {
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "nvidia" "modesetting" ];
   };
 
   environment.variables = {
@@ -16,10 +16,16 @@
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-    nvidiaSettings = true;
+    nvidiaSettings = false;
     videoAcceleration = true;
     modesetting.enable = true;
     powerManagement.enable = true;
+
+    prime = {
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+      sync.enable = true;
+    };
   };
 
   hardware.graphics = {

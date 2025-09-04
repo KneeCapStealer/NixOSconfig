@@ -9,8 +9,8 @@
 {
   imports = [
     (import ./dev { inherit host pkgs; } )
+    (import ./programs { inherit host pkgs ; } )
     (import ./hyprland { inherit host pkgs lib; } )
-    ./programs
     ./gaming
     ./scripts
 
@@ -52,7 +52,6 @@
     activate-linux
     fastfetch
     discord
-    btop-rocm
     spotify
     inputs.zen-browser.packages."${system}".default
     tor-browser
@@ -62,6 +61,8 @@
     furmark
     compsize
     parsec-bin
+    prusa-slicer
+    networkmanagerapplet
   ];
 
   home.sessionVariables = {

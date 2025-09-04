@@ -1,5 +1,7 @@
+{ host, pkgs, ... }:
 {
   imports = [
+    (import ./btop.nix { inherit pkgs host; })
     ./rofi.nix
     # ./kitty.nix
     ./yazi.nix
@@ -11,8 +13,8 @@
     ./vesktop.nix
     ./nemo.nix
     ./ghostty.nix
+    ./caelestia-shell.nix
 
     ./eww
-    ./quickshell
   ];
 }
