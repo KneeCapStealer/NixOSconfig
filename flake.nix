@@ -27,7 +27,7 @@
     };
 
     caelestia-shell = {
-      url = "github:KneeCapStealer/shell";
+      url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
