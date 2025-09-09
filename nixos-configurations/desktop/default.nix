@@ -27,6 +27,8 @@
 
   qt.enable = true;
 
+  services.openssh.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
