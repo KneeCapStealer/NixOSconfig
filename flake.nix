@@ -68,7 +68,6 @@
       ezConfigs.root = ./.;
       ezConfigs.globalArgs = { inherit inputs self; };
       ezConfigs.nixos.hosts = {
-        desktop.userHomeModules = [ "chris" ];
         laptop.userHomeModules = [ "chris" ];
       };
 
