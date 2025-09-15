@@ -12,7 +12,6 @@
     ./nix.nix
     ./boot.nix
     ./bluetooth.nix
-    ./home-manager.nix
     ./sound.nix
     ./danish.nix
     ./hardware-configuration.nix
@@ -96,6 +95,5 @@
     '';
 
     wantedBy = [ "default.target" ];
-
   };
 }

@@ -5,29 +5,17 @@
     ezModules.nextDNS
   ];
 
-
   networking.nftables.enable = true;
-  networking.firewall.allowedUDPPorts = [ 67 68 69 80 ];
-  networking.firewall.allowedTCPPorts = [ 67 68 69 80 ];
-
-  services.atftpd = {
-    enable = true;
-    root = "/srv/tftp";
-    extraOptions = [
-      "--daemon"
-      "--no-fork"
-      "--no-timeout"
-      "--logfile"
-      "-"
-    ];
-  };
 
   networking.networkmanager = {
     enable = true;
+    wifi.backend = "iwd";
   };
 
+  networking.wireless.iwd.enable = true;
+
   services.nextDNS = {
-    enable = true;
+    enable = false;
     endpointId = "f8ac75";
     deviceName = "Chris--Desktop";
   };

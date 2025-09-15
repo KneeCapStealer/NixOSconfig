@@ -8,7 +8,7 @@
   ];
 
   nixpkgs.overlays = [
-    inputs.hyprland.overlays.hyprland-packages
+    inputs.hyprland.overlays.default
   ];
 
   programs.hyprland = {

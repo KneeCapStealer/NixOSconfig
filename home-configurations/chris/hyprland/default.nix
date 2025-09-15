@@ -13,12 +13,12 @@ let
       #(import ./hyprpaper.nix {inherit pkgs host;})
       #./hyprpanel.nix
     ];
+    services.hyprpolkitagent.enable = true;
 
     nixpkgs.overlays = [
-      inputs.hyprland.overlays.hyprland-packages
+      inputs.hyprland.overlays.default
     ];
 
-    services.hyprpolkitagent.enable = true;
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -69,7 +69,7 @@ let
 
         # https://wiki.hyprland.org/Configuring/Variables/#general
         general = {
-          gaps_in = 5;
+          gaps_in = 3;
           gaps_out = 5;
 
           border_size = 2;
@@ -93,7 +93,8 @@ let
             opacity = 1.0;
           in
           {
-            rounding = 10;
+            rounding = 20;
+            rounding_power = 2.0;
 
             # Change transparency of focused and unfocused windows
             active_opacity = opacity;
@@ -105,7 +106,7 @@ let
               render_power = 3;
               color = "$peach";
               color_inactive = "rgba(00000088)";
-              offset = "1 1";
+              offset = "0 1";
             };
 
             # https://wiki.hyprland.org/Configuring/Variables/#blur
@@ -125,15 +126,19 @@ let
 
           # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+          bezier = [
+            "myBezier, 0.05, 0.9, 0.1, 1.05"
+            "easeOutExpo, 0.16, 1.0, 0.3, 1.0"
+            "easeinExpo, 0.7, 0, 0.84, 0"
+          ];
 
           animation = [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 70%"
+            "windows, 1, 4, easeOutExpo"
+            "windowsOut, 1, 5, default, slide"
             "border, 1, 10, default"
             "borderangle, 1, 8, default"
             "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
+            "workspaces, 1, 5, easeOutExpo"
           ];
         };
 
@@ -212,8 +217,6 @@ let
         ];
       };
     };
-
-    home.packages = [ pkgs.kdePackages.qtsvg ];
   };
 in
 configuration
