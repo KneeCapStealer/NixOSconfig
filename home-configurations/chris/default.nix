@@ -10,12 +10,15 @@
   imports = [
     (import ./dev { inherit host pkgs; } )
     (import ./programs { inherit host pkgs ; } )
-    (import ./hyprland { inherit host pkgs lib; } )
+    (import ./hyprland { inherit host pkgs lib inputs; } )
     ./gaming
     ./scripts
 
     inputs.catppuccin.homeModules.catppuccin
+    inputs.chaotic.homeManagerModules.default
   ];
+
+  nix.package = pkgs.nixVersions.latest;
 
   home.username = "chris";
   home.homeDirectory = "/home/chris";

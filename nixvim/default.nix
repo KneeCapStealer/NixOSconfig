@@ -8,6 +8,7 @@
     ./treesitter.nix
     ./ufo.nix
     ./zig.nix
+    ./debugging.nix
   ];
 
   plugins.nix.enable = true;

@@ -9,10 +9,10 @@
     ./hardware
     ./programs
 
+    #./home-manager.nix
     ./nix.nix
     ./boot.nix
     ./bluetooth.nix
-    ./home-manager.nix
     ./sound.nix
     ./danish.nix
     ./hardware-configuration.nix
@@ -27,6 +27,11 @@
     scheduler = "scx_lavd";
 
     package = pkgs.scx_git.rustscheds;
+  };
+
+  services.udisks2 = {
+    enable = true;
+    mountOnMedia = true;
   };
 
   fonts = {
@@ -61,7 +66,6 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
-    python3Full
   ];
 
   services.journald.extraConfig = "SystemMaxUse=1G";

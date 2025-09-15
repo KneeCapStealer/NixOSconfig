@@ -2,14 +2,20 @@
   pkgs,
   lib,
   host,
+  inputs,
   ...
 }:
 let
   bindings = import ./bindings.nix;
   configuration = {
     imports = [
+      (import ./hyprlock.nix { inherit host lib; })
       #(import ./hyprpaper.nix {inherit pkgs host;})
       #./hyprpanel.nix
+    ];
+
+    nixpkgs.overlays = [
+      inputs.hyprland.overlays.hyprland-packages
     ];
 
     services.hyprpolkitagent.enable = true;

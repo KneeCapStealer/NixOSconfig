@@ -14,6 +14,7 @@
   ];
 
   programs.caelestia.enable = true;
+  programs.caelestia.cli.enable = true;
   programs.caelestia.settings = {
     paths.wallpaperDir =
       let
@@ -22,5 +23,7 @@
         };
       in 
       wallpapersPkg + "/";
+
+    launcher.actionPrefix = ">";
   };
 }

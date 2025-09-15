@@ -20,7 +20,6 @@
     systemPackages = with pkgs; [
       hyprshot
       wl-clipboard
-      swaynotificationcenter
     ];
   };
 }

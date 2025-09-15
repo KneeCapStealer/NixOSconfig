@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./web.nix
+    # ./web.nix
     ./langs/default.nix
   ];
 
