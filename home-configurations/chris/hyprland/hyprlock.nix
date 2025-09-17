@@ -13,7 +13,7 @@
         # lock screen after 2 minutes
         {
           timeout = 1200;
-          on-timeout = "loginctl lock-session";
+          on-timeout = "caelestia shell lock lock";
         }
         # turn off screen after 5 minutes
         {
@@ -24,7 +24,7 @@
         # turn off screen after 10 minutes
         {
           timeout = 60000;
-          on-timeout = "suspend";
+          on-timeout = "systemctl suspend";
         }
       ];
 
