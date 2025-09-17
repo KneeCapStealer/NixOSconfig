@@ -24,8 +24,8 @@ let
       xwayland.enable = true;
       systemd.enable = false;
 
-      package = pkgs.hyprland;
-      portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      package = null;
+      portalPackage = null;
 
       importantPrefixes = [
         "$"
