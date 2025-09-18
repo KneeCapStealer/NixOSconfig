@@ -14,6 +14,7 @@
     ./nemo.nix
     ./ghostty.nix
     ./caelestia-shell.nix
+    ./obsidian.nix
 
     ./eww
   ];
