@@ -32,10 +32,6 @@
   catppuccin.accent = "peach";
   catppuccin.cursors.enable = true;
 
-  programs.firefox.enable = true;
-  # Orelse error happens :(
-  programs.firefox.profiles.default.extensions.force = true;
-
   # usb
   services.udiskie = {
     enable = true;
