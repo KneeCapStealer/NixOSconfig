@@ -22,10 +22,15 @@
   };
 
   console = {
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+    keyMap = "us";
+    # prevents `systemd-vconsole-setup` failing during systemd initrd
+    earlySetup = true;
+  };
+  systemd.services.systemd-vconsole-setup.unitConfig.After = "local-fs.target";
+
+  boot.initrd = {
     enable = true;
-    #earlySetup = true;
-    packages = [ pkgs.nerd-fonts.fira-code ];
-    keyMap = "dk";
-    font = "FiraCode Nerd Font Mono";
+    systemd.enable = true;
   };
 }
