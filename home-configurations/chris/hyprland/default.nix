@@ -9,7 +9,7 @@ let
   bindings = import ./bindings.nix;
   configuration = {
     imports = [
-      (import ./hyprlock.nix { inherit host lib; })
+      # (import ./hyprlock.nix { inherit host lib; })
       #(import ./hyprpaper.nix {inherit pkgs host;})
       #./hyprpanel.nix
     ];

@@ -21,5 +21,18 @@
       enabled = true;
       desktopClock.enabled = true;
     };
+
+    general = {
+      apps = {
+        terminal = ["ghostty"];
+      };
+
+      idle = {
+        inhibitWhenAudio = true;
+        lockTimeout = 300; # 5 minutes
+        dpmsTimeout = 600; # 10 minutes
+        sleepTimeout = 1800; # 30 minutes
+      };
+    };
   };
 }
