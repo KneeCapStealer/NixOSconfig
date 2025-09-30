@@ -1,3 +1,6 @@
 {
-  imports = [ ./mangohud.nix ];
+  imports = [
+    ./mangohud.nix
+    ./lutris.nix
+  ];
 }
