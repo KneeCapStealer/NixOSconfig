@@ -6,7 +6,7 @@
   ...
 }:
 let
-  bindings = import ./bindings.nix;
+  bindings = import ./bindings.nix { inherit lib; };
   configuration = {
     imports = [
       # (import ./hyprlock.nix { inherit host lib; })
@@ -190,18 +190,18 @@ let
         inherit (bindings)
           "$mod"
           "$term"
-          "$menu"
           "$browser"
           "$fileManager"
           ;
 
         # Bindings
-        bind =
-          bindings.windowManipulation
-          ++ bindings.workspaceManipulation
-          ++ bindings.screenshot
-          ++ bindings.audioControls
-          ++ bindings.programShortcuts;
+        bind = with bindings;
+          windowManipulation
+          ++ workspaceManipulation
+          ++ screenshot
+          ++ audioControls
+          ++ programShortcuts
+          ++ caelestiaGlobals;
 
         binde = bindings.audioControlsRepeat;
         bindm = bindings.mouseBindings;
