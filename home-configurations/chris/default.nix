@@ -45,6 +45,8 @@
     };
   };
 
+  programs.obs-studio.enable = true;
+
   home.packages = with pkgs; [
     self.packages.x86_64-linux.glfw3-minecraft-wayland
     heroic

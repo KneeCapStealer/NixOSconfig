@@ -1,11 +1,13 @@
 { pkgs, osConfig, ... }:
 {
-  programs.lutris = {
-    enable = true;
-    defaultWinePackage = pkgs.proton-ge-custom; # From chaotic-nyx
-    protonPackages = with pkgs; [
-      proton-ge-custom
-    ];
-    steamPackage = osConfig.programs.steam.package;
-  };
+  # programs.lutris = {
+  #   enable = true;
+  #   defaultWinePackage = pkgs.proton-ge-bin; # From chaotic-nyx
+  #   protonPackages = with pkgs; [
+  #     proton-ge-bin
+  #   ];
+  #   steamPackage = osConfig.programs.steam.package;
+  # };
+
+  home.packages = [ pkgs.lutris ];
 }

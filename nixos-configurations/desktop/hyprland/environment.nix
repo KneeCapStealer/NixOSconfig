@@ -12,7 +12,7 @@
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
       GDK_BACKEND = "wayland,x11,*";
-      SDL_VIDEODRIVER = "wayland";
+      # SDL_VIDEODRIVER = "wayland"; # This breaks games
       CLUTTER_BACKEND = "wayland";
 
       NIXOS_OZONE_WL = 1;
