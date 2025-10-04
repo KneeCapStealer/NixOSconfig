@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, host, ... }:
     let
       src = pkgs.fetchFromGitHub {
         owner = "zhichaoh";
@@ -28,10 +28,25 @@
       };
 
       idle = {
+        timeouts = [
+          {
+            timeout = if host == "desktop" then 600 else 300;
+            idleAction = "lock";
+          }
+
+          (lib.optionalAttrs (host == "laptop") {
+            timeout = 300;
+            idleAction = "dpms off";
+            returnAction = "dpms on";
+          })
+
+          {
+            timeout = if host == "desktop" then 1200 else 600;
+            idleAction = ["systemctl" "suspend-then-hibernate"];
+          }
+        ];
         inhibitWhenAudio = true;
-        lockTimeout = 300; # 5 minutes
-        dpmsTimeout = 600; # 10 minutes
-        sleepTimeout = 1800; # 30 minutes
+        lockBeforeSleep = true;
       };
     };
   };
