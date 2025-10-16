@@ -9,7 +9,7 @@
     };
 
     defaultKeymap = "viins";
-    dotDir =  config.xdg.configHome + "/zsh";
+    dotDir = config.xdg.configHome + "/zsh";
 
     oh-my-zsh = {
       enable = true;

@@ -13,13 +13,13 @@
 
   networking.networkmanager.enable = true;
   networking.wireless.networks.eduroam = {
-   auth = ''
-     key_mgmt=WPA-EAP
-     eap=PWD
-     identity="415938@net.aau.dk"
-     password="jnpfupugnxjeuvx"
-   '';
- };
+    auth = ''
+      key_mgmt=WPA-EAP
+      eap=PWD
+      identity="415938@net.aau.dk"
+      password="jnpfupugnxjeuvx"
+    '';
+  };
 
   services.nextDNS = {
     enable = false;

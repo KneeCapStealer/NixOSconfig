@@ -21,14 +21,13 @@ stdenv.mkDerivation {
   pname = "vulkan-hdr-layer";
   version = "63d2eec";
 
-  src = 
-    fetchFromGitHub {
-      owner = "Zamundaaa";
-      repo = "VK_hdr_layer";
-      rev = "7c0553d88b38e62eb7fd83f3d25f50733309c866";
-      fetchSubmodules = true;
-      hash = "sha256-arJJWel6WooZ4SHwl0NXK44xOMgHMo1n++eJSVrone4=";
-    };
+  src = fetchFromGitHub {
+    owner = "Zamundaaa";
+    repo = "VK_hdr_layer";
+    rev = "7c0553d88b38e62eb7fd83f3d25f50733309c866";
+    fetchSubmodules = true;
+    hash = "sha256-arJJWel6WooZ4SHwl0NXK44xOMgHMo1n++eJSVrone4=";
+  };
 
   nativeBuildInputs = [
     vulkan-headers

@@ -17,11 +17,13 @@
       b = "branch";
     };
 
-    signing.key = if host == "desktop"
-                  then "28803B602DA4F5BE"
-                  else if host == "laptop"
-                  then "8384C1918B58E2BB"
-                  else null;
+    signing.key =
+      if host == "desktop" then
+        "28803B602DA4F5BE"
+      else if host == "laptop" then
+        "8384C1918B58E2BB"
+      else
+        null;
 
     signing.signByDefault = host != "standalone";
 

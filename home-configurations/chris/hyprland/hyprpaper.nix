@@ -16,12 +16,18 @@
         ipc = false;
         splash = true;
         preload = wallpaperPath;
-        wallpaper = if host == "desktop" then [
-          "DP-1,${wallpaperPath}"
-          "HDMI-A-1,${wallpaperPath}"
-        ] else if host == "laptop" then [
-          "eDP-1,${wallpaperPath}"
-        ] else "";
+        wallpaper =
+          if host == "desktop" then
+            [
+              "DP-1,${wallpaperPath}"
+              "HDMI-A-1,${wallpaperPath}"
+            ]
+          else if host == "laptop" then
+            [
+              "eDP-1,${wallpaperPath}"
+            ]
+          else
+            "";
       };
     };
 }

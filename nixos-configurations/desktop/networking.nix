@@ -1,4 +1,9 @@
-{ ezModules, pkgs, lib, ... }:
+{
+  ezModules,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     ezModules.protonVPN

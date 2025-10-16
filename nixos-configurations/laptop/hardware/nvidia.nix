@@ -2,7 +2,10 @@
 {
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" "modesetting" ];
+    videoDrivers = [
+      "nvidia"
+      "modesetting"
+    ];
   };
 
   environment.variables = {
