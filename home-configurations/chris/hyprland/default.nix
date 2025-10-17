@@ -232,14 +232,16 @@ in
       windowrule =
         let
           addGame = title: [
-            "immediate, title:${title}"
+            "immediate, title: ${title}"
             "idleinhibit focus, title: ${title}"
           ];
         in
         [
           "suppressevent maximize, class:.*" # You'll probably like this.
-          "immediate, class:^(gamescope)$"
-          "immediate, class:steam_app_.*"
+          "immediate, class: gamescope"
+          "immediate, class: steam_app_.*"
+          "idleinhibit focus, class: steam_app_.*"
+          "idleinhibit focus, class: gamescope"
         ]
         ++ (addGame "Hollow Knight Silksong");
     };
