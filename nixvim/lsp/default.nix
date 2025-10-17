@@ -37,7 +37,7 @@ in
     '';
 
     servers = {
-      "*".settings = {
+      "*".config = {
         capabilities = helpers.mkRaw "require('cmp_nvim_lsp').default_capabilities()";
       };
       nixd.enable = true;
