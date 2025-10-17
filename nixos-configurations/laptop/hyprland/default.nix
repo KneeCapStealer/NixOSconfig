@@ -7,8 +7,9 @@
     ./gdm.nix
   ];
 
-  nixpkgs.overlays = [
-    inputs.hyprland.overlays.hyprland-packages
+  nixpkgs.overlays = with inputs; [
+    hyprland.overlays.default
+    hyprland-plugins.overlays.default
   ];
 
   programs.hyprland = {
