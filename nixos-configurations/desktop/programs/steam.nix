@@ -36,4 +36,10 @@
       "--hdr-enabled"
     ];
   };
+
+  # Possible increased performance and compatibility with windows games
+  boot.kernelModules = [ "ntsync" ];
+  environment.sessionVariables = {
+    PROTON_USE_NTSYNC = 1;
+  };
 }
