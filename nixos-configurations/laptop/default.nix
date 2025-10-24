@@ -26,7 +26,7 @@
     enable = true;
     scheduler = "scx_lavd";
 
-    package = pkgs.scx_git.rustscheds;
+    package = pkgs.scx.rustscheds;
   };
 
   services.udisks2 = {
