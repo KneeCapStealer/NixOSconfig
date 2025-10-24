@@ -197,6 +197,10 @@ in
         sensitivity = -0.5;
       };
 
+      gesture = with bindings;
+        windowGestures;
+        #++ workspaceGestures;
+
       ####################
       ### KEYBINDINGSS ###
       ####################

@@ -40,6 +40,9 @@ in
     "$mod, up, layoutmsg, focus u"
     "$mod, down, layoutmsg, focus d"
 
+    "$mod, mouse_up, layoutmsg, focus l"
+    "$mod, mouse_down, layoutmsg, focus r"
+
     # Move window between monitors
     "$mod SHIFT, left, layoutmsg, movewindowto l"
     "$mod SHIFT, right, layoutmsg, movewindowto r"
@@ -49,10 +52,6 @@ in
   ++ (map (i: "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}") (lib.range 1 9));
 
   workspaceManipulation = [
-    # Scroll through existing workspaces with mainMod + scroll
-    "$mod, mouse_down, workspace, e+1"
-    "$mod, mouse_up, workspace, e-1"
-
     # Move workspace to window
     "$mod CONTROL, left, movecurrentworkspacetomonitor, +1"
     "$mod CONTROL, right, movecurrentworkspacetomonitor, -1"
@@ -88,5 +87,12 @@ in
     [
       (exec "" "XF86AudioRaiseVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}+")
       (exec "" "XF86AudioLowerVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}-")
+    ];
+
+    windowGestures = [
+      "3, left, dispatcher, layoutmsg, focus r"
+      "3, right, dispatcher, layoutmsg, focus l"
+      "2, pinch, resize"
+      "3, down, float"
     ];
 }
