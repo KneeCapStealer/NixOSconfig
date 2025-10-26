@@ -62,7 +62,6 @@
     discord
     spotify
     inputs.zen-browser.packages."${system}".default
-    tor-browser
     qbittorrent-enhanced
     proton-pass
     prismlauncher

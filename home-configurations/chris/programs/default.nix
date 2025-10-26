@@ -2,6 +2,7 @@
 {
   imports = [
     (import ./btop.nix { inherit pkgs host; })
+    ./foot.nix
     # ./rofi.nix
     # ./kitty.nix
     ./yazi.nix
