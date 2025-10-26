@@ -5,19 +5,12 @@
   lib,
   host,
   ...
-}:
+}@args:
 {
   imports = [
-    (import ./dev { inherit host pkgs; })
-    (import ./programs { inherit host pkgs; })
-    (import ./hyprland {
-      inherit
-        host
-        pkgs
-        lib
-        inputs
-        ;
-    })
+    (import ./dev args)
+    (import ./programs args)
+    (import ./hyprland args)
     ./gaming
     ./scripts
 

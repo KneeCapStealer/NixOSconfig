@@ -89,10 +89,19 @@ in
       (exec "" "XF86AudioLowerVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}-")
     ];
 
-    windowGestures = [
-      "3, left, dispatcher, layoutmsg, focus r"
-      "3, right, dispatcher, layoutmsg, focus l"
-      "2, pinch, resize"
-      "3, down, float"
+  brightnessControlsRepeat =
+    let
+      increment = "5%";
+    in
+    [
+      (exec "" "XF86MonBrightnessUp" "brightnessctl s ${increment}+")
+      (exec "" "XF86MonBrightnessDown" "brightnessctl s ${increment}-")
     ];
+
+  windowGestures = [
+    "3, left, dispatcher, layoutmsg, focus r"
+    "3, right, dispatcher, layoutmsg, focus l"
+    "2, pinch, resize"
+    "3, down, float"
+  ];
 }

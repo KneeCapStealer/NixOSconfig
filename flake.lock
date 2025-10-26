@@ -120,6 +120,22 @@
         "type": "github"
       }
     },
+    "custom-nixpkgs": {
+      "locked": {
+        "lastModified": 1761376749,
+        "narHash": "sha256-rRT9C0+BuY/sGlMdclE5NivfckqAets6xtH3H8DLLqw=",
+        "owner": "KneeCapStealer",
+        "repo": "nixpkgs",
+        "rev": "132c8214e3100e18eca293475f513e8e72c7e5fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KneeCapStealer",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "ez-configs": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -876,6 +892,7 @@
         "caelestia-shell": "caelestia-shell",
         "catppuccin": "catppuccin",
         "chaotic": "chaotic",
+        "custom-nixpkgs": "custom-nixpkgs",
         "ez-configs": "ez-configs",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager_2",

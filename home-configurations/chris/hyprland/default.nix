@@ -53,24 +53,35 @@ in
         ", preferred, auto, auto"
       ];
 
-      monitorv2 = lib.mkIf (host == "desktop") [
-        {
-          output = "DP-1";
-          mode = "2560x1440@239.99";
-          position = "1920x-350";
-          scale = 1;
-          bitdepth = 10;
-          cm = "hdr";
-          sdrbrightness = 1.35;
-          sdrsaturation = 1.4;
-        }
-        {
-          output = "HDMI-A-1";
-          mode = "1920x1080@59.94Hz";
-          position = "0x0";
-          scale = 1;
-          bitdepth = 8;
-        }
+      monitorv2 = lib.mkMerge [
+        (lib.mkIf (host == "desktop") [
+          {
+            output = "DP-1";
+            mode = "2560x1440@239.99";
+            position = "1920x-350";
+            scale = 1;
+            bitdepth = 10;
+            cm = "hdr";
+            sdrbrightness = 1.35;
+            sdrsaturation = 1.4;
+          }
+          {
+            output = "HDMI-A-1";
+            mode = "1920x1080@59.94Hz";
+            position = "0x0";
+            scale = 1;
+            bitdepth = 8;
+          }
+        ])
+        (lib.mkIf (host == "laptop") [
+          {
+            output = "eDP-1";
+            mode = "1920x1080@60.00Hz";
+            position = "0x0";
+            scale = 1;
+            bitdepth = 8;
+          }
+        ])
       ];
 
       experimental.xx_color_management_v4 = true;
@@ -197,9 +208,8 @@ in
         sensitivity = -0.5;
       };
 
-      gesture = with bindings;
-        windowGestures;
-        #++ workspaceGestures;
+      gesture = with bindings; windowGestures;
+      #++ workspaceGestures;
 
       ####################
       ### KEYBINDINGSS ###

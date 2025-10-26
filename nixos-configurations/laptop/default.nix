@@ -10,6 +10,7 @@
     ./programs
 
     #./home-manager.nix
+    ./appimage.nix
     ./nix.nix
     ./boot.nix
     ./bluetooth.nix
