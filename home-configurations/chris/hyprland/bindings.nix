@@ -18,6 +18,7 @@ in
     (superExec "E" "$fileManager")
     (superExec "N" "$browser")
     (superExec "ESCAPE" "eww open powermenu")
+    "$mod SHIFT, E, exec, caelestia emoji -p"
   ];
 
   caelestiaGlobals = [
