@@ -4,7 +4,6 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    custom-nixpkgs.url = "github:KneeCapStealer/nixpkgs/master";
 
     ez-configs.url = "github:KneeCapStealer/ez-configs";
     catppuccin.url = "github:catppuccin/nix";
@@ -23,7 +22,7 @@
     };
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -68,8 +67,6 @@
 
       ezConfigs.root = ./.;
       ezConfigs.globalArgs = { inherit inputs self; };
-      ezConfigs.nixos.hosts = {
-      };
 
       nixvim = {
         # Automatically install corresponding packages for each nixvimConfiguration

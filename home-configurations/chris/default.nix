@@ -2,8 +2,6 @@
   self,
   inputs,
   pkgs,
-  lib,
-  host,
   ...
 }@args:
 {
@@ -12,7 +10,6 @@
     (import ./programs args)
     (import ./hyprland args)
     ./gaming
-    ./scripts
 
     inputs.catppuccin.homeModules.catppuccin
     inputs.chaotic.homeManagerModules.default
@@ -54,7 +51,6 @@
     fastfetch
     discord
     spotify
-    inputs.zen-browser.packages."${system}".default
     qbittorrent-enhanced
     proton-pass
     prismlauncher
@@ -65,8 +61,4 @@
     networkmanagerapplet
     obsidian
   ];
-
-  home.sessionVariables = {
-    BROWSER = "zen";
-  };
 }

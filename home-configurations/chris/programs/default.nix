@@ -1,7 +1,8 @@
-{ host, pkgs, ... }:
+args:
 {
   imports = [
-    (import ./btop.nix { inherit pkgs host; })
+    (import ./btop.nix args)
+    (import ./zen.nix args)
     ./foot.nix
     # ./rofi.nix
     # ./kitty.nix

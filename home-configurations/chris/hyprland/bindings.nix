@@ -10,7 +10,7 @@ in
 
   "$mod" = "SUPER";
   "$term" = "foot.desktop";
-  "$browser" = "zen.desktop";
+  "$browser" = "zen-beta.desktop";
   "$fileManager" = "nemo.desktop";
 
   programShortcuts = [
