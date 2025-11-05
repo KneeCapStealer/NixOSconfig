@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./catppuccin
@@ -34,7 +34,7 @@
     enable = true;
     scheduler = "scx_lavd";
 
-    package = pkgs.scx_git.rustscheds;
+    package = pkgs.scx.rustscheds;
   };
 
   fonts = {
