@@ -63,6 +63,7 @@
     parsec-bin
     prusa-slicer
     networkmanagerapplet
+    obsidian
   ];
 
   home.sessionVariables = {
