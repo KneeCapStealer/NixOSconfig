@@ -19,6 +19,10 @@
 
   networking.wireless.iwd.enable = true;
 
+  # qbittorrent
+  networking.firewall.allowedTCPPorts = [ 49488 ];
+  networking.firewall.allowedUDPPorts = [ 49488 ];
+
   services.nextDNS = {
     enable = false;
     endpointId = "f8ac75";
