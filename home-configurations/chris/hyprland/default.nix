@@ -253,7 +253,8 @@ in
           "idleinhibit focus, class: steam_app_.*"
           "idleinhibit focus, class: gamescope"
         ]
-        ++ (addGame "Hollow Knight Silksong");
+        ++ (addGame "Hollow Knight Silksong")
+        ++ (addGame "The Witcher 3");
     };
   };
 }
