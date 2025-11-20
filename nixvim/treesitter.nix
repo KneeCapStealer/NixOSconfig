@@ -3,11 +3,11 @@
   plugins.treesitter = {
     enable = true;
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      c
       nix
       bash
       json
       lua
-      php
       zig
       cpp
       markdown

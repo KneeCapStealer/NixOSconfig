@@ -40,6 +40,9 @@
 
     scrolloff = 12;
     relativenumber = true;
+
+    undofile = true;
+    swapfile = false;
   };
 
   keymaps = [
