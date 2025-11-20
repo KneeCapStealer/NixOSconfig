@@ -8,7 +8,6 @@
 
 {
   imports = [
-    # ./web.nix
     ./langs/default.nix
   ];
 
