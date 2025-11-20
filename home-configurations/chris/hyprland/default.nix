@@ -191,7 +191,6 @@ in
       # https://wiki.hyprland.org/Configuring/Variables/#input
       input = {
         kb_layout = "dk";
-        kb_variant = "nodeadkeys";
         follow_mouse = 1;
 
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
@@ -199,13 +198,6 @@ in
         touchpad = {
           natural_scroll = true;
         };
-      };
-
-      # Example per-device config
-      # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-      device = {
-        name = "epic-mouse-v1";
-        sensitivity = -0.5;
       };
 
       gesture = with bindings; windowGestures;
@@ -235,26 +227,30 @@ in
       binde = bindings.audioControlsRepeat;
       bindm = bindings.mouseBindings;
 
-      ##############################
-      ### WINDOWS AND WORKSPACES ###
-      ##############################
-      # Example windowrule v2
       windowrule =
-        let
-          addGame = title: [
-            "immediate, title: ${title}"
-            "idleinhibit focus, title: ${title}"
-          ];
-        in
-        [
-          "suppressevent maximize, class:.*" # You'll probably like this.
-          "immediate, class: gamescope"
-          "immediate, class: steam_app_.*"
-          "idleinhibit focus, class: steam_app_.*"
-          "idleinhibit focus, class: gamescope"
-        ]
-        ++ (addGame "Hollow Knight Silksong")
-        ++ (addGame "The Witcher 3");
+      let
+        # createGameRule :: [String] -> Attrset
+        createGameRule = names: if !builtins.isList names then throw "createGameRule only accepts a list of strings as a parameter" else
+        with builtins; let
+          # Create a string like so: "(game-1)|(game-2)|(Third Game Name: Preimium Edition)|"
+          titleRegEx' = foldl' (matchStr: gameName: matchStr + "(${gameName})|" ) "" names;
+          # Cut off the trailing '|' character.
+          titleRegEx = substring 0 (stringLength titleRegEx' - 1) titleRegEx';
+        in {
+          name = "immediate-no-idle-game";
+          "match:title" = titleRegEx;
+
+          immediate = "on";
+          idle_inhibit = "focus";
+        };
+      in [
+        (createGameRule [
+          "steam_app_.*"
+          "Hollow Knight Silksong"
+          "The Witcher 3"
+        ])
+      ];
     };
+
   };
 }
