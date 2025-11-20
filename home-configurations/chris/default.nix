@@ -60,5 +60,6 @@
     prusa-slicer
     networkmanagerapplet
     obsidian
+    firefox
   ];
 }
