@@ -9,6 +9,7 @@
     ./ufo.nix
     ./zig.nix
     ./debugging.nix
+    ./telescope.nix
   ];
 
   plugins.nix.enable = true;
