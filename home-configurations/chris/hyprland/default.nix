@@ -228,10 +228,10 @@ in
       bindm = bindings.mouseBindings;
 
       windowrule =
-      let
+      with builtins; let
         # createGameRule :: [String] -> Attrset
-        createGameRule = names: if !builtins.isList names then throw "createGameRule only accepts a list of strings as a parameter" else
-        with builtins; let
+        createGameRule = names: if !isList names then throw "createGameRule only accepts a list of strings as a parameter" else
+        let
           # Create a string like so: "(game-1)|(game-2)|(Third Game Name: Preimium Edition)|"
           titleRegEx' = foldl' (matchStr: gameName: matchStr + "(${gameName})|" ) "" names;
           # Cut off the trailing '|' character.

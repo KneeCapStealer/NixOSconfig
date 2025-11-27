@@ -2,6 +2,7 @@
   self,
   inputs,
   pkgs,
+  osConfig,
   ...
 }@args:
 {
@@ -21,13 +22,14 @@
   home.homeDirectory = "/home/chris";
 
   programs.home-manager.enable = true;
-  home.stateVersion = "25.05";
+  home.stateVersion = osConfig.system.stateVersion;
 
   # My (VEERY thorough) ricing v2.0: HomeManager EDITION!!
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
   catppuccin.accent = "peach";
   catppuccin.cursors.enable = true;
+  catppuccin.cache.enable = true;
 
   # usb
   services.udiskie = {
