@@ -69,7 +69,7 @@
     brightnessctl
   ];
 
-  services.journald.extraConfig = "SystemMaxUse=1G";
+  services.journald.extraConfig = "SystemMaxUse=8G";
 
   system.stateVersion = "25.05";
 }
