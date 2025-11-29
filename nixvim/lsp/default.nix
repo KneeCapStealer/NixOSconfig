@@ -41,6 +41,7 @@ in
       nixd.enable = true;
       zls.enable = true;
       glsl_analyzer.enable = true;
+      basedpyright.enable = true;
       clangd = {
         enable = true;
         package = pkgs.llvmPackages_latest.clang-tools;
