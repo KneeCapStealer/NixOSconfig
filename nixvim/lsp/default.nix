@@ -35,9 +35,9 @@ in
     '';
 
     servers = {
-      "*".config = {
-        capabilities = helpers.mkRaw "require('cmp_nvim_lsp').default_capabilities()";
-      };
+      # "*".config = {
+      #   capabilities = helpers.mkRaw "require('cmp_nvim_lsp').default_capabilities()";
+      # };
       nixd.enable = true;
       zls.enable = true;
       glsl_analyzer.enable = true;
@@ -46,7 +46,12 @@ in
         enable = true;
         package = pkgs.llvmPackages_latest.clang-tools;
       };
-      hsl.enable = true;
+      hls = {
+        enable = true;
+        settings = {
+          config.plugin.hlint.diagnosticsOn = false;
+        };
+      };
     };
   };
 

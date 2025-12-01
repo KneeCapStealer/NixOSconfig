@@ -15,6 +15,7 @@
       vim
       glsl
       qmljs
+      haskell
     ];
 
     settings = {
