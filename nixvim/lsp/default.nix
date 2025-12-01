@@ -46,6 +46,7 @@ in
         enable = true;
         package = pkgs.llvmPackages_latest.clang-tools;
       };
+      hsl.enable = true;
     };
   };
 
