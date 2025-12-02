@@ -19,4 +19,9 @@ args:
 
     ./eww
   ];
+
+  programs.obs-studio.enable = true;
+  programs.eza.enable = true;
+  programs.bat.enable = true;
+  programs.less.enable = true;
 }
