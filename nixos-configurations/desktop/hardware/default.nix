@@ -1,6 +1,7 @@
 {
   imports = [
     ./amdgpu.nix
+    ./keyboard.nix
   ];
 
   hardware = {
