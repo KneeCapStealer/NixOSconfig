@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./catppuccin
@@ -77,6 +77,10 @@
     gzip
     wget
     curl
+  ];
+
+  services.displayManager.sessionPackages = [
+    inputs.river.packages.x86_64-linux.river
   ];
 
   system.stateVersion = "25.05";

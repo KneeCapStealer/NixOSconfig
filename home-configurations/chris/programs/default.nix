@@ -24,4 +24,6 @@ args:
   programs.eza.enable = true;
   programs.bat.enable = true;
   programs.less.enable = true;
+
+  home.packages = [args.pkgs.google-chrome];
 }
