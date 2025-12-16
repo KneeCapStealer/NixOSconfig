@@ -226,37 +226,43 @@ in
       bindm = bindings.mouseBindings;
 
       windowrule =
-      with builtins; let
-        # createGameRule :: [String] -> Attrset
-        createGameRule = names: if !isList names then throw "createGameRule only accepts a list of strings as a parameter" else
+        with builtins;
         let
-          # Create a string like so: "(game-1)|(game-2)|(Third Game Name: Preimium Edition)|"
-          titleRegEx = foldl' (matchStr: gameName: matchStr + "(${gameName})|" ) "" names;
-          # Cut off the trailing '|' character.
-          titleRegEx' = substring 0 (stringLength titleRegEx - 1) titleRegEx;
-        in {
-          name = "immediate-no-idle-game";
-          "match:title" = titleRegEx';
+          # createGameRule :: [String] -> Attrset
+          createGameRule =
+            names:
+            if !isList names then
+              throw "createGameRule only accepts a list of strings as a parameter"
+            else
+              let
+                # Create a string like so: "(game-1)|(game-2)|(Third Game Name: Preimium Edition)|"
+                titleRegEx = foldl' (matchStr: gameName: matchStr + "(${gameName})|") "" names;
+                # Cut off the trailing '|' character.
+                titleRegEx' = substring 0 (stringLength titleRegEx' - 1) titleRegEx;
+              in
+              {
+                name = "immediate-no-idle-game";
+                "match:title" = titleRegEx';
+                immediate = "on";
+                idle_inhibit = "focus";
+              };
+        in 
+        [
+          (createGameRule [
+            "steam_app_.*"
+            "Hollow Knight Silksong"
+            "The Witcher 3"
+            "Clair Obscur: Expedition 33.*"
+          ])
 
-          immediate = "on";
-          idle_inhibit = "focus";
-        };
-      in [
-        (createGameRule [
-          "steam_app_.*"
-          "Hollow Knight Silksong"
-          "The Witcher 3"
-          "Clair Obscur: Expedition 33.*"
-        ])
+          {
+            name = "immediate-no-idle-game-content";
+            "match:content" = 3;
 
-        {
-          name = "immediate-no-idle-game-content";
-          "match:content" = 3;
-
-          immediate = "on";
-          idle_inhibit = "focus";
-        }
-      ];
+            immediate = "on";
+            idle_inhibit = "focus";
+          }
+        ];
     };
 
   };
