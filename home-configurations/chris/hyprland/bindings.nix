@@ -2,16 +2,16 @@
 let
   exec =
     mods: key: app:
-    "${mods}, ${key}, exec, uwsm app -- ${app}";
+    "${mods}, ${key}, exec, ${app}";
   superExec = exec "SUPER";
 in
 {
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
   "$mod" = "SUPER";
-  "$term" = "foot.desktop";
-  "$browser" = "zen-beta.desktop";
-  "$fileManager" = "nemo.desktop";
+  "$term" = "foot";
+  "$browser" = "zen-beta";
+  "$fileManager" = "nemo";
 
   programShortcuts = [
     (superExec "Q" "$term")
