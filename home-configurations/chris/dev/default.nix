@@ -2,7 +2,6 @@
   config,
   pkgs,
   host,
-  inputs,
   ...
 }:
 
@@ -11,17 +10,7 @@
     ./langs/default.nix
   ];
 
-  nixpkgs.config.segger-jlink.acceptLicense = true;
   nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [
-    nrf-command-line-tools
-    python313Packages.west
-    vscode
-    segger-jlink
-  ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "segger-jlink-qt4-874"
-  ];
 
   programs.git = {
     enable = true;
@@ -35,6 +24,10 @@
       alias = {
         amend = "commit --amend -a";
         b = "branch";
+        yank = "pull";
+        lg1 = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all";
+        lg2 = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'";
+        lg = "lg1";
       };
 
       color = {
