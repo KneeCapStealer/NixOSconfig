@@ -31,7 +31,6 @@
       vim = "nvim";
       v = "nvim";
       vimdiff = "nvim -d";
-      gs = "git status";
       nd = "nix develop";
     };
   };

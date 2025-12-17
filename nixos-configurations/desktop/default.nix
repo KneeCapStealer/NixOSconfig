@@ -32,7 +32,7 @@
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
     enable = true;
-    scheduler = "scx_lavd";
+    scheduler = "scx_bpfland";
 
     package = pkgs.scx.rustscheds;
   };

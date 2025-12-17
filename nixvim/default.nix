@@ -10,6 +10,8 @@
     ./zig.nix
     ./debugging.nix
     ./telescope.nix
+    ./leap.nix
+    ./surround.nix
   ];
 
   plugins.nix.enable = true;

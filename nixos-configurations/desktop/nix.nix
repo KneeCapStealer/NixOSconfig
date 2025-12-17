@@ -12,7 +12,8 @@
         "@wheel"
       ];
 
-      max-jobs = 4;
+      max-jobs = 6;
+      cores = 16;
     };
 
     package = pkgs.nixVersions.latest;
