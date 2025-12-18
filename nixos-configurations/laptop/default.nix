@@ -46,7 +46,7 @@
   fileSystems =
     let
       default = [
-        "compress=zstd"
+        "compress=zstd:7"
         "noatime"
       ];
     in
@@ -54,6 +54,7 @@
       "/".options = default;
       "/home".options = default;
       "/nix".options = default;
+      "/swap".options = [ "nodatacow" ];
     };
 
   programs.gnupg.agent = {
