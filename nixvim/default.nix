@@ -1,4 +1,11 @@
 {
+  lib,
+  ...
+}:
+let
+  helpers = lib.nixvim;
+in
+{
   imports = [
     ./lsp
 
@@ -48,14 +55,34 @@
     swapfile = false;
   };
 
-  keymaps = [
+  keymaps = let 
+    centerCmd = cmd: {
+      key = cmd;
+      action = "${cmd}zz";
+    };
+  in (builtins.map centerCmd [
+    "<C-d>"
+    "<C-u>"
+    "<C-f>"
+    "<C-b>"
+  ]) ++ [
     {
-      action = "<C-d>zz";
-      key = "<C-d>";
+      key = "<C-u>";
+      action = "<C-u>zz";
     }
     {
-      action = "<C-u>zz";
-      key = "<C-u>";
+      mode = [ "n" ];
+      key = "i";
+      action = helpers.mkRaw ''
+      function ()
+        return vim.api.nvim_get_current_line():match('%g') == nil and 'cc' or 'i'
+      end
+      '';
+      options = {
+        expr = true;
+        noremap = true;
+        desc = "Enter insert mode, with correct indentation";
+      };
     }
   ];
 }
