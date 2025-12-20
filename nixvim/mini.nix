@@ -16,7 +16,6 @@ in
       git = { };
 
       icons = { };
-      animate = { };
       statusline = { };
       indentscope = { };
       starter = {
