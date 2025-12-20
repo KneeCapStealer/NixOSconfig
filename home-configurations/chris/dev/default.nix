@@ -58,5 +58,10 @@
         null;
 
     signing.signByDefault = config.programs.git.signing.key != null;
+
+    ignores = [
+      ".envrc"
+      ".direnv/"
+    ];
   };
 }

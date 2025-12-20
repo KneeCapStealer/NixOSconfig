@@ -7,6 +7,7 @@
     (import ./btop.nix args)
     (import ./zen.nix args)
     ./foot.nix
+    ./direnv.nix
     # ./rofi.nix
     # ./kitty.nix
     ./yazi.nix
