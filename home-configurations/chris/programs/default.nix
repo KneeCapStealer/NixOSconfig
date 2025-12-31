@@ -1,4 +1,7 @@
-args:
+{
+  pkgs,
+  ...
+}@args:
 {
   imports = [
     (import ./btop.nix args)
@@ -26,5 +29,8 @@ args:
   programs.less.enable = true;
   programs.ripgrep.enable = true;
 
-  home.packages = [args.pkgs.google-chrome];
+  home.packages = with pkgs; [
+    google-chrome
+    tor-browser
+  ];
 }
