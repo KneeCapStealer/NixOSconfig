@@ -28,7 +28,6 @@ in
 
   windowManipulation = [
     "$mod, C, killactive,"
-    "$mod, M, exit,"
     "$mod, F, togglefloating,"
     "$mod, RETURN, fullscreen,"
     "$mod, TAB, layoutmsg, colresize +conf"
