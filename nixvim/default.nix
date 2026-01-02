@@ -55,34 +55,43 @@ in
     swapfile = false;
   };
 
-  keymaps = let 
-    centerCmd = cmd: {
-      key = cmd;
-      action = "${cmd}zz";
-    };
-  in (builtins.map centerCmd [
-    "<C-d>"
-    "<C-u>"
-    "<C-f>"
-    "<C-b>"
-  ]) ++ [
-    {
-      key = "<C-u>";
-      action = "<C-u>zz";
-    }
-    {
-      mode = [ "n" ];
-      key = "i";
+  keymaps =
+    let
+      genkeymaps =
+        mode: keys: f:
+        let
+          defaultkeymaps = builtins.map (key: {
+            inherit mode key;
+            action = key;
+          }) keys;
+        in
+        builtins.map (kmap: kmap // f kmap) defaultkeymaps;
+
+    in
+    # center after scrolling
+    (genkeymaps
+      [ "n" "v" ]
+      [
+        "<c-d>"
+        "<c-u>"
+        "<c-f>"
+        "<c-b>"
+      ]
+      (kmap: {
+        action = "${kmap.key}zz";
+      })
+    )
+    # go to correct indentation when entering insert mode
+    ++ (genkeymaps [ "n" ] [ "i" "a" ] (kmap: {
       action = helpers.mkRaw ''
-      function ()
-        return vim.api.nvim_get_current_line():match('%g') == nil and 'cc' or 'i'
-      end
+        function ()
+          return vim.api.nvim_get_current_line():match('%g') == nil and 'cc' or kmap.key
+        end
       '';
       options = {
         expr = true;
         noremap = true;
-        desc = "Enter insert mode, with correct indentation";
+        desc = "enter insert mode, with correct indentation";
       };
-    }
-  ];
+    }));
 }

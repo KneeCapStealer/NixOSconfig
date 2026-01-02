@@ -1,5 +1,4 @@
-name:
-{
+name: {
   extraFiles = {
     "ftplugin/${name}.lua".text = ''
       vim.opt.tabstop = 2;

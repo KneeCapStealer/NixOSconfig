@@ -238,15 +238,16 @@ in
                 # Create a string like so: "(game-1)|(game-2)|(Third Game Name: Preimium Edition)|"
                 titleRegEx = foldl' (matchStr: gameName: matchStr + "(${gameName})|") "" names;
                 # Cut off the trailing '|' character.
-                titleRegEx' = substring 0 (stringLength titleRegEx' - 1) titleRegEx;
+                titleRegEx' = substring 0 (stringLength titleRegEx - 1) titleRegEx;
               in
               {
                 name = "immediate-no-idle-game";
                 "match:title" = titleRegEx';
+
                 immediate = "on";
                 idle_inhibit = "focus";
               };
-        in 
+        in
         [
           (createGameRule [
             "steam_app_.*"
