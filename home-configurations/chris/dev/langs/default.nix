@@ -1,6 +1,6 @@
 {
   imports = [
     ./nix.nix
-    # ./zig.nix
+    ./devtools.nix
   ];
 }
