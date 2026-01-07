@@ -21,9 +21,12 @@ in
     hyprland-plugins.overlays.default
   ];
 
+  home.packages = with pkgs; [
+    xwayland
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
     systemd.enable = true;
 
     package = null;
@@ -52,6 +55,8 @@ in
       monitor = [
         ", preferred, auto, auto"
       ];
+
+      xwayland.create_abstract_socket = true;
 
       monitorv2 = lib.mkMerge [
         (lib.mkIf (host == "desktop") [
