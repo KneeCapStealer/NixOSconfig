@@ -60,12 +60,12 @@ in
       genkeymaps =
         mode: keys: f:
         let
-          defaultkeymaps = builtins.map (key: {
+          defaultkeymaps = map (key: {
             inherit mode key;
             action = key;
           }) keys;
         in
-        builtins.map (kmap: kmap // f kmap) defaultkeymaps;
+        map (kmap: kmap // f kmap) defaultkeymaps;
 
     in
     # center after scrolling
@@ -85,7 +85,7 @@ in
     ++ (genkeymaps [ "n" ] [ "i" "a" ] (kmap: {
       action = helpers.mkRaw ''
         function ()
-          return vim.api.nvim_get_current_line():match('%g') == nil and 'cc' or kmap.key
+          return vim.api.nvim_get_current_line():match('%g') == nil and 'cc' or '${kmap.key}'
         end
       '';
       options = {
