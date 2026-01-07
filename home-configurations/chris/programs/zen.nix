@@ -13,8 +13,6 @@
     enable = true;
     nativeMessagingHosts = with pkgs; [
       firefoxpwa
-      vesktop
-      obsidian
     ];
 
     policies = {
