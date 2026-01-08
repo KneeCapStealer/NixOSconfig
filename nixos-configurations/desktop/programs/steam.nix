@@ -31,7 +31,7 @@
   programs.gamescope = {
     enable = true;
     package = pkgs.gamescope_git;
-    capSysNice = true;
+    # capSysNice = true;
     args = [
       "--hdr-enabled"
     ];
