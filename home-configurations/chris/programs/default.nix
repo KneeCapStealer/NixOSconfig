@@ -6,20 +6,18 @@
   imports = [
     (import ./btop.nix args)
     (import ./zen.nix args)
-    ./foot.nix
+    ./caelestia-shell.nix
     ./direnv.nix
-    # ./rofi.nix
-    # ./kitty.nix
-    ./yazi.nix
+    ./foot.nix
+    ./ghostty.nix
+    ./gtk.nix
     ./mpv.nix
-    ./zsh.nix
+    ./nemo.nix
     ./nvim.nix
     ./qt.nix
-    ./gtk.nix
     ./vesktop.nix
-    ./nemo.nix
-    ./ghostty.nix
-    ./caelestia-shell.nix
+    ./yazi.nix
+    ./zsh.nix
 
     ./eww
   ];
@@ -33,5 +31,6 @@
   home.packages = with pkgs; [
     google-chrome
     tor-browser
+    easyeffects
   ];
 }
