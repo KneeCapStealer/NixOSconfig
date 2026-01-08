@@ -8,5 +8,6 @@
     enable = true;
     flavor = "mocha";
     accent = "peach";
+    cache.enable = true;
   };
 }
