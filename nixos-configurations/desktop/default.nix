@@ -84,20 +84,4 @@
   ];
 
   system.stateVersion = "25.05";
-
-  systemd.user.services.enable-numlock-on-startup = {
-    description = "Enabled numlock when logging in";
-    path = [ pkgs.kbd ];
-    script = ''
-      #!/usr/bin/env sh
-
-      # Enable numlock for each tty
-      for tty in /dev/tty{1..7}
-      do
-          setleds -D +num < "$tty";
-      done
-    '';
-
-    wantedBy = [ "default.target" ];
-  };
 }
