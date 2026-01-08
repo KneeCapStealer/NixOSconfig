@@ -16,7 +16,6 @@
     ./danish.nix
     ./hardware-configuration.nix
     ./networking.nix
-    ./printing.nix
   ];
 
   services.dbus = {
