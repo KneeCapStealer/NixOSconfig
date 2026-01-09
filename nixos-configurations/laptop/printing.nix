@@ -13,6 +13,6 @@
     hplip
     splix
     canon-cups-ufr2
-    cnijfilter2
+    # cnijfilter2
   ];
 }

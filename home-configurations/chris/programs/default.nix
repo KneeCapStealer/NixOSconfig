@@ -32,5 +32,6 @@
     google-chrome
     tor-browser
     easyeffects
+    libreoffice
   ];
 }
