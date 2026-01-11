@@ -40,7 +40,13 @@ in
         capabilities = helpers.mkRaw "require('cmp_nvim_lsp').default_capabilities()";
       };
       nixd.enable = true;
-      zls.enable = true;
+      zls = {
+        enable = true;
+        config = {
+          enable_build_on_save = true;
+          build_on_save_step = "check";
+        };
+      };
       glsl_analyzer.enable = true;
       basedpyright.enable = true;
       clangd = {
@@ -49,7 +55,7 @@ in
       };
       hls = {
         enable = true;
-        package = null;
+        package = pkgs.haskell-language-server.override { supportedGhcVersions = [ "912" ]; };
       };
     };
   };
