@@ -54,6 +54,8 @@
           "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = "Return YouTube Dislike";
           "uBlock0@raymondhill.net" = "uBlock Origin";
           "{34daeb50-c2d2-4f14-886a-7160b24d66a4}" = "Youtube-shorts block";
+          "jid1-BoFifL9Vbdl2zQ@jetpack" = "Decentraleyes";
+          "CookieAutoDelete@kennydo.com" = "Cookie AutoDelete";
         };
     };
   };
