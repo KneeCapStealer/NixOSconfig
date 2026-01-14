@@ -11,6 +11,7 @@
     ./foot.nix
     ./ghostty.nix
     ./gtk.nix
+    ./libreoffice.nix
     ./mpv.nix
     ./nemo.nix
     ./nvim.nix
@@ -32,6 +33,5 @@
     google-chrome
     tor-browser
     easyeffects
-    libreoffice
   ];
 }
