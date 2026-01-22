@@ -1,5 +1,6 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
+  programs.fzf.enable = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -10,6 +11,22 @@
 
     defaultKeymap = "viins";
     dotDir = config.xdg.configHome + "/zsh";
+
+    initContent = 
+    let 
+      fzf = "source <(fzf --zsh)";
+      lineedit = ''
+        autoload -U edit-command-line
+        zle -N edit-command-line
+        bindkey "^xe" edit-command-line
+        bindkey "^x^e" edit-command-line
+      '';
+    in lib.mkMerge [
+      (lib.mkBefore fzf)
+      (lib.mkAfter lineedit)
+    ];
+
+
 
     oh-my-zsh = {
       enable = true;

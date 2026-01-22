@@ -9,7 +9,7 @@ in
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
   "$mod" = "SUPER";
-  "$term" = "foot";
+  "$term" = "ghostty";
   "$browser" = "zen-beta";
   "$fileManager" = "nemo";
 

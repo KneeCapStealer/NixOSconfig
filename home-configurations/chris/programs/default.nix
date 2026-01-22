@@ -8,7 +8,7 @@
     (import ./zen.nix args)
     ./caelestia-shell.nix
     ./direnv.nix
-    ./foot.nix
+    #./foot.nix
     ./ghostty.nix
     ./gtk.nix
     ./libreoffice.nix
