@@ -58,6 +58,7 @@
     compsize
     parsec-bin
     prusa-slicer
+    orca-slicer
     networkmanagerapplet
     obsidian
     firefox
