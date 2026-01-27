@@ -93,5 +93,14 @@ in
         noremap = true;
         desc = "enter insert mode, with correct indentation";
       };
-    }));
+    })) ++ [
+      {
+        mode = [ "n" ];
+        key = "<leader>fm";
+        action = helpers.mkRaw ''
+          function () vim.lsp.buf.format() end
+        '';
+        options.desc = "Format the current buffer";
+      }
+    ];
 }
