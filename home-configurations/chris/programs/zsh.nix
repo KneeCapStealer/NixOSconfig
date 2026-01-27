@@ -21,12 +21,24 @@
         bindkey "^xe" edit-command-line
         bindkey "^x^e" edit-command-line
       '';
+      mkdirc = ''
+        function mkdirc {
+          local nonFlags=()
+          for arg in $@; do
+            if [[ $arg != "-"* ]]; then
+              nonFlags+=($arg)
+            fi
+          done
+
+          mkdir $@
+          cd $nonFlags
+        }
+      '';
     in lib.mkMerge [
       (lib.mkBefore fzf)
       (lib.mkAfter lineedit)
+      (lib.mkAfter mkdirc)
     ];
-
-
 
     oh-my-zsh = {
       enable = true;
