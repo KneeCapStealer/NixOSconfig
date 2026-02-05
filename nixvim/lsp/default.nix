@@ -55,7 +55,7 @@ in
       };
       hls = {
         enable = true;
-        package = pkgs.haskell-language-server.override { supportedGhcVersions = [ "912" "910" ]; };
+        package = null;
       };
     };
   };
