@@ -13,16 +13,19 @@
     ./gaming
 
     inputs.catppuccin.homeModules.catppuccin
-    inputs.chaotic.homeManagerModules.default
   ];
 
   nix.package = pkgs.nixVersions.latest;
-
-  home.username = "chris";
-  home.homeDirectory = "/home/chris";
-
   programs.home-manager.enable = true;
-  home.stateVersion = osConfig.system.stateVersion;
+
+  home = {
+    username = "chris";
+    homeDirectory = "/home/chris";
+    stateVersion = osConfig.system.stateVersion;
+    language.base = "en_DK";
+    preferXdgDirectories = true;
+    extraOutputsToInstall = [ "doc" ];
+  };
 
   # My (VEERY thorough) ricing v2.0: HomeManager EDITION!!
   catppuccin.enable = true;
@@ -62,5 +65,6 @@
     networkmanagerapplet
     obsidian
     firefox
+    ffmpeg
   ];
 }

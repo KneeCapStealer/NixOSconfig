@@ -3,7 +3,6 @@
   imports = [
     ./catppuccin
 
-    ./chaotic
     ./users
     ./hyprland
     ./hardware
@@ -28,7 +27,7 @@
   services.openssh.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";

@@ -11,7 +11,6 @@
       enable = true;
     };
     extraCompatPackages = with pkgs; [
-      proton-ge-custom
     ];
 
     extraPackages = with pkgs; [
@@ -30,7 +29,6 @@
 
   programs.gamescope = {
     enable = true;
-    package = pkgs.gamescope_git;
     # capSysNice = true;
     args = [
       "--hdr-enabled"

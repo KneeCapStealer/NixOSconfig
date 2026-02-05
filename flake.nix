@@ -7,7 +7,6 @@
 
     ez-configs.url = "github:KneeCapStealer/ez-configs";
     catppuccin.url = "github:catppuccin/nix";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
 
     river = {
