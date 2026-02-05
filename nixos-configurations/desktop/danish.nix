@@ -2,6 +2,7 @@
 {
   i18n = {
     defaultLocale = "en_DK.UTF-8";
+    extraLocales = [ "da_DK.UTF-8/UTF-8" ];
     extraLocaleSettings = {
       LC_ADDRESS = "da_DK.UTF-8";
       LC_IDENTIFICATION = "da_DK.UTF-8";
@@ -13,8 +14,16 @@
       LC_TELEPHONE = "da_DK.UTF-8";
       LC_TIME = "da_DK.UTF-8";
     };
-  };
 
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-gtk
+        catppuccin-fcitx5
+      ];
+    };
+  };
   time.timeZone = "Europe/Copenhagen";
 
   services.xserver.xkb = {
