@@ -58,6 +58,7 @@ in
         package = null;
       };
       ts_ls.enable = true;
+      html.enable = true;
     };
   };
 
