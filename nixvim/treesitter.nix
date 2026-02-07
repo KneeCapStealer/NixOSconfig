@@ -16,6 +16,10 @@
       glsl
       qmljs
       haskell
+      javascript
+      typescript
+      html
+      pug
     ];
 
     settings = {

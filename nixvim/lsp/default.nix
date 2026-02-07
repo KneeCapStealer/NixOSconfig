@@ -59,6 +59,7 @@ in
       };
       ts_ls.enable = true;
       html.enable = true;
+      pug.enable = true;
     };
   };
 
