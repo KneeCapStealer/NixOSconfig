@@ -7,7 +7,8 @@
 
 {
   imports = [
-    ./langs/default.nix
+    ./langs
+    ./unity.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

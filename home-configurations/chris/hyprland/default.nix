@@ -66,9 +66,10 @@ in
             position = "1920x-350";
             scale = 1;
             bitdepth = 10;
-            cm = "hdr";
+            cm = "hdredid";
             sdrbrightness = 1.35;
             sdrsaturation = 1.4;
+            sdr_min_luminance = 0.005;
           }
           {
             output = "HDMI-A-1";

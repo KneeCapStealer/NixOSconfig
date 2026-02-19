@@ -12,6 +12,7 @@
       "usb"
       "input"
       "disk"
+      "docker"
     ];
     createHome = true;
   };

@@ -6,11 +6,11 @@
     localNetworkGameTransfers.openFirewall = true;
     remotePlay.openFirewall = true;
 
-    extest.enable = true;
     gamescopeSession = {
       enable = true;
     };
     extraCompatPackages = with pkgs; [
+      proton-ge-bin
     ];
 
     extraPackages = with pkgs; [
@@ -39,5 +39,7 @@
   boot.kernelModules = [ "ntsync" ];
   environment.sessionVariables = {
     PROTON_USE_NTSYNC = 1;
+    PROTON_ENABLE_WAYLAND = 1;
+    PROTON_ENABLE_HDR = 1;
   };
 }

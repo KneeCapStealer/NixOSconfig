@@ -1,7 +1,5 @@
 {
   ezModules,
-  pkgs,
-  lib,
   ...
 }:
 {
@@ -17,11 +15,18 @@
     wifi.backend = "iwd";
   };
 
+  services.openvpn.servers = {
+    europe = {
+      config = '' config /root/secrets/openvpn/europe.ovpn ''; 
+      autoStart = false;
+    };
+  };
+
   networking.wireless.iwd.enable = true;
 
   # qbittorrent
-  networking.firewall.allowedTCPPorts = [ 49488 ];
-  networking.firewall.allowedUDPPorts = [ 49488 ];
+  networking.firewall.allowedTCPPorts = [ 7640 ];
+  networking.firewall.allowedUDPPorts = [ 7640 ];
 
   services.nextDNS = {
     enable = false;

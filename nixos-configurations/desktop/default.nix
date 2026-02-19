@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./catppuccin
@@ -16,6 +16,8 @@
     ./hardware-configuration.nix
     ./networking.nix
   ];
+
+  documentation.dev.enable = true;
 
   services.dbus = {
     enable = true;
@@ -66,6 +68,7 @@
   };
 
   services.udisks2.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   environment.systemPackages = with pkgs; [
     zip
@@ -75,10 +78,6 @@
     gzip
     wget
     curl
-  ];
-
-  services.displayManager.sessionPackages = [
-    inputs.river.packages.x86_64-linux.river
   ];
 
   system.stateVersion = "25.05";

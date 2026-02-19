@@ -2,7 +2,15 @@
 {
   i18n = {
     defaultLocale = "en_DK.UTF-8";
-    extraLocales = [ "da_DK.UTF-8/UTF-8" ];
+    extraLocales = [
+      "da_DK.UTF-8/UTF-8"
+      "en_DK.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+
+      "da_DK/ISO-8859-1"
+      "en_DK/ISO-8859-1"
+      "en_US/ISO-8859-1"
+    ];
     extraLocaleSettings = {
       LC_ADDRESS = "da_DK.UTF-8";
       LC_IDENTIFICATION = "da_DK.UTF-8";
@@ -22,6 +30,14 @@
         fcitx5-gtk
         catppuccin-fcitx5
       ];
+      fcitx5.settings.inputMethod = {
+        GroupOrder."0" = "Default";
+        "Groups/0" = {
+          Name = "Default";
+          "Default Layout" = "dk";
+        };
+        "Groups/0/Items/0".Name = "keyboard-dk";
+      };
     };
   };
   time.timeZone = "Europe/Copenhagen";

@@ -8,6 +8,7 @@
     (import ./zen.nix args)
     ./caelestia-shell.nix
     ./direnv.nix
+    ./element.nix
     #./foot.nix
     ./ghostty.nix
     ./gtk.nix
