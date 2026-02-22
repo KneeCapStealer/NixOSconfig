@@ -64,6 +64,7 @@
           packages = {
             glfw3-minecraft-wayland = pkgs.callPackage ./packages/glfw3-minecraft-wayland { };
             vulkan-hdr-layer = pkgs.callPackage ./packages/vulkan-hdr-layer { };
+            nvim-unity = pkgs.callPackage ./packages/nvim-unity { };
           };
 
           formatter = pkgs.nixfmt-rfc-style;
