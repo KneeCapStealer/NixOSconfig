@@ -38,6 +38,7 @@ in
     servers = {
       "*".config = {
         capabilities = helpers.mkRaw "require('cmp_nvim_lsp').default_capabilities()";
+        root_markers = [ ".git" ];
       };
       nixd.enable = true;
       zls = {
@@ -60,7 +61,7 @@ in
       ts_ls.enable = true;
       html.enable = true;
       pug.enable = true;
-      csharp_ls.enable = true;
+      omnisharp.enable = true;
     };
   };
 

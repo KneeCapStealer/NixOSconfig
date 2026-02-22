@@ -20,7 +20,7 @@
       typescript
       html
       pug
-      c-sharp
+      c_sharp
     ];
 
     settings = {
