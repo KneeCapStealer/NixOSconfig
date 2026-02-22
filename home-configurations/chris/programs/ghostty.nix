@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   programs.ghostty.enable = true;
   programs.ghostty.settings = {
@@ -9,7 +10,12 @@
     background-blur = true;
   };
 
-  home.sessionVariables = {
-    TERMINAL = "ghostty";
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = lib.singleton "com.mitchellh.ghostty.desktop";
   };
+
+  # home.sessionVariables = {
+  #   TERMINAL = "ghostty";
+  # };
 }

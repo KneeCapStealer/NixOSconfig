@@ -3,12 +3,12 @@
   pkgs,
   host,
   ...
-}:
+}@args:
 
 {
   imports = [
     ./langs
-    ./unity.nix
+    (import ./unity.nix args)
   ];
 
   nixpkgs.config.allowUnfree = true;
