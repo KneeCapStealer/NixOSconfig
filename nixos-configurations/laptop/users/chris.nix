@@ -8,6 +8,7 @@
       "networkmanager"
       "wheel"
       "video"
+      "render"
       "audio"
       "usb"
       "input"
