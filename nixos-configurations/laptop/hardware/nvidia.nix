@@ -1,36 +1,43 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
-  services.xserver = {
-    enable = true;
-    videoDrivers = [
-      "nvidia"
-      "modesetting"
-    ];
-  };
-
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    NVD_BACKEND = "direct";
-    GBM_BACKEND = "nvidia-drm";
-  };
-
-  hardware.nvidia = {
-    open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    nvidiaSettings = false;
-    videoAcceleration = true;
-    modesetting.enable = true;
-
-    prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+    # If used with Firefox
+    MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
   hardware.graphics = {
     enable = true;
-    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-compute-runtime-legacy1
+      intel-media-driver
+      vpl-gpu-rt
+    ];
+  };
+
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "modesetting"
+  ];
+
+  hardware.nvidia = {
+
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+
+    open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    prime = {
+      intelBusId = "PCI:0@0:2:0";
+      nvidiaBusId = "PCI:1@0:0:0";
+
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
+    };
   };
 }
