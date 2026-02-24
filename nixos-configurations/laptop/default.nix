@@ -3,7 +3,6 @@
   imports = [
     ./catppuccin
 
-    ./chaotic
     ./users
     ./hyprland
     ./hardware
@@ -22,7 +21,7 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = pkgs.linuxPackages;
   services.scx = {
     enable = true;
     scheduler = "scx_bpfland";
@@ -37,6 +36,7 @@
 
   fonts = {
     fontDir.enable = true;
+    enableDefaultPackages = true;
     packages = with pkgs.nerd-fonts; [
       fira-code
       noto
