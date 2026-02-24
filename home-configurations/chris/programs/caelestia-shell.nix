@@ -36,18 +36,18 @@ in
       idle = {
         timeouts = [
           {
-            timeout = if host == "desktop" then 600 else 300;
+            timeout = if host == "desktop" then 1200 else 600;
             idleAction = "lock";
           }
 
           (lib.optionalAttrs (host == "laptop") {
-            timeout = 300;
+            timeout = 900;
             idleAction = "dpms off";
             returnAction = "dpms on";
           })
 
           {
-            timeout = if host == "desktop" then 1200 else 600;
+            timeout = if host == "desktop" then 1600 else 1200;
             idleAction = [
               "systemctl"
               "suspend-then-hibernate"

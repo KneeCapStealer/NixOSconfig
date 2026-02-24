@@ -35,5 +35,6 @@
     tor-browser
     easyeffects
     nemo-with-extensions
+    stoat-desktop
   ];
 }
