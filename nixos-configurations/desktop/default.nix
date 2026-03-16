@@ -18,6 +18,7 @@
   ];
 
   documentation.dev.enable = true;
+  virtualisation.podman.enable = true;
 
   services.dbus = {
     enable = true;

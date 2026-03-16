@@ -8,18 +8,17 @@ in
 {
   imports = [
     ./lsp
+    ./languages
+    ./plugins
 
-    ./cmp.nix
-    ./mini.nix
-    ./oil.nix
     ./treesitter.nix
-    ./ufo.nix
-    ./zig.nix
     ./debugging.nix
-    ./telescope.nix
-    ./leap.nix
-    ./surround.nix
   ];
+
+  viAlias = true;
+  vimAlias = true;
+  withPython3 = false;
+  withRuby = false;
 
   plugins.nix.enable = true;
   clipboard.providers.wl-copy.enable = true;

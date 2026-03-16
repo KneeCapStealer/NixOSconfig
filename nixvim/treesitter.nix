@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  dependencies.tree-sitter.enable = true;
+
   plugins.treesitter = {
     enable = true;
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
@@ -21,6 +23,7 @@
       html
       pug
       c_sharp
+      rust
     ];
 
     settings = {

@@ -15,10 +15,6 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -31,8 +27,9 @@
     };
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+      url = "github:rjjuina/shell";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.caelestia-cli.url = "github:SamiyelF/cli";
     };
   };
 
@@ -65,6 +62,7 @@
             glfw3-minecraft-wayland = pkgs.callPackage ./packages/glfw3-minecraft-wayland { };
             vulkan-hdr-layer = pkgs.callPackage ./packages/vulkan-hdr-layer { };
             nvim-unity = pkgs.callPackage ./packages/nvim-unity { };
+            msi-271qpx-e2-icc = pkgs.callPackage ./packages/msi-271qpx-e2-icc { };
           };
 
           formatter = pkgs.nixfmt-rfc-style;

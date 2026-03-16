@@ -29,10 +29,11 @@ in
   windowManipulation = [
     "$mod, C, killactive,"
     "$mod, F, togglefloating,"
-    "$mod, RETURN, fullscreen,"
+
+    "$mod, RETURN, fullscreen," 
+    "$mod SHIFT, RETURN, layoutmsg, fit active" # maximize
+
     "$mod, TAB, layoutmsg, colresize +conf"
-    "$mod, P, pseudo, # dwindle"
-    "$mod, J, togglesplit, # dwindle"
 
     # Move focus with mainMod + arrow keys
     "$mod, left, layoutmsg, focus l"
@@ -40,26 +41,22 @@ in
     "$mod, up, layoutmsg, focus u"
     "$mod, down, layoutmsg, focus d"
 
-    "$mod, mouse_up, layoutmsg, focus l"
-    "$mod, mouse_down, layoutmsg, focus r"
+    "$mod, mouse_up, layoutmsg, move +200"
+    "$mod, mouse_down, layoutmsg, move -200"
 
     # Move window between monitors
     "$mod SHIFT, left, layoutmsg, movewindowto l"
     "$mod SHIFT, right, layoutmsg, movewindowto r"
-
-    "$mod SHIFT, 0, movetoworkspace, 10"
   ]
-  ++ (map (i: "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}") (lib.range 1 9));
+  ++ (map (i: "$mod SHIFT, ${toString (lib.mod i 10)}, movetoworkspace, ${toString i}") (lib.range 1 10));
 
   workspaceManipulation = [
     # Move workspace to window
     "$mod CONTROL, left, movecurrentworkspacetomonitor, +1"
     "$mod CONTROL, right, movecurrentworkspacetomonitor, -1"
 
-    # Switch workspaces with mainMod + [0-9]
-    "$mod, 0, workspace, 10"
   ]
-  ++ (map (i: "$mod, ${toString i}, workspace, ${toString i}") (lib.range 1 9));
+  ++ (map (i: "$mod, ${toString (lib.mod i 10)}, workspace, ${toString i}") (lib.range 1 10));
 
   # Move/resize windows with mainMod + LMB/RMB and dragging
   mouseBindings = [

@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -66,7 +65,7 @@
         let
           zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta;
         in
-        zen-browser.meta.desktopFileName;
+        if zen-browser.meta ? desktopFileName then zen-browser.meta.desktopFileName else "zen-beta.desktop";
 
       associations = builtins.listToAttrs (
         map
@@ -85,6 +84,8 @@
             "x-scheme-handler/about"
             "x-scheme-handler/https"
             "x-scheme-handler/http"
+            "x-scheme-handler/api"
+            "x-scheme-handler/unity"
             "application/xhtml+xml"
             "application/json"
             "text/plain"

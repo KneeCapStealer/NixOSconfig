@@ -34,5 +34,6 @@
     google-chrome
     tor-browser
     easyeffects
+    nemo-with-extensions
   ];
 }

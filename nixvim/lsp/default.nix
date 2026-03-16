@@ -6,7 +6,6 @@ in
   imports = [
     ./nix.nix
     ./qml.nix
-    ./fidget.nix
     ./haskell.nix
   ];
 

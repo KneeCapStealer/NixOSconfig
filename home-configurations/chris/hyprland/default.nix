@@ -3,23 +3,14 @@
   lib,
   host,
   inputs,
+  self,
   ...
-}:
+}@args:
 let
-  bindings = import ./bindings.nix { inherit lib; };
+  bindings = import ./bindings.nix args;
 in
 {
-  imports = [
-    # (import ./hyprlock.nix { inherit host lib; })
-    #(import ./hyprpaper.nix {inherit pkgs host;})
-    #./hyprpanel.nix
-  ];
   services.hyprpolkitagent.enable = true;
-
-  nixpkgs.overlays = with inputs; [
-    hyprland.overlays.default
-    hyprland-plugins.overlays.default
-  ];
 
   home.packages = with pkgs; [
     xwayland
@@ -27,14 +18,15 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      enableXdgAutostart = true;
+      variables = [ "--all" ];
+    };
+    xwayland.enable = true;
 
-    package = null;
-    portalPackage = null;
-
-    plugins = [
-      pkgs.hyprlandPlugins.hyprscrolling
-    ];
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     importantPrefixes = [
       "$"
@@ -43,20 +35,11 @@ in
       "source"
       "output"
     ];
-    settings = {
-      plugin = {
-        hyprscrolling = {
-          fullscreen_on_one_collumn = true;
-          focus_fit_method = 1;
-          explicit_column_widths = "0.5, 1.0";
-        };
-      };
 
+    settings = {
       monitor = [
         ", preferred, auto, auto"
       ];
-
-      xwayland.create_abstract_socket = true;
 
       monitorv2 = lib.mkMerge [
         (lib.mkIf (host == "desktop") [
@@ -66,10 +49,18 @@ in
             position = "1920x-350";
             scale = 1;
             bitdepth = 10;
-            cm = "hdredid";
+            cm = "hdr";
             sdrbrightness = 1.35;
             sdrsaturation = 1.4;
             sdr_min_luminance = 0.005;
+            supports_hdr = 1;
+            supports_wide_color = 1;
+            sdr_eotf = "srgb";
+            # icc = 
+            # let
+            #   iccPkg = self.packages.${pkgs.stdenv.hostPlatform.system}.msi-271qpx-e2-icc;
+            # in
+            #   iccPkg + iccPkg.iccFilePath;
           }
           {
             output = "HDMI-A-1";
@@ -89,6 +80,8 @@ in
           }
         ])
       ];
+
+      render.cm_sdr_eotf = "srgb";
 
       #####################
       ### LOOK AND FEEL ###
@@ -112,8 +105,14 @@ in
 
         layout = "scrolling";
       };
+
+      scrolling = {
+        fullscreen_on_one_column = true;
+        column_width = 0.5;
+      };
+
       cursor = {
-        default_monitor = "DP-2";
+        default_monitor = lib.mkIf (host == "desktop") "DP-2";
       };
 
       # https://wiki.hyprland.org/Configuring/Variables/#decoration
@@ -142,10 +141,10 @@ in
           blur = {
             enabled = true;
 
-            size = 3;
-            passes = 1;
+            size = 1;
+            passes = 2;
 
-            vibrancy = 0.135; # 1.696
+            vibrancy = 1.6969;
           };
         };
 
@@ -171,17 +170,6 @@ in
         ];
       };
 
-      # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-      dwindle = {
-        pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-        preserve_split = true; # You probably want this
-      };
-
-      # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-      master = {
-        new_status = "master";
-      };
-
       # https://wiki.hyprland.org/Configuring/Variables/#misc
       misc = {
         force_default_wallpaper = 0; # Set to 0 or 1 to disable the anime mascot wallpapers
@@ -196,6 +184,7 @@ in
       input = {
         kb_layout = "dk";
         follow_mouse = 1;
+        repeat_delay = 400;
 
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
 
@@ -204,8 +193,7 @@ in
         };
       };
 
-      gesture = with bindings; windowGestures;
-      #++ workspaceGestures;
+      gesture = bindings.windowGestures;
 
       ####################
       ### KEYBINDINGSS ###

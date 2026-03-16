@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./langs
+    ./langs.nix
     (import ./unity.nix args)
   ];
 
