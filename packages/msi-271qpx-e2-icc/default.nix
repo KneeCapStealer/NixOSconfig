@@ -1,7 +1,8 @@
 {
   stdenvNoCC,
   fetchzip,
-}: stdenvNoCC.mkDerivation {
+}:
+stdenvNoCC.mkDerivation {
   pname = "msi-271qpx-e2-icc";
   version = "2024-04-26";
 
@@ -20,7 +21,6 @@
   '';
 
   passthru.iccFilePath = "/share/color/icc/MAG 271QPX E2.icm";
-
 
   meta.description = "Icc profile for the MSI MAG 271QPX E2 monitor";
 }

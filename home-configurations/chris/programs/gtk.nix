@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   gtk = {
     enable = true;
@@ -27,7 +32,6 @@
   };
 
   home.sessionVariables.GTK_THEME = config.gtk.theme.name;
-
 
   i18n.inputMethod = {
     enable = true;

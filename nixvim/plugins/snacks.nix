@@ -12,13 +12,11 @@ let
       picker.enabled = true;
     };
 
-
     ### terminal ###
     userCommands.Colorize = {
-      command = helpers.mkRaw '' function () Snacks.terminal.colorize() end '';
+      command = helpers.mkRaw "function () Snacks.terminal.colorize() end ";
       desc = "Colorize the current terminal";
     };
-
 
     ### notifier ###
     extraConfigLuaPre = ''
@@ -72,99 +70,100 @@ let
     ];
   };
   terminalKeymaps = [
-      {
-        key = "<leader>t";
-        action = helpers.mkRaw ''
-          function () Snacks.terminal.toggle() end
-        '';
-        options = {
-          silent = true;
-          desc = "Open a terminal with split view";
-        };
-      }
-      {
-        key = "<leader>T";
-        action = helpers.mkRaw ''
-          function () 
-            vim.ui.input({ prompt = 'Cmd: ', completion = 'shellcmdline' }, function (input) 
-              Snacks.terminal.toggle(input, { auto_close = false })
-            end) 
-          end
-        '';
-        options = {
-          silent = true;
-          desc = "Open a floating terminal with a command";
-        };
-      }
-      {
-        key = "<C-x>";
-        mode = "t";
-        action = "<C-\\><C-n>";
-        options = {
-          noremap = true;
-          desc = "Exit out of terminal mode";
-        };
-      }
-    ];
-    pickerKeymaps = [
-      {
-        key = "<leader><Space>";
-        action = helpers.mkRaw '' function () Snacks.picker.smart() end '';
-        options = {
-          silent = true;
-          desc = "Smart find files";
-        };
-      }
-      {
-        key = "<leader>/";
-        action = helpers.mkRaw '' function () Snacks.picker.grep() end '';
-        options = {
-          silent = true;
-          desc = "Grep search files";
-        };
-      }
-      {
-        key = "<leader>ff";
-        action = helpers.mkRaw '' function () Snacks.picker.files() end '';
-        options = {
-          silent = true;
-          desc = "Find files";
-        };
-      }
-      {
-        key = "gd";
-        action = helpers.mkRaw '' function () Snacks.picker.lsp_definitions() end '';
-        options = {
-          silent = true;
-          desc = "Goto Definition";
-        };
-      }
-      {
-        key = "gD";
-        action = helpers.mkRaw '' function () Snacks.picker.lsp_declarations() end '';
-        options = {
-          silent = true;
-          desc = "Goto Declaration";
-        };
-      }
-      {
-        key = "gr";
-        action = helpers.mkRaw '' function () Snacks.picker.lsp_references() end '';
-        options = {
-          silent = true;
-          desc = "Goto References";
-        };
-      }
-      {
-        key = "gt";
-        action = helpers.mkRaw '' function () Snacks.picker.lsp_type_definitions() end '';
-        options = {
-          silent = true;
-          desc = "Goto Type definition";
-        };
-      }
-    ];
+    {
+      key = "<leader>t";
+      action = helpers.mkRaw ''
+        function () Snacks.terminal.toggle() end
+      '';
+      options = {
+        silent = true;
+        desc = "Open a terminal with split view";
+      };
+    }
+    {
+      key = "<leader>T";
+      action = helpers.mkRaw ''
+        function () 
+          vim.ui.input({ prompt = 'Cmd: ', completion = 'shellcmdline' }, function (input) 
+            Snacks.terminal.toggle(input, { auto_close = false })
+          end) 
+        end
+      '';
+      options = {
+        silent = true;
+        desc = "Open a floating terminal with a command";
+      };
+    }
+    {
+      key = "<C-x>";
+      mode = "t";
+      action = "<C-\\><C-n>";
+      options = {
+        noremap = true;
+        desc = "Exit out of terminal mode";
+      };
+    }
+  ];
+  pickerKeymaps = [
+    {
+      key = "<leader><Space>";
+      action = helpers.mkRaw "function () Snacks.picker.smart() end ";
+      options = {
+        silent = true;
+        desc = "Smart find files";
+      };
+    }
+    {
+      key = "<leader>/";
+      action = helpers.mkRaw "function () Snacks.picker.grep() end ";
+      options = {
+        silent = true;
+        desc = "Grep search files";
+      };
+    }
+    {
+      key = "<leader>ff";
+      action = helpers.mkRaw "function () Snacks.picker.files() end ";
+      options = {
+        silent = true;
+        desc = "Find files";
+      };
+    }
+    {
+      key = "gd";
+      action = helpers.mkRaw "function () Snacks.picker.lsp_definitions() end ";
+      options = {
+        silent = true;
+        desc = "Goto Definition";
+      };
+    }
+    {
+      key = "gD";
+      action = helpers.mkRaw "function () Snacks.picker.lsp_declarations() end ";
+      options = {
+        silent = true;
+        desc = "Goto Declaration";
+      };
+    }
+    {
+      key = "gr";
+      action = helpers.mkRaw "function () Snacks.picker.lsp_references() end ";
+      options = {
+        silent = true;
+        desc = "Goto References";
+      };
+    }
+    {
+      key = "gt";
+      action = helpers.mkRaw "function () Snacks.picker.lsp_type_definitions() end ";
+      options = {
+        silent = true;
+        desc = "Goto Type definition";
+      };
+    }
+  ];
 in
-config // {
+config
+// {
   keymaps = terminalKeymaps ++ pickerKeymaps;
 }

@@ -12,7 +12,6 @@
         }
       ];
     };
-    shellWrapperName = "y";
   };
 
   home.sessionVariables = {

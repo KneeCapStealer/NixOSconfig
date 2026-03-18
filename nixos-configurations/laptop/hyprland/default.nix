@@ -7,17 +7,16 @@
     ./gdm.nix
   ];
 
-  nixpkgs.overlays = with inputs; [
-    hyprland.overlays.default
-    hyprland-plugins.overlays.default
-  ];
-
-  programs.hyprland = {
-    enable = true;
-    # withUWSM = true;
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  };
+  programs.hyprland =
+    let
+      hyprPkgs = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+    in
+    {
+      enable = true;
+      # withUWSM = true;
+      package = hyprPkgs.hyprland;
+      portalPackage = hyprPkgs.xdg-desktop-portal-hyprland;
+    };
 
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];

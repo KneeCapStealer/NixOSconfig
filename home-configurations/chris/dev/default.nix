@@ -33,6 +33,7 @@
         fix = "commit --ammend --no-edit --date=now";
         force = "push --force-with-lease --force-if-includes";
         patch = "add --patch";
+        rank = "shortlog --summary --numbered --no-merges";
       };
 
       color = {

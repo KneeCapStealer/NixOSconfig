@@ -34,6 +34,9 @@ in
         treesitter = true;
       };
 
+      transparent_background = true;
+      show_end_of_buffer = true;
+
       styles = {
         keywords = [ "italic" ];
       };

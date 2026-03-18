@@ -11,7 +11,10 @@
     ];
     xdgOpenUsePortal = true;
     config = {
-      hyprland.preferred = [ "hyprland" "gtk" ];
+      hyprland.preferred = [
+        "hyprland"
+        "gtk"
+      ];
     };
   };
 

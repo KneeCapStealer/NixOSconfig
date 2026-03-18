@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     # nix
-    nixd 
+    nixd
 
     # rust
     clippy

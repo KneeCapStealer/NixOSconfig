@@ -24,7 +24,7 @@ in
     "$mod, C, killactive,"
     "$mod, F, togglefloating,"
 
-    "$mod, RETURN, fullscreen," 
+    "$mod, RETURN, fullscreen,"
     "$mod SHIFT, RETURN, layoutmsg, fit active" # maximize
 
     "$mod, TAB, layoutmsg, colresize +conf"
@@ -42,7 +42,9 @@ in
     "$mod SHIFT, left, layoutmsg, movewindowto l"
     "$mod SHIFT, right, layoutmsg, movewindowto r"
   ]
-  ++ (map (i: "$mod SHIFT, ${toString (lib.mod i 10)}, movetoworkspace, ${toString i}") (lib.range 1 10));
+  ++ (map (i: "$mod SHIFT, ${toString (lib.mod i 10)}, movetoworkspace, ${toString i}") (
+    lib.range 1 10
+  ));
 
   workspaceManipulation = [
     # Move workspace to window

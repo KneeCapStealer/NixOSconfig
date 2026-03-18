@@ -26,7 +26,8 @@ in
     xwayland.enable = true;
 
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     importantPrefixes = [
       "$"
       "bezier"
@@ -59,7 +60,7 @@ in
             supports_hdr = 1;
             supports_wide_color = 1;
             sdr_eotf = "srgb";
-            # icc = 
+            # icc =
             # let
             #   iccPkg = self.packages.${pkgs.stdenv.hostPlatform.system}.msi-271qpx-e2-icc;
             # in

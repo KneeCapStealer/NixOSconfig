@@ -6,13 +6,14 @@
     dotnetCorePackages.sdk_10_0
   ];
 
-  xdg.mimeApps = 
-  let
-    unityhub = {
-      "x-scheme-handler/unityhub" = "unityhub.desktop";
+  xdg.mimeApps =
+    let
+      unityhub = {
+        "x-scheme-handler/unityhub" = "unityhub.desktop";
+      };
+    in
+    {
+      associations.added = unityhub;
+      defaultApplications = unityhub;
     };
-  in {
-    associations.added = unityhub;
-    defaultApplications = unityhub;
-  };
 }
