@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       bar = {
-        density = "compact";
+        density = "default";
         position = "left";
         showCapsule = false;
         widgets = {
@@ -28,7 +28,7 @@
             {
               hideUnoccupied = false;
               id = "Workspace";
-              labelMode = "none";
+              labelMode = "index";
             }
           ];
           right = [
@@ -47,7 +47,7 @@
           ];
         };
       };
-      colorSchemes.predefinedScheme = "Monochrome";
+      colorSchemes.predefinedScheme = "Catppuccin Mocha";
       general = {
         avatarImage = "/home/chris/.face";
         radiusRatio = 0.2;
