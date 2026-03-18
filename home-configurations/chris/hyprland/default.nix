@@ -27,7 +27,6 @@ in
 
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-
     importantPrefixes = [
       "$"
       "bezier"
@@ -39,6 +38,10 @@ in
     settings = {
       monitor = [
         ", preferred, auto, auto"
+      ];
+
+      exec-once = [
+        "noctalia-shell"
       ];
 
       monitorv2 = lib.mkMerge [
@@ -83,6 +86,10 @@ in
 
       render.cm_sdr_eotf = "srgb";
 
+      env = lib.mkIf (host == "laptop") [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      ];
       #####################
       ### LOOK AND FEEL ###
       #####################
@@ -121,8 +128,8 @@ in
           opacity = 1.0;
         in
         {
-          rounding = 20;
-          rounding_power = 2.0;
+          rounding = 13;
+          rounding_power = 2;
 
           # Change transparency of focused and unfocused windows
           active_opacity = opacity;
@@ -209,12 +216,7 @@ in
       # Bindings
       bind =
         with bindings;
-        windowManipulation
-        ++ workspaceManipulation
-        ++ screenshot
-        ++ audioControls
-        ++ programShortcuts
-        ++ caelestiaGlobals;
+        windowManipulation ++ workspaceManipulation ++ screenshot ++ audioControls ++ programShortcuts;
 
       binde = bindings.audioControlsRepeat;
       bindm = bindings.mouseBindings;

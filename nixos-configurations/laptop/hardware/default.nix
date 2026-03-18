@@ -14,8 +14,8 @@
   services.fwupd.enable = true;
 
   powerManagement.enable = true;
-  services.tlp.enable = true;
   services.upower.enable = true;
+  services.tuned.enable = true;
 
   services.systembus-notify.enable = true;
 

@@ -17,7 +17,7 @@
 
   services.openvpn.servers = {
     europe = {
-      config = '' config /root/secrets/openvpn/europe.ovpn ''; 
+      config = "config /root/secrets/openvpn/europe.ovpn ";
       autoStart = false;
     };
   };

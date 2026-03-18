@@ -1,6 +1,11 @@
 {
   i18n = {
     defaultLocale = "en_DK.UTF-8";
+    extraLocales = [
+      "da_DK/ISO-8859-1"
+      "en_DK/ISO-8859-1"
+      "en_US/ISO-8859-1"
+    ];
     extraLocaleSettings = {
       LC_ADDRESS = "da_DK.UTF-8";
       LC_IDENTIFICATION = "da_DK.UTF-8";

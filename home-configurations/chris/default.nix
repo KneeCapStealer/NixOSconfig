@@ -18,6 +18,9 @@
   nix.package = pkgs.nixVersions.latest;
   programs.home-manager.enable = true;
 
+  services.gnome-keyring.enable = true;
+  services.gnome-keyring.components = [ "ssh" ];
+
   home = {
     username = "chris";
     homeDirectory = "/home/chris";

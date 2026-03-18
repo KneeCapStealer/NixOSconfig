@@ -40,6 +40,9 @@ in
         root_markers = [ ".git" ];
       };
       nixd.enable = true;
+      nixd.config = {
+        settings.nixd.formatting.command = lib.singleton "nix fmt";
+      };
       zls = {
         enable = true;
         config = {

@@ -27,7 +27,6 @@
     modesetting.enable = true;
 
     powerManagement.enable = true;
-    powerManagement.finegrained = true;
 
     open = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -36,8 +35,10 @@
       intelBusId = "PCI:0@0:2:0";
       nvidiaBusId = "PCI:1@0:0:0";
 
-      offload.enable = true;
-      offload.enableOffloadCmd = true;
+      offload.enable = false;
     };
   };
+
+  programs.nix-required-mounts.enable = true;
+  programs.nix-required-mounts.presets.nvidia-gpu.enable = true;
 }

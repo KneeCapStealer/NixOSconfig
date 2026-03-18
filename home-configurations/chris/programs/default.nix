@@ -6,22 +6,20 @@
   imports = [
     (import ./btop.nix args)
     (import ./zen.nix args)
-    ./caelestia-shell.nix
     ./direnv.nix
     ./element.nix
-    #./foot.nix
     ./ghostty.nix
     ./gtk.nix
     ./libreoffice.nix
     ./mpv.nix
     ./nemo.nix
+    ./noctalia.nix
     ./nvim.nix
     ./qt.nix
+    ./rofi.nix
     ./vesktop.nix
     ./yazi.nix
     ./zsh.nix
-
-    ./eww
   ];
 
   programs.obs-studio.enable = true;

@@ -20,11 +20,25 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1772292445,
         "narHash": "sha256-4F1Q7U313TKUDDovCC96m/Za4wZcJ3yqtu4eSrj8lk8=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1770895474,
+        "narHash": "sha256-JBcrq1Y0uw87VZdYsByVbv+GBuT6ECaCNb9txLX9UuU=",
+=======
+        "lastModified": 1773436376,
+        "narHash": "sha256-OUPRrprbgN27BXHuWkMAPSCfLLQ/uwpWghEfKYN2iAg=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "hyprwm",
         "repo": "aquamarine",
+<<<<<<< HEAD
         "rev": "1dbbba659c1cef0b0202ce92cadfe13bae550e8f",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "a494d50d32b5567956b558437ceaa58a380712f7",
+=======
+        "rev": "43f10d24391692bba3d762931ee35e7f17f8e8b8",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -33,6 +47,7 @@
         "type": "github"
       }
     },
+<<<<<<< HEAD
     "caelestia-cli": {
       "inputs": {
         "caelestia-shell": [
@@ -79,6 +94,55 @@
         "type": "github"
       }
     },
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+    "caelestia-cli": {
+      "inputs": {
+        "caelestia-shell": [
+          "caelestia-shell"
+        ],
+        "nixpkgs": [
+          "caelestia-shell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771075454,
+        "narHash": "sha256-5GlUpibCTqcXq/kCwkLHQGfjuBk2r+ZlWY0MjZo0xtE=",
+        "owner": "caelestia-dots",
+        "repo": "cli",
+        "rev": "d890f7c3af4e7a900338bdf6400c2cf76de89a19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "caelestia-dots",
+        "repo": "cli",
+        "type": "github"
+      }
+    },
+    "caelestia-shell": {
+      "inputs": {
+        "caelestia-cli": "caelestia-cli",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1771120934,
+        "narHash": "sha256-CnE8v42+SU7uLjTit453knxuwsMxZixEPU4s/6JANjs=",
+        "owner": "caelestia-dots",
+        "repo": "shell",
+        "rev": "3a7309294cd4575e60aeb5e153d346313b16f7d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "caelestia-dots",
+        "repo": "shell",
+        "type": "github"
+      }
+    },
+=======
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
     "catppuccin": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -117,6 +181,22 @@
       }
     },
     "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_2": {
       "flake": false,
       "locked": {
         "lastModified": 1767039857,
@@ -192,7 +272,48 @@
         "type": "github"
       }
     },
+    "git-hooks-nix": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "gitignore": "gitignore",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1772893680,
+        "narHash": "sha256-JDqZMgxUTCq85ObSaFw0HhE+lvdOre1lx9iI6vYyOEs=",
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "rev": "8baab586afc9c9b57645a734c820e4ac0a604af9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "type": "github"
+      }
+    },
     "gitignore": {
+      "inputs": {
+        "nixpkgs": [
+          "git-hooks-nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1709087332,
+        "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
+        "rev": "637db329424fd7e46cf4185293b9cc8c88c95394",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "gitignore_2": {
       "inputs": {
         "nixpkgs": [
           "hyprland",
@@ -221,11 +342,25 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1773422513,
         "narHash": "sha256-MPjR48roW7CUMU6lu0+qQGqj92Kuh3paIulMWFZy+NQ=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1771269455,
+        "narHash": "sha256-BZ31eN5F99YH6vkc4AhzKGE+tJgJ52kl8f01K7wCs8w=",
+=======
+        "lastModified": 1773810247,
+        "narHash": "sha256-6Vz1Thy/1s7z+Rq5OfkWOBAdV4eD+OrvDs10yH6xJzQ=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "nix-community",
         "repo": "home-manager",
+<<<<<<< HEAD
         "rev": "ef12a9a2b0f77c8fa3dda1e7e494fca668909056",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "5f1d42a97b19803041434f66681d5c44c9ae62e3",
+=======
+        "rev": "d47357a4c806d18a3e853ad2699eaec3c01622e7",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -242,11 +377,25 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1772330611,
         "narHash": "sha256-UZjPc/d5XRxvjDbk4veAO4XFdvx6BUum2l40V688Xq8=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1771102945,
+        "narHash": "sha256-e5NfW8NhC3qChR8bHVni/asrig/ZFzd1wzpq+cEE/tg=",
+=======
+        "lastModified": 1773422513,
+        "narHash": "sha256-MPjR48roW7CUMU6lu0+qQGqj92Kuh3paIulMWFZy+NQ=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "nix-community",
         "repo": "home-manager",
+<<<<<<< HEAD
         "rev": "58fd7ff0eec2cda43e705c4c0585729ec471d400",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "ff5e5d882c51f9a032479595cbab40fd04f56399",
+=======
+        "rev": "ef12a9a2b0f77c8fa3dda1e7e494fca668909056",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -271,11 +420,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753964049,
-        "narHash": "sha256-lIqabfBY7z/OANxHoPeIrDJrFyYy9jAM4GQLzZ2feCM=",
+        "lastModified": 1772461003,
+        "narHash": "sha256-pVICsV7FtcEeVwg5y/LFh3XFUkVJninm/P1j/JHzEbM=",
         "owner": "hyprwm",
         "repo": "hyprcursor",
-        "rev": "44e91d467bdad8dcf8bbd2ac7cf49972540980a5",
+        "rev": "b62396457b9cfe2ebf24fe05404b09d2a40f8ed7",
         "type": "github"
       },
       "original": {
@@ -300,11 +449,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770511807,
-        "narHash": "sha256-suKmSbSk34uPOJDTg/GbPrKEJutzK08vj0VoTvAFBCA=",
+        "lastModified": 1772461523,
+        "narHash": "sha256-mI6A51do+hEUzeJKk9YSWfVHdI/SEEIBi2tp5Whq5mI=",
         "owner": "hyprwm",
         "repo": "hyprgraphics",
-        "rev": "7c75487edd43a71b61adb01cae8326d277aab683",
+        "rev": "7d63c04b4a2dd5e59ef943b4b143f46e713df804",
         "type": "github"
       },
       "original": {
@@ -324,17 +473,31 @@
         "hyprutils": "hyprutils",
         "hyprwayland-scanner": "hyprwayland-scanner",
         "hyprwire": "hyprwire",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "pre-commit-hooks": "pre-commit-hooks",
         "systems": "systems",
         "xdph": "xdph"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1773439168,
         "narHash": "sha256-BP8JCxijLBf5Qk83lEN/9qAOeDuAnftfmr92KQM1QOI=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1771249510,
+        "narHash": "sha256-Iql2BwsfrHiyDmZfc/9Cp6oa2569/WrJqhqWWg3EY50=",
+=======
+        "lastModified": 1773774870,
+        "narHash": "sha256-WJi1VzcGBvLntY1LzoQOPFyH3CJP/AEyERhXvF9kWbE=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "hyprwm",
         "repo": "Hyprland",
+<<<<<<< HEAD
         "rev": "9bf8fe7a5278b5f366384d73d87844a165c16b7a",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "661314e13487784c94b3c9fd69b469764eb6ef7b",
+=======
+        "rev": "775951783c2e820ead180aca4356d4a98df9d17a",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -376,11 +539,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767023960,
-        "narHash": "sha256-R2HgtVS1G3KSIKAQ77aOZ+Q0HituOmPgXW9nBNkpp3Q=",
+        "lastModified": 1772467975,
+        "narHash": "sha256-kipyuDBxrZq+beYpZqWzGvFWm4QbayW9agAvi94vDXY=",
         "owner": "hyprwm",
         "repo": "hyprland-guiutils",
-        "rev": "c2e906261142f5dd1ee0bfc44abba23e2754c660",
+        "rev": "5e1c6b9025aaf4d578f3eff7c0eb1f0c197a9507",
         "type": "github"
       },
       "original": {
@@ -389,6 +552,70 @@
         "type": "github"
       }
     },
+<<<<<<< HEAD
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+    "hyprland-plugins": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nixpkgs": [
+          "hyprland-plugins",
+          "hyprland",
+          "nixpkgs"
+        ],
+        "systems": [
+          "hyprland-plugins",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770899531,
+        "narHash": "sha256-UBrWjh0DR8db60aLNkTnZTJ9F4kWK0Y7rUDNJC88W7A=",
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "e03c34ccd51280a44ea6d1f5c040cd81ecca25ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "type": "github"
+      }
+    },
+=======
+    "hyprland-plugins": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nixpkgs": [
+          "hyprland-plugins",
+          "hyprland",
+          "nixpkgs"
+        ],
+        "systems": [
+          "hyprland-plugins",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771865848,
+        "narHash": "sha256-xwNa+1D8WPsDnJtUofDrtyDCZKZotbUymzV/R5s+M0I=",
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "b85a56b9531013c79f2f3846fd6ee2ff014b8960",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "type": "github"
+      }
+    },
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -401,11 +628,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765214753,
-        "narHash": "sha256-P9zdGXOzToJJgu5sVjv7oeOGPIIwrd9hAUAP3PsmBBs=",
+        "lastModified": 1772460177,
+        "narHash": "sha256-/6G/MsPvtn7bc4Y32pserBT/Z4SUUdBd4XYJpOEKVR4=",
         "owner": "hyprwm",
         "repo": "hyprland-protocols",
-        "rev": "3f3860b869014c00e8b9e0528c7b4ddc335c21ab",
+        "rev": "1cb6db5fd6bb8aee419f4457402fa18293ace917",
         "type": "github"
       },
       "original": {
@@ -430,11 +657,25 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1771866172,
         "narHash": "sha256-fYFoXhQLrm1rD8vSFKQBOEX4OGCuJdLt1amKfHd5GAw=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1767983607,
+        "narHash": "sha256-8C2co8NYfR4oMOUEsPROOJ9JHrv9/ktbJJ6X1WsTbXc=",
+=======
+        "lastModified": 1772459629,
+        "narHash": "sha256-/iwvNUYShmmnwmz/czEUh6+0eF5vCMv0xtDW0STPIuM=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "hyprwm",
         "repo": "hyprlang",
+<<<<<<< HEAD
         "rev": "0b219224910e7642eb0ed49f0db5ec3d008e3e41",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "d4037379e6057246b408bbcf796cf3e9838af5b2",
+=======
+        "rev": "7615ee388de18239a4ab1400946f3d0e498a8186",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -482,11 +723,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764592794,
-        "narHash": "sha256-7CcO+wbTJ1L1NBQHierHzheQGPWwkIQug/w+fhTAVuU=",
+        "lastModified": 1772462885,
+        "narHash": "sha256-5pHXrQK9zasMnIo6yME6EOXmWGFMSnCITcfKshhKJ9I=",
         "owner": "hyprwm",
         "repo": "hyprtoolkit",
-        "rev": "5cfe0743f0e608e1462972303778d8a0859ee63e",
+        "rev": "9af245a69fa6b286b88ddfc340afd288e00a6998",
         "type": "github"
       },
       "original": {
@@ -507,11 +748,25 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1771271487,
         "narHash": "sha256-41gEiUS0Pyw3L/ge1l8MXn61cK14VAhgWB/JV8s/oNI=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1770139857,
+        "narHash": "sha256-bCqxcXjavgz5KBJ/1CBLqnagMMf9JvU1m9HmYVASKoc=",
+=======
+        "lastModified": 1773436263,
+        "narHash": "sha256-n+2xFJngUkBqUJD5FsbVnYEHBTyDFSqtBIwQIGPXWWo=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "hyprwm",
         "repo": "hyprutils",
+<<<<<<< HEAD
         "rev": "340a792e3b3d482c4ae5f66d27a9096bdee6d76d",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "9038eec033843c289b06b83557a381a2648d8fa5",
+=======
+        "rev": "5e228db6821380a5875d5643176c5c46a47b8134",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -532,11 +787,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770501770,
-        "narHash": "sha256-NWRM6+YxTRv+bT9yvlhhJ2iLae1B1pNH3mAL5wi2rlQ=",
+        "lastModified": 1772459835,
+        "narHash": "sha256-978jRz/y/9TKmZb/qD4lEYHCQGHpEXGqy+8X2lFZsak=",
         "owner": "hyprwm",
         "repo": "hyprwayland-scanner",
-        "rev": "0bd8b6cde9ec27d48aad9e5b4deefb3746909d40",
+        "rev": "0a692d4a645165eebd65f109146b8861e3a925e7",
         "type": "github"
       },
       "original": {
@@ -561,11 +816,25 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1771606233,
         "narHash": "sha256-F3PLUqQ/TwgR70U+UeOqJnihJZ2EuunzojYC4g5xHr0=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1770203293,
+        "narHash": "sha256-PR/KER+yiHabFC/h1Wjb+9fR2Uy0lWM3Qld7jPVaWkk=",
+=======
+        "lastModified": 1773074819,
+        "narHash": "sha256-qRqYnXiKoJLRTcfaRukn7EifmST2IVBUMZOeZMAc5UA=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "hyprwm",
         "repo": "hyprwire",
+<<<<<<< HEAD
         "rev": "06c7f1f8c4194786c8400653c4efc49dc14c0f3a",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "37bc90eed02b0c8b5a77a0b00867baf3005cfb98",
+=======
+        "rev": "f68afd0e73687598cc2774804fedad76693046f0",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -623,16 +892,30 @@
     },
     "nixpkgs_3": {
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1772198003,
         "narHash": "sha256-I45esRSssFtJ8p/gLHUZ1OUaaTaVLluNkABkk6arQwE=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1770841267,
+        "narHash": "sha256-9xejG0KoqsoKEGp2kVbXRlEYtFFcDTHjidiuX8hGO44=",
+=======
+        "lastModified": 1770073757,
+        "narHash": "sha256-Vy+G+F+3E/Tl+GMNgiHl9Pah2DgShmIUBJXmbiQPHbI=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "NixOS",
         "repo": "nixpkgs",
+<<<<<<< HEAD
         "rev": "dd9b079222d43e1943b6ebd802f04fd959dc8e61",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "ec7c70d12ce2fc37cb92aff673dcdca89d187bae",
+=======
+        "rev": "47472570b1e607482890801aeaf29bfb749884f6",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -655,6 +938,22 @@
     },
     "nixpkgs_5": {
       "locked": {
+        "lastModified": 1773734432,
+        "narHash": "sha256-IF5ppUWh6gHGHYDbtVUyhwy/i7D261P7fWD1bPefOsw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cda48547b432e8d3b18b4180ba07473762ec8558",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
         "lastModified": 1770380644,
         "narHash": "sha256-P7dWMHRUWG5m4G+06jDyThXO7kwSk46C1kgjEWcybkE=",
         "owner": "NixOS",
@@ -669,10 +968,26 @@
         "type": "github"
       }
     },
+    "nixpkgs_7": {
+      "locked": {
+        "lastModified": 1770107345,
+        "narHash": "sha256-tbS0Ebx2PiA1FRW8mt8oejR0qMXmziJmPaU1d4kYY9g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4533d9293756b63904b7238acb84ac8fe4c8c2c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_3",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "systems": "systems_2"
       },
       "locked": {
@@ -689,21 +1004,80 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "noctalia-qs": [
+          "noctalia-qs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773777742,
+        "narHash": "sha256-3lluT9/nXWmv3yV3orSuMMgmj25wbOxy76mJzvqN/w0=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "d9ae5e617f7f512ac7732c5cfb2538d1ae2fa594",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
+    "noctalia-qs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_3",
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1773629133,
+        "narHash": "sha256-9/GtCljeEYQAQlU4LB/o8cTJ8TzYvNCzf4ILnW5Rs3g=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-qs",
+        "rev": "5794d3a88fced826e1903164d77a7b07bdb93ff6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-qs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
-        "flake-compat": "flake-compat",
-        "gitignore": "gitignore",
+        "flake-compat": "flake-compat_2",
+        "gitignore": "gitignore_2",
         "nixpkgs": [
           "hyprland",
           "nixpkgs"
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1772024342,
         "narHash": "sha256-+eXlIc4/7dE6EcPs9a2DaSY3fTA9AE526hGqkNID3Wg=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1770726378,
+        "narHash": "sha256-kck+vIbGOaM/dHea7aTBxdFYpeUl/jHOy5W3eyRvVx8=",
+=======
+        "lastModified": 1772893680,
+        "narHash": "sha256-JDqZMgxUTCq85ObSaFw0HhE+lvdOre1lx9iI6vYyOEs=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "cachix",
         "repo": "git-hooks.nix",
+<<<<<<< HEAD
         "rev": "6e34e97ed9788b17796ee43ccdbaf871a5c2b476",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "5eaaedde414f6eb1aea8b8525c466dc37bba95ae",
+=======
+        "rev": "8baab586afc9c9b57645a734c820e4ac0a604af9",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {
@@ -712,6 +1086,7 @@
         "type": "github"
       }
     },
+<<<<<<< HEAD
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -733,6 +1108,30 @@
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       }
     },
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "caelestia-shell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770693276,
+        "narHash": "sha256-ngXnN5YXu+f45+QGYNN/VEBMQmcBCYGRCqwaK8cxY1s=",
+        "ref": "refs/heads/master",
+        "rev": "dacfa9de829ac7cb173825f593236bf2c21f637e",
+        "revCount": 735,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      }
+    },
+=======
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
     "river": {
       "inputs": {
         "nixpkgs": [
@@ -755,14 +1154,24 @@
     },
     "root": {
       "inputs": {
-        "caelestia-shell": "caelestia-shell",
         "catppuccin": "catppuccin",
         "ez-configs": "ez-configs",
         "flake-parts": "flake-parts_2",
+        "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+<<<<<<< HEAD
         "nixpkgs": "nixpkgs_4",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "hyprland-plugins": "hyprland-plugins",
+        "nixpkgs": "nixpkgs_4",
+=======
+        "hyprland-plugins": "hyprland-plugins",
+        "nixpkgs": "nixpkgs_5",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "nixvim": "nixvim",
+        "noctalia": "noctalia",
+        "noctalia-qs": "noctalia-qs",
         "river": "river",
         "zen-browser": "zen-browser"
       }
@@ -797,6 +1206,39 @@
         "type": "github"
       }
     },
+    "systems_3": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_7"
+      },
+      "locked": {
+        "lastModified": 1772660329,
+        "narHash": "sha256-IjU1FxYqm+VDe5qIOxoW+pISBlGvVApRjiw/Y/ttJzY=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "3710e0e1218041bbad640352a0440114b1e10428",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
     "xdph": {
       "inputs": {
         "hyprland-protocols": [
@@ -825,11 +1267,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761431178,
-        "narHash": "sha256-xzjC1CV3+wpUQKNF+GnadnkeGUCJX+vgaWIZsnz9tzI=",
+        "lastModified": 1772669058,
+        "narHash": "sha256-XhnY0aRuDo5LT8pmJVPofPOgO2hAR7T+XRoaQxtNPzQ=",
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
-        "rev": "4b8801228ff958d028f588f0c2b911dbf32297f9",
+        "rev": "906d0ac159803a7df2dc1f948df9327670380f69",
         "type": "github"
       },
       "original": {
@@ -846,11 +1288,25 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1773496078,
         "narHash": "sha256-AAMjxIVrWJnn3STN38WOTcB3wtneHB0Rh+yGuek6anI=",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "lastModified": 1771303996,
+        "narHash": "sha256-cwf75uTx8cGJCP+nohi7iVTE+lmfevBxNgirkMLkuEY=",
+=======
+        "lastModified": 1773737882,
+        "narHash": "sha256-P6k0BtT1/idYveVRdcwAZk8By9UjZW8XOMhSoS6wTBY=",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
+<<<<<<< HEAD
         "rev": "d296c2b39ec0b6528278d0bae2ead86d4749734c",
+||||||| parent of eef2abc (chris: Moved to noctalia from caelestia, and formatting)
+        "rev": "a7659a805bda3ae8e4861572d8dc0f1d29f3fc3c",
+=======
+        "rev": "a7f1db35d74faf04e5189b3a32f890186ace5c28",
+>>>>>>> eef2abc (chris: Moved to noctalia from caelestia, and formatting)
         "type": "github"
       },
       "original": {

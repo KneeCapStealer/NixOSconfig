@@ -73,11 +73,9 @@
             inherit name value;
           })
           [
-            "application/x-extension-shtml"
-            "application/x-extension-xhtml"
-            "application/x-extension-html"
-            "application/x-extension-xht"
-            "application/x-extension-htm"
+            "application/xhtml+xml"
+            "application/json"
+            "application/pdf"
             "x-scheme-handler/unknown"
             "x-scheme-handler/mailto"
             "x-scheme-handler/chrome"

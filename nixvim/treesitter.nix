@@ -22,7 +22,7 @@
       typescript
       html
       pug
-      c_sharp
+      c-sharp
       rust
     ];
 

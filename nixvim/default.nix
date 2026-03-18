@@ -24,6 +24,8 @@ in
   clipboard.providers.wl-copy.enable = true;
   globals.mapleader = " ";
 
+  plugins.rustaceanvim.enable = true;
+
   colorschemes.catppuccin = {
     enable = true;
     settings = {
@@ -92,7 +94,8 @@ in
         noremap = true;
         desc = "enter insert mode, with correct indentation";
       };
-    })) ++ [
+    }))
+    ++ [
       {
         mode = [ "n" ];
         key = "<leader>fm";

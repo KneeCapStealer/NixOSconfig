@@ -8,6 +8,7 @@
     ez-configs.url = "github:KneeCapStealer/ez-configs";
     catppuccin.url = "github:catppuccin/nix";
     nixvim.url = "github:nix-community/nixvim";
+    git-hooks-nix.url = "github:cachix/git-hooks.nix";
 
     river = {
       url = "git+https://codeberg.org/KneeCapThief/river.git";
@@ -26,10 +27,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    caelestia-shell = {
-      url = "github:rjjuina/shell";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.caelestia-cli.url = "github:SamiyelF/cli";
+      inputs.noctalia-qs.follows = "noctalia-qs";
+    };
+
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -40,13 +46,19 @@
         inputs.ez-configs.flakeModule
         inputs.home-manager.flakeModules.home-manager
         inputs.nixvim.flakeModules.default
+        inputs.git-hooks-nix.flakeModule
       ];
       systems = [ "x86_64-linux" ];
 
       flake.nixvimModules.default = ./nixvim;
 
       perSystem =
-        { system, pkgs, ... }:
+        {
+          system,
+          pkgs,
+          config,
+          ...
+        }:
         {
           # You can define actual Nixvim configurations here
           nixvimConfigurations = {
@@ -65,7 +77,12 @@
             msi-271qpx-e2-icc = pkgs.callPackage ./packages/msi-271qpx-e2-icc { };
           };
 
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.nixfmt;
+          pre-commit.settings.hooks.nixfmt.enable = true;
+
+          devShells.default = pkgs.mkShell {
+            inherit (config.pre-commit.settings) shellHook;
+          };
         };
 
       ezConfigs.root = ./.;

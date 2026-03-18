@@ -12,33 +12,34 @@
     defaultKeymap = "viins";
     dotDir = config.xdg.configHome + "/zsh";
 
-    initContent = 
-    let 
-      fzf = "source <(fzf --zsh)";
-      lineedit = ''
-        autoload -U edit-command-line
-        zle -N edit-command-line
-        bindkey "^xe" edit-command-line
-        bindkey "^x^e" edit-command-line
-      '';
-      mkdirc = ''
-        function mkdirc {
-          local nonFlags=()
-          for arg in $@; do
-            if [[ $arg != "-"* ]]; then
-              nonFlags+=($arg)
-            fi
-          done
+    initContent =
+      let
+        fzf = "source <(fzf --zsh)";
+        lineedit = ''
+          autoload -U edit-command-line
+          zle -N edit-command-line
+          bindkey "^xe" edit-command-line
+          bindkey "^x^e" edit-command-line
+        '';
+        mkdirc = ''
+          function mkdirc {
+            local nonFlags=()
+            for arg in $@; do
+              if [[ $arg != "-"* ]]; then
+                nonFlags+=($arg)
+              fi
+            done
 
-          mkdir $@
-          cd $nonFlags
-        }
-      '';
-    in lib.mkMerge [
-      (lib.mkBefore fzf)
-      (lib.mkAfter lineedit)
-      (lib.mkAfter mkdirc)
-    ];
+            mkdir $@
+            cd $nonFlags
+          }
+        '';
+      in
+      lib.mkMerge [
+        (lib.mkBefore fzf)
+        (lib.mkAfter lineedit)
+        (lib.mkAfter mkdirc)
+      ];
 
     oh-my-zsh = {
       enable = true;

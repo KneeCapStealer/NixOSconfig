@@ -17,13 +17,7 @@ in
     (superExec "Q" "$term")
     (superExec "E" "$fileManager")
     (superExec "N" "$browser")
-    (superExec "ESCAPE" "eww open powermenu")
-    "$mod SHIFT, E, exec, caelestia emoji -p"
-  ];
-
-  caelestiaGlobals = [
-    "$mod, SPACE, global, caelestia:launcher"
-    "$mod, l, global, caelestia:lock"
+    (superExec "SPACE" "rofi -show drun")
   ];
 
   windowManipulation = [
