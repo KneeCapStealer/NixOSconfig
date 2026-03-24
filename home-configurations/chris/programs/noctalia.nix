@@ -1,61 +1,32 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
-  imports = [
-    inputs.noctalia.homeModules.default
+  home.packages = with pkgs; [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    # screenshot and recording
+    grim
+    imagemagick
+
+    # audio
+    pwvucontrol
   ];
 
-  programs.noctalia-shell = {
-    enable = true;
-    settings = {
-      bar = {
-        density = "default";
-        position = "left";
-        showCapsule = false;
-        widgets = {
-          left = [
-            {
-              id = "ControlCenter";
-              useDistroLogo = true;
-            }
-            {
-              id = "Network";
-            }
-            {
-              id = "Bluetooth";
-            }
-          ];
-          center = [
-            {
-              hideUnoccupied = false;
-              id = "Workspace";
-              labelMode = "index";
-            }
-          ];
-          right = [
-            {
-              alwaysShowPercentage = false;
-              id = "Battery";
-              warningThreshold = 30;
-            }
-            {
-              formatHorizontal = "HH:mm";
-              formatVertical = "HH mm";
-              id = "Clock";
-              useMonospacedFont = true;
-              usePrimaryColor = true;
-            }
-          ];
-        };
+  programs.satty.enable = true;
+
+
+  home.file."Pictures/Wallpapers" = {
+    recursive = true;
+    source = 
+    let
+      wallpaperSrc = pkgs.fetchFromGitHub {
+        owner = "zhichaoh";
+        repo = "catppuccin-wallpapers";
+        rev = "1023077979591cdeca76aae94e0359da1707a60e";
+        sha256 = "0rd6hfd88bsprjg68saxxlgf2c2lv1ldyr6a8i7m4lgg6nahbrw7";
       };
-      colorSchemes.predefinedScheme = "Catppuccin Mocha";
-      general = {
-        avatarImage = "/home/chris/.face";
-        radiusRatio = 0.2;
-      };
-      location = {
-        monthBeforeDay = true;
-        name = "Aalborg, Denmark";
-      };
-    };
+      wallpaperPath = wallpaperSrc + "/landscapes";
+    in
+    wallpaperPath;
   };
 }
+
