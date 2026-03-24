@@ -22,11 +22,12 @@
     ./zsh.nix
   ];
 
-  programs.obs-studio.enable = true;
+  programs.jq.enable = true;
   programs.eza.enable = true;
   programs.bat.enable = true;
   programs.less.enable = true;
   programs.ripgrep.enable = true;
+  programs.obs-studio.enable = true;
 
   home.packages = with pkgs; [
     google-chrome
