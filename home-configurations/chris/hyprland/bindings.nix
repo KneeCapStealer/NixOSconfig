@@ -4,6 +4,7 @@ let
     mods: key: app:
     "${mods}, ${key}, exec, ${app}";
   superExec = exec "SUPER";
+  noctalia = cmd: "noctalia-shell ipc call ${cmd}";
 in
 {
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
@@ -13,11 +14,15 @@ in
   "$browser" = "zen-beta";
   "$fileManager" = "nemo";
 
-  programShortcuts = [
+  programShortcuts =
+  [
     (superExec "Q" "$term")
     (superExec "E" "$fileManager")
     (superExec "N" "$browser")
-    (superExec "SPACE" "rofi -show drun")
+
+    (superExec "SPACE" (noctalia "launcher toggle"))
+    (superExec "L" (noctalia "lockScreen lock"))
+    (exec "" "PRINT" (noctalia "plugin:screen-shot-and-record screenshot"))
   ];
 
   windowManipulation = [
@@ -60,35 +65,20 @@ in
     "$mod, mouse:273, resizewindow"
   ];
 
-  screenshot =
-    let
-      execScreenShot = mods: mode: exec mods "PRINT" "hyprshot --freeze --clipboard-only -m ${mode}";
-    in
-    [
-      ", PRINT, global, caelestia:screenshotFreeze"
-    ];
-
   audioControls = [
-    (exec "" "XF86AudioMute" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+    (exec "" "XF86AudioMute" (noctalia "volume muteOutput"))
   ];
 
   audioControlsRepeat =
-    let
-      max = "1.2";
-      increment = "5%";
-    in
     [
-      (exec "" "XF86AudioRaiseVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}+")
-      (exec "" "XF86AudioLowerVolume" "wpctl set-volume -l ${max} @DEFAULT_AUDIO_SINK@ ${increment}-")
+      (exec "" "XF86AudioRaiseVolume" (noctalia "volume increase"))
+      (exec "" "XF86AudioLowerVolume" (noctalia "volume decrease"))
     ];
 
   brightnessControlsRepeat =
-    let
-      increment = "5%";
-    in
     [
-      (exec "" "XF86MonBrightnessUp" "brightnessctl s ${increment}+")
-      (exec "" "XF86MonBrightnessDown" "brightnessctl s ${increment}-")
+      (exec "" "XF86MonBrightnessUp" (noctalia "brightness increase"))
+      (exec "" "XF86MonBrightnessDown" (noctalia "brightness decrease"))
     ];
 
   windowGestures = [

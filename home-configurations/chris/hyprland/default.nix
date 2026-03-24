@@ -3,7 +3,6 @@
   lib,
   host,
   inputs,
-  self,
   ...
 }@args:
 let
@@ -43,6 +42,7 @@ in
 
       exec-once = [
         "noctalia-shell"
+        "fcitx5 -d"
       ];
 
       monitorv2 = lib.mkMerge [
@@ -60,11 +60,6 @@ in
             supports_hdr = 1;
             supports_wide_color = 1;
             sdr_eotf = "srgb";
-            # icc =
-            # let
-            #   iccPkg = self.packages.${pkgs.stdenv.hostPlatform.system}.msi-271qpx-e2-icc;
-            # in
-            #   iccPkg + iccPkg.iccFilePath;
           }
           {
             output = "HDMI-A-1";
@@ -129,7 +124,7 @@ in
           opacity = 1.0;
         in
         {
-          rounding = 13;
+          rounding = 12;
           rounding_power = 2;
 
           # Change transparency of focused and unfocused windows
@@ -152,7 +147,7 @@ in
             size = 1;
             passes = 2;
 
-            vibrancy = 1.6969;
+            vibrancy = 0.1696;
           };
         };
 
@@ -177,6 +172,14 @@ in
           "workspaces, 1, 5, easeOutExpo"
         ];
       };
+
+      layerrule = [
+        {
+          name = "no_anim_noctalia_region_selector";
+          no_anim = "on";
+          "match:namespace" = "noctalia-shell:regionSelector";
+        }
+      ];
 
       # https://wiki.hyprland.org/Configuring/Variables/#misc
       misc = {
@@ -217,9 +220,9 @@ in
       # Bindings
       bind =
         with bindings;
-        windowManipulation ++ workspaceManipulation ++ screenshot ++ audioControls ++ programShortcuts;
+        windowManipulation ++ workspaceManipulation ++ audioControls ++ programShortcuts;
 
-      binde = bindings.audioControlsRepeat;
+      binde = bindings.audioControlsRepeat ++ bindings.brightnessControlsRepeat;
       bindm = bindings.mouseBindings;
 
       windowrule =
@@ -260,8 +263,19 @@ in
             immediate = "on";
             idle_inhibit = "focus";
           }
+
+          {
+            name = "floating-satty";
+            "match:class" = "com.gabm.satty";
+            float = "on";
+          }
+
+          {
+            name = "floating-xdg-portal";
+            "match:title" = "Select what to share";
+            float = "on";
+          }
         ];
     };
-
   };
 }
