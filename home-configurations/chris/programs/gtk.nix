@@ -22,6 +22,8 @@
     };
     gtk3.extraConfig.gtk-im-module = "fcitx";
     gtk4.extraConfig.gtk-im-module = "fcitx";
+    gtk3.theme = config.gtk.theme;
+    gtk4.theme = config.gtk.theme;
   };
 
   xdg.configFile = {
