@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland?rev=30a83f523112cc9cab738eff89a6256ecde31429";
 
     home-manager = {
       url = "github:nix-community/home-manager";

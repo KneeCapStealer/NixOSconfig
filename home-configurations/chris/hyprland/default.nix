@@ -53,10 +53,11 @@ in
             position = "1920x-350";
             scale = 1;
             bitdepth = 10;
-            cm = "hdr";
+            cm = "hdredid";
             sdrbrightness = 1.35;
             sdrsaturation = 1.4;
             sdr_min_luminance = 0.005;
+            sdr_max_luminance = 250;
             supports_hdr = 1;
             supports_wide_color = 1;
             sdr_eotf = "srgb";
@@ -80,8 +81,10 @@ in
         ])
       ];
 
-      render.cm_sdr_eotf = "srgb";
-
+      render = {
+        cm_sdr_eotf = "srgb";
+      };
+      
       env = lib.mkIf (host == "laptop") [
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
@@ -116,6 +119,7 @@ in
 
       cursor = {
         default_monitor = lib.mkIf (host == "desktop") "DP-2";
+        no_hardware_cursors = 1;
       };
 
       # https://wiki.hyprland.org/Configuring/Variables/#decoration
