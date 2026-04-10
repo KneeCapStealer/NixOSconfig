@@ -3,7 +3,7 @@
   i18n = {
     defaultLocale = "en_DK.UTF-8";
     extraLocaleSettings = {
-      LANGUAGE = "da";
+      LANGUAGE = "en";
       LC_MESSAGES = "en_DK.UTF-8";
       # LC_ALL = "da_DK.UTF-8"; # This overrides all other LC_* settings.
       LC_CTYPE = "da_DK.UTF-8";
