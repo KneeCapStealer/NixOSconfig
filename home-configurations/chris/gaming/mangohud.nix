@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   programs.mangohud.enable = true;
   programs.mangohud.settings = {
@@ -52,6 +53,9 @@
     arch = true;
     fps_limit_method = "early";
     toggle_fps_limit = "Shift_L+F1";
+
+    ## Log output ##
+    output_folder = config.xdg.dataHome + "/mangohud/logs";
   };
   catppuccin.mangohud.enable = false;
 }
