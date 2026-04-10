@@ -28,12 +28,13 @@
   programs.less.enable = true;
   programs.ripgrep.enable = true;
   programs.obs-studio.enable = true;
-
   home.packages = with pkgs; [
     google-chrome
     tor-browser
     easyeffects
     nemo-with-extensions
-    stoat-desktop
+    (pkgs.stoat-desktop.override {
+      electron_38 = pkgs.electron;
+    })
   ];
 }
