@@ -10,10 +10,6 @@
     nixvim.url = "github:nix-community/nixvim";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
 
-    river = {
-      url = "git+https://codeberg.org/KneeCapThief/river.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     hyprland.url = "github:hyprwm/Hyprland";
 
