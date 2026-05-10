@@ -60,7 +60,6 @@ in
             sdr_max_luminance = 250;
             supports_hdr = 1;
             supports_wide_color = 1;
-            sdr_eotf = "srgb";
           }
           {
             output = "HDMI-A-1";
@@ -80,10 +79,6 @@ in
           }
         ])
       ];
-
-      render = {
-        cm_sdr_eotf = "srgb";
-      };
       
       env = lib.mkIf (host == "laptop") [
         "LIBVA_DRIVER_NAME,nvidia"
