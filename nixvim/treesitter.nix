@@ -24,6 +24,10 @@
       pug
       c-sharp
       rust
+
+      gitcommit
+      gitignore
+      git-rebase
     ];
 
     settings = {
