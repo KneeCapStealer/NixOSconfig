@@ -1,5 +1,6 @@
 {
   ezModules,
+  pkgs,
   ...
 }:
 {
@@ -16,11 +17,14 @@
   };
 
   services.openvpn.servers = {
-    europe = {
-      config = "config /root/secrets/openvpn/europe.ovpn ";
+    pia = {
+      config = "config /root/secrets/pia_openvpn.ovpn";
       autoStart = false;
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    wireguard-tools
+  ];
 
 }
