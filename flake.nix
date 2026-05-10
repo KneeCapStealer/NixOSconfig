@@ -4,12 +4,16 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     ez-configs.url = "github:KneeCapStealer/ez-configs";
     catppuccin.url = "github:catppuccin/nix";
-    nixvim.url = "github:nix-community/nixvim";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs-small";
+    };
 
     hyprland.url = "github:hyprwm/Hyprland";
 
