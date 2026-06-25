@@ -10,10 +10,7 @@
     catppuccin.url = "github:catppuccin/nix";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs-small";
-    };
+    nixvim.url = "github:nix-community/nixvim";
 
     hyprland.url = "github:hyprwm/Hyprland";
 
@@ -25,6 +22,7 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     noctalia = {
@@ -51,6 +49,18 @@
       systems = [ "x86_64-linux" ];
 
       flake.nixvimModules.default = ./nixvim;
+
+      flake.templates = {
+        devShell = {
+          path = ./templates/devShell;
+          description = "A simple devshell for any project";
+          welcomeText = ''
+            # Simple devshell template
+            go to flake.nix to add packages to the devShell.
+            And write: `echo use flake >> .envrc && direnv allow`, to enable the shell via direnv.
+          '';
+        };
+      };
 
       perSystem =
         {
