@@ -1,9 +1,11 @@
 {
-  boot.loader.grub = {
+  _class = "nixos";
+
+  boot.loader.limine = rec {
     enable = true;
-    efiSupport = true;
-    device = "nodev";
+    biosSupport = false;
+    resolution = "2560x1440";
+    style.interface.resolution = resolution;
   };
-  boot.loader.timeout = 3;
   boot.loader.efi.canTouchEfiVariables = true;
 }
