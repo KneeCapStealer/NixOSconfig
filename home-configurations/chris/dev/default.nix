@@ -10,7 +10,10 @@
     ./langs.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    pre-commit
+    renderdoc
+  ];
 
   programs.git = {
     enable = true;
