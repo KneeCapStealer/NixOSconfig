@@ -33,8 +33,6 @@
     tor-browser
     easyeffects
     nemo-with-extensions
-    (pkgs.stoat-desktop.override {
-      electron_38 = pkgs.electron;
-    })
+    # stoat-desktop
   ];
 }
