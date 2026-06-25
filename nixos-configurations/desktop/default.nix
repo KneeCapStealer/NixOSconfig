@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  _class = "nixos";
+
   imports = [
     ./catppuccin
 
@@ -50,22 +52,24 @@
     let
       default = [
         "compress=zstd"
+        "datacow"
         "noatime"
+        "autodefrag"
       ];
     in
     {
       "/".options = default;
-      "/home".options = default;
       "/nix".options = default;
+      "/home".options = [
+        "nodatacow"
+        "noatime"
+        "autodefrag"
+      ];
     };
 
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-  };
-
-  environment.sessionVariables = {
-    GPG_TTY = "$(tty)";
   };
 
   services.udisks2.enable = true;
