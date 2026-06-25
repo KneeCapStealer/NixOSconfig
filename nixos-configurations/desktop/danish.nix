@@ -50,7 +50,7 @@
 
   console = {
     font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
-    keyMap = "us";
+    keyMap = "dk";
     # prevents `systemd-vconsole-setup` failing during systemd initrd
     earlySetup = true;
   };
