@@ -59,22 +59,24 @@
         };
     };
     profiles.default.settings =
-    let
-      disableAIOptions = options: lib.genAttrs' options (name: lib.nameValuePair "browser.ai.control.${name}" "blocked");
-    in 
-    (disableAIOptions [
-      "default"
-      "linkPreviewKeyPoints"
-      "pdfjsAltText"
-      "sidebarChatbot"
-      "smartTabGroups"
-      "translations"
-    ]) // {
-      "dom.security.https_only_mode" = true;
-      "network.trr.mode" = 5; # DNS over HTTPS: off
-      "privacy.fingerprintingProtection" = true;
-      "privacy.resistFingerprinting.letterboxing" = true;
-    };
+      let
+        disableAIOptions =
+          options: lib.genAttrs' options (name: lib.nameValuePair "browser.ai.control.${name}" "blocked");
+      in
+      (disableAIOptions [
+        "default"
+        "linkPreviewKeyPoints"
+        "pdfjsAltText"
+        "sidebarChatbot"
+        "smartTabGroups"
+        "translations"
+      ])
+      // {
+        "dom.security.https_only_mode" = true;
+        "network.trr.mode" = 5; # DNS over HTTPS: off
+        "privacy.fingerprintingProtection" = true;
+        "privacy.resistFingerprinting.letterboxing" = true;
+      };
   };
 
   xdg.mimeApps =
