@@ -64,6 +64,7 @@ in
       html.enable = true;
       pug.enable = true;
       omnisharp.enable = true;
+      lua_ls.enable = true;
     };
   };
 
