@@ -9,7 +9,6 @@
   imports = [
     (import ./dev args)
     (import ./programs args)
-    (import ./hyprland args)
     ./gaming
 
     inputs.catppuccin.homeModules.catppuccin
@@ -32,6 +31,7 @@
 
   # My (VEERY thorough) ricing v2.0: HomeManager EDITION!!
   catppuccin.enable = true;
+  catppuccin.autoEnable = true;
   catppuccin.flavor = "mocha";
   catppuccin.accent = "peach";
   catppuccin.cursors.enable = true;
@@ -53,20 +53,14 @@
     heroic
     activate-linux
     fastfetch
-    discord
     spotify
     qbittorrent-enhanced
-    proton-pass
-    prismlauncher
     furmark
     compsize
-    parsec-bin
     prusa-slicer
     orca-slicer
-    networkmanagerapplet
     obsidian
     firefox
     ffmpeg
-    eddie
   ];
 }
