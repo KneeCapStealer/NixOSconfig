@@ -5,7 +5,6 @@
     (lib.mkIf (host == "desktop") {
       profile = "high-quality";
       fullscreen = "yes";
-      save-position = "yes";
       cursor-autohide = 200;
 
       # Audio language prio
@@ -16,6 +15,7 @@
 
       vo = "gpu-next";
       gpu-api = "vulkan";
+      gpu-context = "waylandvk";
       hwdec = "vulkan";
 
       dither-depth = 10;
